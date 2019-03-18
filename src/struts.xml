@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="test" extends="struts-default" namespace="/">
+		<action name="a" class="org.bigjava.action.MyAction" method="findStudentById">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+	
+	
+	
+	
+	<!-- 这里添加公共的action(即老师，学生，管理员都有的功能){基本：增改  查询一个人      其他自己思考} -->
+	<package name="public_classify" extends="struts-default" namespace="/">
+		<!-- 示例：public_add    根据该示例取名
+				name:	public_***
+				映射的class:	org.bigjava.action.MyAction_public
+				method: public_***
+		 -->
+		<action name="public_*" class="org.bigjava.action.MyAction_public" method="{1}">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		  <action name="*" class="org.bigjava.action.MyAction_public" method="{1}">
+          <result name="input">{1}.jsp</result>
+          <result name="success">success.jsp</result>
+          <result name="error">error.jsp</result>      
+       </action>
+		  
+	</package> 
+	
+	
+	
+	<!-- 这里添加老师的action(即老师享有的功能){基本：查询本班所有学员}  其他 -->
+	<package name="teacher_classify" extends="struts-default" namespace="/">
+		<!--	
+			规范：
+				name:	teacher_***
+				映射的class:	org.bigjava.action.MyAction_teacher
+				method:	teacher_*** 
+		 -->
+		<action name="teacher_findPage_teacher" class="org.bigjava.action.MyAction_teacher" method="findPage_teacher">
+			<result name="success">/find.jsp</result>
+		</action>
+
+	
+	</package>
+	
+	
+	
+	
+	<!-- 这里添加管理员的action(即管理员享有的功能){基本：查询所有学员}  其他 -->
+	<package name="admin_classify" extends="struts-default" namespace="/">
+		<!--	
+			规范：
+				name:	admin_***
+				映射的class:	org.bigjava.action.MyAction_admin
+				method:	admin_*** 
+		 -->	
+		 <action name="admin_addNew" class="org.bigjava.action.MyAction_admin" method="addNew">
+		 	<result name="success">/index.jsp</result>
+		 </action>
+		 
+		 <action name="admin_findPage" class="org.bigjava.action.MyAction_admin" method="findPage">
+            <result name="success">index.jsp</result>
+         </action>
+         <action name="admin_adminadd" class="org.bigjava.action.MyAction_admin" method="adminadd">
+            <result name="success">test.jsp</result>
+         </action>
+         <action name="admin_admindel" class="org.bigjava.action.MyAction_admin" method="admindel">
+         	<result name="success">/test.jsp</result>
+         </action>
+          <action name="admin_adminfind" class="org.bigjava.action.MyAction_admin" method="adminfind">
+         	<result name="success">/findAdmin.jsp</result>
+         </action>
+         
+          <action name="admin_adminupdate" class="org.bigjava.action.MyAction_admin" method="adminupdate">
+         	<result name="success">/findAdmin.jsp</result>
+         </action>
+         <action name="admin_adminupdate1" class="org.bigjava.action.MyAction_admin" method="adminupdate1">
+         	<result name="success">/findAdmin.jsp</result>
+         </action>
+         
+
+         <action name="admin_findUserWait" class="org.bigjava.action.MyAction_admin" method="findUserWait">
+         	<result name="success">/findUserWait.jsp</result>
+         </action>
+         <action name="admin_findTeacher" class="org.bigjava.action.MyAction_admin" method="findTeacher">
+         	<result name="success">/findTeacher.jsp</result>
+         </action>
+         
+       
+
+	</package>
+	
+</struts>

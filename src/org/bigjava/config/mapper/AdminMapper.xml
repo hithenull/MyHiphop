@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bigjava.dao.AdminMapper">
+		<insert id="addNew" parameterType="org.bigjava.entitys.News">
+			insert into news(headline,data) value(#{headline},#{date})
+		</insert>
+		
+		<select id="findPage" resultType="org.bigjava.entitys.Student" parameterType="org.bigjava.action.tool.Page">
+            select * from student where student_id limit #{startrow},#{pagesize};
+		</select>
+		
+		<select id="findCount" resultType="int">
+		    select count(student_id) from student 
+		</select>
+		
+		<select id="findUserWait" parameterType="org.bigjava.action.tool.Page" resultType="org.bigjava.entitys.User">
+			select * from User where 
+				jobapplication='teacher' and applicationstatus='未通过' and user_id limit #{startrow},#{pagesize}
+		</select>
+		
+		<select id="findWaitCount" resultType="int">
+			select count(user_id) from User where jobapplication='teacher' and applicationstatus='未通过'
+		</select>
+		
+		<select id="findTeacherCont">
+			select count(teacher_id) from teacher
+		</select>
+		
+		<select id="findTeacher" parameterType="org.bigjava.action.tool.Page" resultType="org.bigjava.entitys.Teacher">
+			select * from teacher where teacher limit #{startrow},#{pagesize}
+		</select>
+		
+		<update id="updateTeacherWait" parameterType="org.bigjava.entitys.User">
+			UPDATE user SET applicationstatus='通过' WHERE user_id=#{user_id};
+		</update>
+		<insert id="adminadd" parameterType="org.bigjava.entitys.Management">
+			insert into management(account,password) value(#{account},#{password})
+		</insert>
+		<insert id="admindel" parameterType="org.bigjava.entitys.Management">
+			delete from management where management_id=1
+		</insert>
+		
+		<insert id="addSchoolIf" parameterType="org.bigjava.entitys.SchoolInformation">
+			insert into schoolInformation(schoolName,schoolAddress,intro) 
+					value(#{schoolName},#{schoolAddress},#{intro})
+		</insert>
+		
+		<insert id="addDClass" parameterType="org.bigjava.entitys.DanceClass">
+			insert into danceClass(danceclassName,duration,price,saturday,sunday) 
+					value(#{danceclassName},#{duration},#{price},#{saturday},#{sunday})
+		</insert>
+	
+		
+		<select id="findPage_admin" resultType="org.bigjava.entitys.Management" parameterType="org.bigjava.action.tool.Page">
+            select * from management where management_id limit #{startrow},#{pagesize};
+		</select>
+		<select id="findCount_admin" resultType="int" >
+			select count(management_id) from Management ;
+		</select>
+
+
+		<select id="adminupdate" resultType="org.bigjava.entitys.Management"  parameterType="int">
+		    select * from Management where management_id=#{id}
+		</select>
+		
+		<select id="adminupdate1"  parameterType="String">
+		    update Management set account=#{account},password=#{password} where management_id=2
+		</select>
+
+		
+</mapper>

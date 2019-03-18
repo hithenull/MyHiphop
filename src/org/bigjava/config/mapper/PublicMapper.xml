@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bigjava.dao.PublicMapper">
+
+		<insert id="add"  parameterType="org.bigjava.entitys.Student" >
+			insert into student(studentName,phone) value(#{studentName},#{phone})
+		</insert>
+		
+		<select id="findUserById" parameterType="int"  resultType="org.bigjava.entitys.User">
+   			select * from user where user_id=#{user_id}
+        </select>
+        
+<!--         <update id="updateUser" parameterType="org.bigjava.entitys.User">
+        	update user set username=#{username},userphone=#{userphone},jobapplication=#{jobapplication},applicationstatus=#{applicationstatus}
+       	    where user_id=#{user_id}
+        </update>
+         -->
+        <insert id="insertUser" parameterType="org.bigjava.entitys.User">
+        <selectKey keyProperty="user_id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+            insert into user(username,userphone,jobapplication,applicationstatus) value(#{username},#{userphone},#{jobapplication},#{applicationstatus})
+        </insert>
+        
+        <select id="findStudentById" parameterType="int"  resultType="org.bigjava.entitys.Student">
+             select * from student where student_id=#{student_id}
+        </select>
+        
+         <select id="findTeacherById" parameterType="int"  resultType="org.bigjava.entitys.Teacher">
+             select * from teacher where teacher_id=#{teacher_id}
+        </select>
+</mapper>

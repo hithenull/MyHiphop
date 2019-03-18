@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd
+       					   http://www.springframework.org/schema/tx 
+       					   http://www.springframework.org/schema/tx/spring-tx.xsd
+       					   http://www.springframework.org/schema/aop 
+       					   http://www.springframework.org/schema/aop/spring-aop.xsd">
+       	
+       	
+       	<!-- Action注入biz -->		   
+    <bean id="myAction_public" class="org.bigjava.action.MyAction_public">
+    	<property name="mapperBiz" ref="mapperBiz"></property>
+    </bean>
+        					   
+    <bean id="myAction_admin" class="org.bigjava.action.MyAction_admin">
+    	<property name="adminMapperBiz" ref="adminMapperBiz"></property>
+    </bean>
+    
+     <bean id="myAction_teacher" class="org.bigjava.action.MyAction_teacher">
+    	<property name="teacherMapperBiz" ref="teacherMapperBiz"></property>
+    </bean>
+    
+    <!-- 配置类 -->
+    <bean id="allUserTool" class="org.bigjava.action.tool.AllUserTool"></bean>
+    <bean id="allUTL" class="org.bigjava.action.tool.AllUTL"></bean>
+     
+    
+    <!-- Biz层注入Mapper -->
+    <bean id="mapperBiz" class="org.bigjava.biz.impl.MapperBizImpl">
+    	<property name="publicMapper" ref="publicMapper"></property>
+    </bean>
+    <bean id="teacherMapperBiz" class="org.bigjava.biz.impl.TeacherMapperBizImpl">
+    	<property name="teacherMapper" ref="teacherMapper"></property>
+    </bean>
+     <bean id="adminMapperBiz" class="org.bigjava.biz.impl.AdminMapperBizImpl">
+    	<property name="adminMapper" ref="adminMapper"></property>
+    </bean>
+       		
+       	<!-- 数据源配置 -->
+    <bean id="dataSource"  class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/educational?useUnicode=true&amp;characterEncoding=utf-8"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1008611"></property>
+	</bean>
+	<!-- 配置SQLSessionFactoryBean -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 引用mybatis的配置文件位置 -->
+		<property name="configLocation" value="classpath:org/bigjava/config/SqlMapConfig.xml"/>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:org/bigjava/config/mapper/*.xml</value>
+			</list>
+		</property>
+	</bean>
+	 
+	<!-- 配置dao组件并注入sqlSessionTemplate实例  -->
+	<bean id="mapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.bigjava.dao.Mapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>	
+    
+    <bean id="publicMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.bigjava.dao.PublicMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+    <bean id="teacherMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.bigjava.dao.TeacherMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+	
+	 <bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.bigjava.dao.AdminMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
+</beans>
