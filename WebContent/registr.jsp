@@ -141,7 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			height:45px;
 			cursor:pointer;
 			position:absolute;
-			top:323px;
+			top:330px;
 			left:500px;
 		}
 		.yzm:hover{
@@ -157,7 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		select{
 			padding:10px 40px 10px 10px;
-			width:70%;
+			width:35%;
 			border:1px solid #fff;
 			background:rgba(0,0,0,0);
 			text-align:left;
@@ -167,10 +167,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			font-weight: 300px;
 			font-family: "Times New Roman";
 			border-radius: 4px;
-			color:white;
+			color:#ccc;
 			
 		}
 		</style>
+		<script language="javascript"> 
+
+var subcat=new Array(); 
+var biglist=new Array('学生','指导员');
+subcat[0]=new Array('0','少儿HIPHOP启蒙班');
+subcat[1]=new Array('0','少儿HIPHOP初级班'); 
+subcat[2]=new Array('0','少儿HIPHOP中级班');
+subcat[3]=new Array('0','少儿HIPHOP高级班');
+subcat[4]=new Array('0','少儿JAZZ启蒙班');
+subcat[5]=new Array('0','少儿JAZZ初级班');
+subcat[6]=new Array('0','少儿JAZZ中级班');
+subcat[7]=new Array('0','少儿JAZZ高级班');
+subcat[8]=new Array('0','成年HIPHOP初级班');
+subcat[9]=new Array('0','成年HIPHOP中级班');
+subcat[10]=new Array('0','成年HIPHOP高级班');
+subcat[11]=new Array('0','成年JAZZ初级班');
+subcat[12]=new Array('0','成年JAZZ中级班');
+subcat[13]=new Array('0','成年JAZZ高级班');
+subcat[14]=new Array('1','少儿HIPHOP启蒙班');
+subcat[15]=new Array('1','少儿HIPHOP初级班'); 
+subcat[16]=new Array('1','少儿HIPHOP中级班');
+subcat[17]=new Array('1','少儿HIPHOP高级班');
+subcat[18]=new Array('1','少儿JAZZ启蒙班');
+subcat[19]=new Array('1','少儿JAZZ初级班');
+subcat[20]=new Array('1','少儿JAZZ中级班');
+subcat[21]=new Array('1','少儿JAZZ高级班');
+subcat[22]=new Array('1','成年HIPHOP初级班');
+subcat[23]=new Array('1','成年HIPHOP中级班');
+subcat[24]=new Array('1','成年HIPHOP高级班');
+subcat[25]=new Array('1','成年JAZZ初级班');
+subcat[26]=new Array('1','成年JAZZ中级班');
+subcat[27]=new Array('1','成年JAZZ高级班');
+
+function changeselect1(locationid) 
+{ 
+for(j=0;j<biglist.length;j++)   
+if(biglist[j]==locationid){
+locationid=j;
+}
+document.submit_form.smallclass.length=0;//初始化下拉列表，清空下拉数据 
+document.submit_form.smallclass.options[0]=new Option('舞种','舞种');//给第一个值 
+for(i=0;i<subcat.length;i++) 
+{ 
+if(subcat[i][0]==locationid) 
+{
+document.submit_form.smallclass.options[document.submit_form.smallclass.length]=new Option(subcat[i][1],subcat[i][2]);}//建立option 
+} 
+} 
+</script>
 	</head>
 	<body>
 	<img class="logobai" src="imgs/logobai.png"  /><font class="mydance" size="20"> <span>M</span>Y <span>D</span>ANCE</font>
@@ -179,7 +228,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="form">
 		<font class="enrollfor">Enroll For</font><br/><br/>
-		<form>
+		  <form id="submit_form" name="submit_form" method="post" action="">
 			<img class="person" src="imgs/person.png" />
 			<img class="phone" src="imgs/phone.png" />
 			<img class="lock" src="imgs/lock.png" />
@@ -191,11 +240,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  
 				  
 			姓 &nbsp;&nbsp;名：<input type="text" name="studentName" id="name" placeholder="name*" /><br/><br/>
-			职 &nbsp;&nbsp;业：<select>
-				<option value="学生">学生</option>
-				<option value="指导员">指导员
-				</option>
-			</select><br/><br/>
+			职 &nbsp;&nbsp;业：<select name="bigclass" onChange="changeselect1(this.value)">
+								<option value="职业" selected>职业</option>
+								<option value="学生">学生</option>
+								<option value="指导员">指导员</option>
+
+							  </select>
+							  <select name="smallclass">
+								<option value="舞种" selected>舞种</option>
+							  </select>
+			<br/><br/>
 			<form>
 			电 &nbsp;&nbsp;话：<input type="text" id="phone" name="phone" placeholder="phone number*" pattern="[0-9]{11}"  onchange='check()'/>
 			
