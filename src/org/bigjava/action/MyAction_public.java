@@ -53,11 +53,9 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	
 	//测试
 	public String add() throws Exception  {
-		System.out.println("����action,�õ�����"+student1.getStudentName());
 		Student student=new Student();
 		student.setStudentName(student1.getStudentName());
 		student.setPhone(student1.getPhone());
-		System.out.println("���student"+student);
 		allUserTool.setStudent(student);
 		mapperBiz.add(allUserTool);
 		return "success";
@@ -72,13 +70,10 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	
 	public String register() throws Exception{
 		 if(user!=null){
-	            System.out.println("ע���ֵ���յ�");
 	            mapperBiz.insertUser(user);
-	            System.out.println("actionע��ɹ�");
 	            return SUCCESS;
 	            
 	        }else{
-	            System.out.println("ע���ֵû�н��յ�");
 	            return ERROR;
 	            
 	        }

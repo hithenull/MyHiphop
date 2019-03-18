@@ -26,7 +26,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	
 	
 	private AllUTL	allUTL;
-	private AdminMapperBiz adminMapperBiz;	//娉ㄥ叆adminMapperBiz
+	private AdminMapperBiz adminMapperBiz;	//spring注入adminMapperBiz
 	private Page page;
 	private String account ;
 	private String password ;
@@ -89,16 +89,16 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 
 
 	/**
-	 * 	鍒嗛〉鏌ヨ瀛︾敓
+	 * 	学生分页
 	 * @return
 	 */
 	 public String findPage() {
 //		int pageNo=1;
 //		if(page!= null) {
-//			System.out.println("page涓嶄负绌�");
+//			System.out.println("page不为空");
 //			pageNo=page.getPageno();
 //		}else {
-//			System.out.println("page涓虹┖");
+//			System.out.println("page为空");
 //		}
 //		int pageSize=1;
 //		int totalCount = myServlet.findCount();
@@ -116,7 +116,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  }
 	  
 	  /**
-	   * 	娣诲姞鏂伴椈
+	   * 	添加新闻
 	   * @return
 	   * @throws Exception
 	   */
@@ -138,16 +138,16 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  }
 	  
 	  /**
-	   * 	鏌ヨ寰呭鎵圭殑鑰佸笀
-	   * @return
+	   * 	查分页询未审批的老师
+	   * @return String
 	   */
 	  public String findUserWait() {
 		  int pageNo=1;
 			if(page!= null) {
-				System.out.println("page涓嶄负绌�");
+				System.out.println("page不为空");
 				pageNo=page.getPageno();
 			}else {
-				System.out.println("page涓虹┖");
+				System.out.println("page为空");
 			}
 			int pageSize=1;
 			int totalCount = adminMapperBiz.findWaitCount();
@@ -163,16 +163,16 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 		     }
 	  }
 	  /**
-	   * 	鍒嗛〉鏌ヨ鍏ㄩ儴鑰佸笀
+	   * 	分页查询所有老师
 	   * @return
 	   */
 	  public String findTeacher() {
 		  int pageNo=1;
 			if(page!= null) {
-				System.out.println("page涓嶄负绌�");
+				System.out.println("page不为空");
 				pageNo=page.getPageno();
 			}else {
-				System.out.println("page涓虹┖");
+				System.out.println("page为空");
 			}
 			int pageSize=1;
 			int totalCount = adminMapperBiz.findTeacherCount();
@@ -189,7 +189,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  }
 	  
 	  /**
-	   * 	淇敼鑰佸笀鐨勭敵璇风姸鎬�
+	   * 	修改已审批的老师的审批状态
 	   * @return
 	   */
 	  public String updateTeacherWait() {
@@ -197,7 +197,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 		  return SUCCESS;
 	  }
 	  /**
-	   * 	澧炲姞瀛︽牎鐨勪俊鎭�
+	   * 	添加学校相关信息
 	   * @return
 	   */
 	  public String addSchoolIf() {
@@ -208,7 +208,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  }
 	  
 	  /**
-	   * 	娣诲姞鐝骇
+	   * 	老师申请通过后添加班级
 	   * @return
 	   */
 	  public String addDClass() {
@@ -219,7 +219,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  
 	  
 	  /**
-	   * 	娣诲姞绠＄悊鍛�
+	   * 	添加二级管理员
 	   * @return
 	   */
 	  public String adminadd() {
@@ -234,7 +234,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  }
 	  
 	  /*
-	   *鍒犻櫎绠＄悊鍛�
+	   *删除二级管理员
 	   */
 	  public String admindel() {
 		  adminMapperBiz.admindel();
@@ -243,7 +243,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  }
 	  
 	  /**
-	   * 鏌ヨ鍗曚釜
+	   * 修改二级管理员
 	   */
 	  int id=2;
 	  public String adminupdate() {
@@ -260,8 +260,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	   */
 	
 	  public String adminupdate1() {
-		  System.out.println("淇敼");
-		 System.out.println("杈撳嚭璐﹀彿"+account+"瀵嗙爜"+password);
+		 System.out.println("账号"+account+"密码"+password);
 		 Management management1=new Management();
 		  management1.setAccount(account);
 		  management1.setPassword(password);
@@ -271,7 +270,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  }
 	  
 	  /*
-	   *鍒嗛〉鏌ヨ绠＄悊鍛�
+	   *分页查询管理员
 	   */
 	
 	  
@@ -279,17 +278,17 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 		  System.out.println("findPage_admin");
 			int pageNo=1;
 			if(page!= null) {
-				System.out.println("page涓嶄负绌�");
+				System.out.println("page不为空");
 				pageNo=page.getPageno();
 			}else {
-				System.out.println("page涓虹┖");
+				System.out.println("page为空");
 			}
 			int pageSize=1;
 			int totalCount = adminMapperBiz.findCount_admin();
 			Page page=new Page(pageNo,pageSize,totalCount);
 			List<Management> list=adminMapperBiz.findPage_admin(page);
 		  if(list!=null){
-			  System.out.println("list涓嶄负绌�");
+			  System.out.println("list不为空");
 	             HttpServletRequest request=ServletActionContext.getRequest();
 	             request.setAttribute("list", list);
 	             request.setAttribute("page", page);
