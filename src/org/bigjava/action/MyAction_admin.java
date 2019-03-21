@@ -28,8 +28,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	private AllUTL	allUTL;
 	private AdminMapperBiz adminMapperBiz;	//spring注入adminMapperBiz
 	private Page page;
-	private String account ;
-	private String password ;
+	private Management management;
 	private AllUserTool allUserTool;
    
 	
@@ -37,18 +36,16 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	public void setAllUserTool(AllUserTool allUserTool) {
 		this.allUserTool = allUserTool;
 	}
-	public String getAccount() {
-		return account;
+
+
+
+	public Management getManagement() {
+		return management;
 	}
-	public void setAccount(String account) {
-		this.account = account;
+	public void setManagement(Management management) {
+		this.management = management;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 
 
 	private News news = new News();
@@ -223,11 +220,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	   * @return
 	   */
 	  public String adminadd() {
-		  System.out.println("寰楀埌璐﹀彿"+account);
-		  System.out.println("寰楀埌璐﹀彿鍜屽瘑鐮�"+password);
-		  Management management=new Management();
-		  management.setAccount(account);
-		  management.setPassword(password);
+		 System.out.println(management);
 		  adminMapperBiz.adminadd(management);
 		  return SUCCESS;
 		  
@@ -260,11 +253,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	   */
 	
 	  public String adminupdate1() {
-		 System.out.println("账号"+account+"密码"+password);
-		 Management management1=new Management();
-		  management1.setAccount(account);
-		  management1.setPassword(password);
-		  adminMapperBiz.adminupdate1(management1);
+		  adminMapperBiz.adminupdate1(management);
 		return SUCCESS;
 		  
 	  }

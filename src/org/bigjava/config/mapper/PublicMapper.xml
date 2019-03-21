@@ -19,7 +19,7 @@
         <selectKey keyProperty="user_id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-            insert into user(username,userphone,jobapplication,applicationstatus) value(#{username},#{userphone},#{jobapplication},#{applicationstatus})
+            insert into user(username,userphone,jobapplication) value(#{username},#{userphone},#{jobapplication})
         </insert>
         
         <select id="findStudentById" parameterType="int"  resultType="org.bigjava.entitys.Student">

@@ -16,6 +16,14 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private MapperBiz mapperBiz;	//注入mapperBiz
 	private String name;
 	private String password;
+	private String jobapplication;
+	
+	public String getJobapplication() {
+		return jobapplication;
+	}
+	public void setJobapplication(String jobapplication) {
+		this.jobapplication = jobapplication;
+	}
 	public String getName() {
 		return name;
 	}
@@ -69,11 +77,15 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	}
 	
 	public String register() throws Exception{
+		System.out.println(jobapplication);
+		user.setJobapplication(user.getJobapplication()+","+jobapplication);
+		System.out.println(user);
 		 if(user!=null){
 	            mapperBiz.insertUser(user);
 	            return SUCCESS;
 	            
 	        }else{
+	        	System.out.println("Error");
 	            return ERROR;
 	            
 	        }

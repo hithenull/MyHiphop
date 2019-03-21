@@ -12,7 +12,7 @@
        	
        	
        	<!-- Action注入biz -->		   
-    <bean id="myAction_public" class="org.bigjava.action.MyAction_public">
+	<bean id="myAction_public" class="org.bigjava.action.MyAction_public">
     	<property name="mapperBiz" ref="mapperBiz"></property>
     </bean>
         					   
