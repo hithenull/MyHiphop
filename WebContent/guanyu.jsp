@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
+
     
 		 .div_big{	
 		   width:100%;
