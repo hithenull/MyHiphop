@@ -8,24 +8,50 @@
     <title>最简单的轮播效果</title>
 	<link rel="stylesheet" type="text/css" href="css/xinwen.css">
 	<style type="text/css">
-		#title{
-			width:1000px;height:38.5px;
-			margin:102px 0px;
+	    .tou{
+	        width:999px;
+	        height:150px;
+	    }
+
+		.box{
+			margin:10px 0px;
+ 		}
+ 		#inner{
+ 		    width:1000px;
+ 		    height:400px;
+ 		    border:2px solid #fcc;
+ 		    margin:0px 0px;
  		}
 		#news{
 			width: 400px;
             height: 300px;
             border: 1px solid #ccc;
-            margin: -305px 580px;
+            margin: -320px 580px;
             padding: 5px;
+		}
+		#zi{
+		    width:1000px;
+            height: 170px;
+            margin-top: 345px;
+            text-align: center;
+		}
+		#team{
+		    width:1000px;
+            height: 180px;
+            margin-top: 10px;
+            
 		}
 		#allDiv{
 			width: 1000px;
-            height: 800px;
+            height: 900px;
             border: 1px solid #eeecec;
             margin:60px 244px;
             background-color:#f5f3f3;
             box-shadow:0 5px 5px 0 rgba(0,0,0,0.24),0 5px 5px 0 rgba(0,0,0,0.19);
+		}
+		a{
+		  color:green;
+		  font-size: 28px;
 		}	
 		td{ 
 			text-align:center;
@@ -42,6 +68,9 @@
 </head>
 <body>
 	<div id="allDiv">
+	    <div class="tou">
+    <img width=100% height=100%  src="imgs/11.JPG">
+	    </div>
 		<div id="title">
 			<table>
 				<tr>
@@ -79,6 +108,17 @@
 		</div>
 		<div id="news">
 			新闻链接
+		</div>
+		<div id="zi">
+			<i><a>HIP HOP</a></i>&nbsp;&nbsp;&nbsp;全国连锁街舞专家<br/>
+&nbsp;&nbsp;&nbsp;<tt>HIP-HOP是专业致力于少儿及青少年舞蹈健身服务的平台；CSDA<br/>
+（国家体育总局体操中心全国街舞执行委员会）全国街舞考级独立授权及战略合作机构。<br/>
+集团总部位于北京地标性位置三里屯SOHO,经过12年的快速稳步发展，旗下分店超100家，<br/>
+已辐射北京、上海、天津、河南、湖南、山东、浙江、江苏、四川、福建等3直辖市10省<br/>
+28城，被誉为中国舞蹈健身服务行业实力品牌。</tt>
+		</div>
+		<div id="team">
+		 <img width=100% height=100%  src="imgs/team.png">
 		</div>
 	</div>
 	
