@@ -24,9 +24,7 @@ public class AdminMapperBizImpl implements AdminMapperBiz {
 		this.adminMapper = adminMapper;
 	}
 	
-	
 
-	
 	@Override
 	public void addNew(News news) throws Exception {
 		// TODO Auto-generated method stub
