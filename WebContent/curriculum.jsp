@@ -235,6 +235,7 @@
 		}
 		if (day < 10) {
 		    day = "0" + day;
+		    
 		}
 		
 		document.getElementById("info").innerHTML=year + "-" + month + "-" + day;
