@@ -357,8 +357,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 
 					<a href="home.jsp"><img src="imgs/logobai.png" class="logobai" width="130px" height="130px"></a>
 					<ul>
-						<li><a href="">关于</a></li></br>
-						<li><a href="">指导员</a></li></br>
+						<li><a href="xinwen.jsp">关于</a></li></br>
+						<li><a href="tupianyidong.jsp">指导员</a></li></br>
 						<li><b><a href="curriculum.jsp">CLASS</a></b></li></br>
 						<li><a href="shiping.jsp">视频</a></li></br>
 						<li><a href="">合作伙伴</a></li></br>
@@ -397,7 +397,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div id="div4" class="div4">
 						<img src="imgs/4.jpg" width="100%" height="100%">
 						<div class="div4_mask"></div>
-						<a href="" class="div4_sub">怎么去那</a>
+						<a href="ditu2.jsp" class="div4_sub">怎么去那</a>
 					</div>
 					<b class="route">路 线</b>
 					<hr class="hr5" />
