@@ -26,6 +26,7 @@ public class AdminMapperBizImpl implements AdminMapperBiz {
 	
 	
 
+	
 	@Override
 	public void addNew(News news) throws Exception {
 		// TODO Auto-generated method stub
