@@ -11,7 +11,6 @@ import com.opensymphony.xwork2.ModelDriven;
 
 public class MyAction_public extends ActionSupport implements ModelDriven<Student> {
 	
-	private AllUserTool allUserTool;
 	private User user;
 	private MapperBiz mapperBiz;	//注入mapperBiz
 	private String name;
@@ -41,9 +40,6 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	}
 	private Student student1=new Student();
 	
-	public void setAllUserTool(AllUserTool allUserTool) {
-		this.allUserTool = allUserTool;
-	}
 	public User getUser() {
 		return user;
 	}
@@ -60,15 +56,15 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 
 	
 	//测试
-	public String add() throws Exception  {
-		Student student=new Student();
-		student.setStudentName(student1.getStudentName());
-		student.setPhone(student1.getPhone());
-		allUserTool.setStudent(student);
-		mapperBiz.add(allUserTool);
-		return "success";
-		
-	}
+//	public String add() throws Exception  {
+//		Student student=new Student();
+//		student.setStudentName(student1.getStudentName());
+//		student.setPhone(student1.getPhone());
+//		allUserTool.setStudent(student);
+//		mapperBiz.add(allUserTool);
+//		return "success";
+//		
+//	}
 
 	@Override
 	public Student getModel() {
