@@ -107,6 +107,7 @@
 		    </div>
 		</div>
 		<div id="news">
+		
 			新闻链接
 		</div>
 		<div id="zi">
