@@ -24,6 +24,7 @@ public class AdminMapperBizImpl implements AdminMapperBiz {
 		this.adminMapper = adminMapper;
 	}
 	
+	
 
 	@Override
 	public void addNew(News news) throws Exception {
