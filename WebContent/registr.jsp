@@ -124,13 +124,13 @@ input[type="radio"] {
 
 .phone {
 	position: absolute;
-	top: 340px;
+	top: 285px;
 	left: 430px;
 }
 
 .lock {
 	position: absolute;
-	top: 402px;
+	top: 350px;
 	left: 430px;
 }
 
@@ -149,7 +149,7 @@ input::-webkit-input-placeholder {
 	height: 45px;
 	cursor: pointer;
 	position: absolute;
-	top: 330px;
+	top: 338px;
 	left: 500px;
 }
 
@@ -180,6 +180,34 @@ select {
 	font-family: "Times New Roman";
 	border-radius: 4px;
 	color: #ccc;
+}
+.span{
+	width:80%;
+	position: absolute;
+	top:385px;
+	left:55px;
+}
+#upload{
+	position: absolute;
+	top:410px;
+	left:315px;
+	
+	opacity: 0;
+
+	cursor: pointer;
+}
+.tx{
+	position:absolute;
+	top:410px;
+	left:35px;
+}
+.file1{
+	position: absolute;
+	top:410px;
+	left:405px;
+}
+a {
+	text-decoration: none;
 }
 </style>
 <script language="javascript">
@@ -230,41 +258,51 @@ select {
 	}
 </script>
 </head>
-<body>
+<body oncontextmenu='return false' ondragstart='return false'
+	onselectstart='return false' onselect='document.selection.empty()'
+	oncopy='document.selection.empty()' onbeforecopy='return false'
+	onmouseup='document.selection.empty()'>
 	<img class="logobai" src="imgs/logobai.png" />
 	<font class="mydance" size="20"> <span>M</span>Y <span>D</span>ANCE
 	</font>
 	<div class="big"></div>
 	<div class="form">
-		<font class="enrollfor">Enroll For</font><br />
-		<br />
-		<form id="submit_form" name="submit_form" method="post"action="public_register">
-		
-			<img class="person" src="imgs/person.png" /> 
-			<img class="phone"src="imgs/phone.png" /> 
-			<img class="lock" src="imgs/lock.png" />
-			 
-			<input type="radio" name="sex" value="男" checked="checked" />男
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			<input type="radio" name="sex"value="女" />女<br /> 
-			
-			姓 &nbsp;&nbsp;名：<input type="text"name="user.username" id="name" placeholder="name*" /><br /><br /> 
-			职 &nbsp;&nbsp;业：<select onChange="changeselect1(this.value)" name="user.jobapplication">
-								<option value="职业" selected>职业</option>
-								<option value="学生">学生</option>
-								<option value="指导员">指导员</option>
-							</select> 
-							<select name="jobapplication">
-								<option value="舞种" selected>舞种</option>
-							</select> <br /><br /> 
-			
-			电 &nbsp;&nbsp;话：<input type="text" id="phone" name="user.userphone"placeholder="phone number*" pattern="[0-9]{11}" onchange='check()' />
+		<font class="enrollfor">Enroll For</font><br /> <br />
+		<form id="submit_form" name="submit_form" method="post"
+			action="public_register">
+
+			<img class="person" src="imgs/person.png" /> <img class="phone"
+				src="imgs/phone.png" /> <img class="lock" src="imgs/lock.png" /> <input
+				type="radio" name="sex" value="男" checked="checked" />男
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="sex"
+				value="女" />女<br /> 姓 &nbsp;&nbsp;名：<input type="text"
+				name="user.username" id="name" placeholder="name*" /><br /> 职
+			&nbsp;&nbsp;业：<select onChange="changeselect1(this.value)"
+				name="user.jobapplication">
+				<option value="职业" selected>职业</option>
+				<option value="学生">学生</option>
+				<option value="指导员">指导员</option>
+			</select> <select name="jobapplication">
+				<option value="舞种" selected>舞种</option>
+			</select> <br /> 电 &nbsp;&nbsp;话：<input type="text" id="phone"
+				name="user.userphone" placeholder="phone number*"
+				pattern="[0-9]{11}" onchange='check()' />
 
 			<button class="yzm" type="submit">获取验证码</button>
-			<br /> 验证码：<input type="text" name="verification code"placeholder="verification code" /><br />
+			<br /> 验证码：<input type="text" name="verification code"
+				placeholder="verification code" /><br /> <font class="tx">头 &nbsp;&nbsp;像：</font><span class="span"> 
+<input name="" type="text" id="viewfile" placeholder="head portrait" 
+ onmouseout="document.getElementById('upload').style.display='none';"
+ class="inputstyle" /> 
+</span> 
+<label for="unload"
+ onmouseover="document.getElementById('upload').style.display='block';"
+ class="file1">浏览...</label> 
+<input type="file"
+ onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"
+ class="file" id="upload" /> 
 			
 			<button class="btn" type="submit">submit</button>
-
 		</form>
 	</div>
 </body>
