@@ -76,7 +76,24 @@ public class MapperBizImpl implements MapperBiz {
 		    	return false;
 		     }
 		 }
-	 }
+
+
+	@Override
+	public int findNewsAll() {
+		// TODO Auto-generated method stub
+		
+		return publicMapper.findNewsAll(); 
+	}
+
+
+	@Override
+	public List<User> findNews(Page page) {
+		// TODO Auto-generated method stub
+		return publicMapper.findNews(page);
+	}
+
+
+}
 
 
 

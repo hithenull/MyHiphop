@@ -10,16 +10,12 @@
    			select * from user where user_id=#{user_id}
         </select>
         
-<!--         <update id="updateUser" parameterType="org.bigjava.entitys.User">
-        	update user set username=#{username},userphone=#{userphone},jobapplication=#{jobapplication},applicationstatus=#{applicationstatus}
-       	    where user_id=#{user_id}
-        </update>
-         -->
         <insert id="insertUser" parameterType="org.bigjava.entitys.User">
-        <selectKey keyProperty="user_id" order="AFTER" resultType="java.lang.Integer">
-            SELECT LAST_INSERT_ID()
-        </selectKey>
-            insert into user(username,userphone,jobapplication) value(#{username},#{userphone},#{jobapplication})
+	        <selectKey keyProperty="user_id" order="AFTER" resultType="java.lang.Integer">
+	            SELECT LAST_INSERT_ID()
+	        </selectKey>
+            insert into user(username,usersex,userphone,jobapplication,imagesrc) 
+            				value(#{username},#{usersex},#{userphone},#{jobapplication},#{imagesrc})
         </insert>
         
         <select id="findStudentById" parameterType="int"  resultType="org.bigjava.entitys.Student">
@@ -29,4 +25,12 @@
          <select id="findTeacherById" parameterType="int"  resultType="org.bigjava.entitys.Teacher">
              select * from teacher where teacher_id=#{teacher_id}
         </select>
+        
+        <select id="findNewsAll" resultType="int">
+		    select count(news_id) from news 
+		</select>
+		
+		<select id="findNews" parameterType="org.bigjava.action.tool.Page" resultType="org.bigjava.entitys.News">
+			select * from news where news_id limit #{startrow},#{pagesize}
+		</select>
 </mapper>

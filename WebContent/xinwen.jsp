@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +25,9 @@
  		}
 		#news{
 			width: 400px;
-            height: 300px;
-            border: 1px solid #ccc;
-            margin: -320px 580px;
+            height: 250px;
+            border: 0px solid #ccc;
+            margin: -270px 550px;
             padding: 5px;
 		}
 		#zi{
@@ -106,17 +107,25 @@
 		        </div>
 		    </div>
 		</div>
-		<div id="news">
-		
-			新闻链接
+		<div id="news">	   
+		       <table border="0px" style="width:400px;height:150px;">
+		          <c:forEach var="i" items="${requestScope.list}">
+		            <tr>
+		              <td style="background:none;width:200px;text-align:left;">${i.news_id}.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		              					<a href="" style="font-size:15px;">${i.headline}</a></td>
+		              <td style="background:none;width:5px;">${i.date}</td>
+		            </tr>
+		          </c:forEach>
+		       </table>
+		     
 		</div>
 		<div id="zi">
 			<i><a>HIP HOP</a></i>&nbsp;&nbsp;&nbsp;全国连锁街舞专家<br/>
-&nbsp;&nbsp;&nbsp;<tt>HIP-HOP是专业致力于少儿及青少年舞蹈健身服务的平台；CSDA<br/>
-（国家体育总局体操中心全国街舞执行委员会）全国街舞考级独立授权及战略合作机构。<br/>
-集团总部位于北京地标性位置三里屯SOHO,经过12年的快速稳步发展，旗下分店超100家，<br/>
-已辐射北京、上海、天津、河南、湖南、山东、浙江、江苏、四川、福建等3直辖市10省<br/>
-28城，被誉为中国舞蹈健身服务行业实力品牌。</tt>
+				&nbsp;&nbsp;&nbsp;<tt>HIP-HOP是专业致力于少儿及青少年舞蹈健身服务的平台；CSDA<br/>
+				（国家体育总局体操中心全国街舞执行委员会）全国街舞考级独立授权及战略合作机构。<br/>
+				集团总部位于北京地标性位置三里屯SOHO,经过12年的快速稳步发展，旗下分店超100家，<br/>
+				已辐射北京、上海、天津、河南、湖南、山东、浙江、江苏、四川、福建等3直辖市10省<br/>
+				28城，被誉为中国舞蹈健身服务行业实力品牌。</tt>
 		</div>
 		<div id="team">
 		 <img width=100% height=100%  src="imgs/team.png">
@@ -245,6 +254,17 @@
             }
         }, 10);
     }
+    var list = <%=request.getAttribute("list")%>
+    window.onload = function (){
+    	
+    	if(list == null){
+	    	window.location.href="public_showNews";
+    	}else{
+    		return;
+    	}
+    	
+    }
+    
 </script>
 </body>
 </html>

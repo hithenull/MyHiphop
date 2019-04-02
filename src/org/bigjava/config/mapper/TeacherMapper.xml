@@ -3,10 +3,10 @@
 <mapper namespace="org.bigjava.dao.TeacherMapper">
 		
 		<select id="findPage_teacher" resultType="org.bigjava.entitys.Teacher" parameterType="org.bigjava.action.tool.Page">
-            select * from teacher where teacher_id limit #{startrow},#{pagesize};
+            select * from teacher where teacher_id limit #{startrow},#{pagesize}
 		</select>
 		<select id="findCount_teacher" resultType="int" >
-			select count(teacher_id) from Teacher ;
+			select count(teacher_id) from Teacher 
 		</select>
 
 </mapper>

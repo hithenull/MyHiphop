@@ -13,55 +13,19 @@
 <body style="">
 
 <div id="wrap">
+  
   <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
 	<div class="c">
-	  <img src="imgs/7.jpg" alt="">
+	  <img src="images/xuanxuan.jpg" style="height:500px;width:350px;" alt="">
 	  <div class="txt">
-		<h1>Title here</h1>
+		<h1>旋旋</h1>
 		<p>Some longer text here thats wide enough to span on several lines.</p>
 	  </div>
 	</div>
   </a>
   <div class="fullBg">
-	<img src="imgs/7.jpg" alt="">
+	<img src="images/xuanxuan.jpg" alt="" style="height:800px;width:650px;margin:0px 450px;">
   </div>
-  <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
-	<div class="c">
-	  <img src="imgs/8.jpg" alt="">
-	  <div class="txt">
-		<h1>Title here</h1>
-		<p>Some longer text here thats wide enough to span on several lines.</p>
-	  </div>
-	</div>
-  </a>
-  <div class="fullBg">
-	<img src="imgs/8.jpg" alt="">
-  </div>
-  <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
-	<div class="c">
-	  <img src="imgs/9.jpg" alt="">
-	  <div class="txt">
-		<h1>Title here</h1>
-		<p>Some longer text here thats wide enough to span on several lines.</p>
-	  </div>
-	</div>
-  </a>
-  <div class="fullBg">
-	<img src="imgs/9.jpg" alt="">
-  </div>
-  <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
-	<div class="c">
-	  <img src="imgs/6.jpg" alt="">
-	  <div class="txt">
-		<h1>Title here</h1>
-		<p>Some longer text here thats wide enough to span on several lines.</p>
-	  </div>
-	</div>
-  </a>
-  <div class="fullBg">
-	<img src="imgs/6.jpg" alt="">
-  </div>
-</div>
 
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -77,9 +41,9 @@
 	  })
 	  
 	  $(document).mousemove(function(e) {
-		var mouseX = e.pageX,
+		  var mouseX = e.pageX,
 
-		offset = mouseX / docWidth * slidesWidth - mouseX / 2;
+			offset = mouseX / docWidth * slidesWidth - mouseX / 2;
 
 		
 		$images.css({
@@ -88,10 +52,20 @@
 		});
 	  });
 	})
+	var list = <%=request.getAttribute("list")%>
+		 window.onload = function (){
+		    	
+		 if(list == null){
+			window.location.href="teacher_findteacher";
+		 }else{
+		    return;
+		 }
+		    	
+	}
 </script>
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
-<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+<p><h2>Hiphop舞蹈工作室</h2></p><br />
+<p><h3>部分教导员信息</h3></p>
 </div>
 
 </body>

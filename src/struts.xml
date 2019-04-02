@@ -30,6 +30,10 @@
           <result name="success">success.jsp</result>
           <result name="error">error.jsp</result>      
        </action>
+       
+       <action name="public_showNews" class="org.bigjava.action.MyAction_public" method="showNews">
+			<result name="success">/xinwen.jsp</result>
+		</action>
 		  
 	</package> 
 	
@@ -43,8 +47,8 @@
 				映射的class:	org.bigjava.action.MyAction_teacher
 				method:	teacher_*** 
 		 -->
-		<action name="teacher_findPage_teacher" class="org.bigjava.action.MyAction_teacher" method="findPage_teacher">
-			<result name="success">/find.jsp</result>
+		<action name="teacher_findteacher" class="org.bigjava.action.MyAction_teacher" method="findPage_teacher">
+			<result name="success">/tupianyidong.jsp</result>
 		</action>
 
 	
@@ -92,8 +96,6 @@
          <action name="admin_findTeacher" class="org.bigjava.action.MyAction_admin" method="findTeacher">
          	<result name="success">/findTeacher.jsp</result>
          </action>
-         
-       
 
 	</package>
 	

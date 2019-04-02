@@ -1,5 +1,8 @@
 package org.bigjava.dao;
 
+import java.util.List;
+
+import org.bigjava.action.tool.Page;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
@@ -7,13 +10,18 @@ import org.bigjava.entitys.User;
 public interface PublicMapper {
 	public void add(Student student)throws Exception;
 	
-    public void insertUser(User user) throws Exception;                        //Ìí¼ÓÓÃ»§
+    public void insertUser(User user) throws Exception;                        //æ·»åŠ å­¦ç”Ÿ
 	
-	public void updateUser(User user) throws Exception;                       //ÓÃ»§ĞŞ¸Ä
+	public void updateUser(User user) throws Exception;                       //æŸ¥è¯¢User
 
-	public User findUserById(User user) throws  Exception;                    //¸ù¾İID²éÑ¯ÓÃ»§
+	public User findUserById(User user) throws  Exception;                    //é€šè¿‡idæŸ¥è¯¢User
 
-	public Teacher findTeacherById(Teacher teacher);                          //¸ù¾İID²éÑ¯ÀÏÊ¦
+	public Teacher findTeacherById(Teacher teacher);                          //é€šè¿‡idæŸ¥è¯¢è€å¸ˆ
 
-	public Student findStudentById(Student student);                          //¸ù¾İID²éÑ¯Ñ§Éú
+	public Student findStudentById(Student student);                          //é€šè¿‡idæŸ¥è¯¢å­¦ç”Ÿ
+
+	public int findNewsAll();										  		  //æŸ¥è¯¢newæ€»æ¡æ•°
+
+	public List<User> findNews(Page page);									  //åˆ†é¡µæŸ¥è¯¢news
+
 }

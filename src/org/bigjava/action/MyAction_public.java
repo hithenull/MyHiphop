@@ -1,6 +1,12 @@
 package org.bigjava.action;
 
-import org.bigjava.action.tool.AllUserTool;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+import org.bigjava.action.tool.ImageUtil;
+import org.bigjava.action.tool.Page;
 import org.bigjava.biz.MapperBiz;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
@@ -16,7 +22,14 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private String name;
 	private String password;
 	private String jobapplication;
+	private Page page;
 	
+	public Page getPage() {
+		return page;
+	}
+	public void setPage(Page page) {
+		this.page = page;
+	}
 	public String getJobapplication() {
 		return jobapplication;
 	}
@@ -75,6 +88,8 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	public String register() throws Exception{
 		System.out.println(jobapplication);
 		user.setJobapplication(user.getJobapplication()+","+jobapplication);
+		ImageUtil i = new ImageUtil();
+		user.setImagesrc(i.copyImage("", user.getUsername()+"jpg"));
 		System.out.println(user);
 		 if(user!=null){
 	            mapperBiz.insertUser(user);
@@ -106,4 +121,30 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	  }
 		return "input";
      }
+    /**
+     * 	新闻页面显示新闻
+     * @return
+     */
+    public String showNews() {
+    	
+    	int pageNo=1;
+		if(page!= null) {
+			System.out.println("page不为空");
+			pageNo=page.getPageno();
+		}else {
+			System.out.println("page为空");
+		}
+		int pageSize=5;
+		int totalCount = mapperBiz.findNewsAll();
+		Page page=new Page(pageNo,pageSize,totalCount);
+		List<User> list= mapperBiz.findNews(page);
+		if(list!=null){
+			HttpServletRequest request=ServletActionContext.getRequest();
+	        request.setAttribute("list", list);
+	        request.setAttribute("page", page);
+	        return SUCCESS;
+	     }else{
+	        return ERROR;
+	     }
+    }
 }

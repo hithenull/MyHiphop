@@ -3,9 +3,24 @@ package org.bigjava.entitys;
 public class User {
      private int user_id;                        //用户ID
      private String username;                    //用户名
+     private char usersex;						 //用户性别
      private String userphone;                   //用户号码
      private String jobapplication;              //申请职位
-     public String applicationstatus;           //申请状态
+     private String applicationstatus;           //申请状态
+     private String imagesrc;					 //用户图片路径 
+     
+	public char getUsersex() {
+		return usersex;
+	}
+	public void setUsersex(char usersex) {
+		this.usersex = usersex;
+	}
+	public String getImagesrc() {
+		return imagesrc;
+	}
+	public void setImagesrc(String imagesrc) {
+		this.imagesrc = imagesrc;
+	}
 	public int getUser_id() {
 		return user_id;
 	}
