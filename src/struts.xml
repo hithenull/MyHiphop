@@ -56,7 +56,6 @@
 	
 	
 	
-	
 	<!-- 这里添加管理员的action(即管理员享有的功能){基本：查询所有学员}  其他 -->
 	<package name="admin_classify" extends="struts-default" namespace="/">
 		<!--	
