@@ -19,6 +19,7 @@ public class MyAction_teacher extends ActionSupport{
 	List<Teacher> list = new ArrayList<Teacher>();
 	private String danceclass;
 	
+	
 	public String getDanceclass() {
 		return danceclass;
 	}
