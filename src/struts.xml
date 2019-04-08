@@ -90,6 +90,7 @@
          	<result name="success">/findAdmin.jsp</result>
          </action>
 
+
          <action name="admin_findUserWait" class="org.bigjava.action.MyAction_admin" method="findUserWait">
          	<result name="success">/findUserWait.jsp</result>
          </action>
