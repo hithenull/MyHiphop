@@ -1,13 +1,28 @@
 package org.bigjava.action.tool;
 
 public class Page {
-    private int pageno;             //ҳ��
-    private int pagesize;           //ÿҳ��С
-    private int totalcount;        //����
-    private int totalpage;         //��ҳ��
-    private int startrow;          //��ʼ����
-    private int endrow;            //�������
-    public Page() {
+    private int pageno;             //当前页面页数
+    private int pagesize;           //页面显示条数
+    private int totalcount;        //数据总条数
+    private int totalpage;         //总页数
+    private int startrow;          //开始数据条数
+    private int endrow;            //结束数据条数
+    private String canShu1;			//page分页时需要使用的参数1
+    private String canShu2;			//page分页时需要使用的参数2
+    
+    public String getCanShu1() {
+		return canShu1;
+	}
+	public void setCanShu1(String canShu1) {
+		this.canShu1 = canShu1;
+	}
+	public String getCanShu2() {
+		return canShu2;
+	}
+	public void setCanShu2(String canShu2) {
+		this.canShu2 = canShu2;
+	}
+	public Page() {
     }
     public Page(int pageno, int pagesize, int totalcount) {
         this.pageno = pageno;

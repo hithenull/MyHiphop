@@ -14,7 +14,7 @@
 	
 	
 	
-	<!-- 这里添加公共的action(即老师，学生，管理员都有的功能){基本：增改  查询一个人      其他自己思考} -->
+	<!-- 这里添加公共的action(即老师，学生，管理员都有的功能){基本：增改  查询一个人      其他 } -->
 	<package name="public_classify" extends="struts-default" namespace="/">
 		<!-- 示例：public_add    根据该示例取名
 				name:	public_***
@@ -27,7 +27,8 @@
 		
 		  <action name="public_login" class="org.bigjava.action.MyAction_public" method="login">
           <result name="success">myHomepage.jsp</result>
-          <result name="error">login.jsp</result>      
+          <result name="error">login.jsp</result> 
+          <result name="admin">myHomepage.jsp</result>     
        </action>
        
        <action name="public_showNews" class="org.bigjava.action.MyAction_public" method="showNews">
@@ -48,6 +49,9 @@
 		 -->
 		<action name="teacher_findteacher" class="org.bigjava.action.MyAction_teacher" method="findPage_teacher">
 			<result type="redirect" name="success">/tupianyidong.jsp</result>
+		</action>
+		<action name="teacher_findStudentByClass" class="org.bigjava.action.MyAction_teacher" method="findStudentByClass">
+			<result name="success"></result>
 		</action>
 
 	</package>
