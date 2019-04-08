@@ -45,6 +45,24 @@ public class TeacherMapperBizImpl implements TeacherMapperBiz {
 	}
 
 
+
+
+	@Override
+	public int findCount_student() {
+		// TODO Auto-generated method stub
+		return teacherMapper.findCount_student();
+	}
+
+
+
+
+	@Override
+	public List<Teacher> findStudentByClass(Page page) {
+		// TODO Auto-generated method stub
+		return teacherMapper.findStudentByClass(page);
+	}
+
+
    
 
 

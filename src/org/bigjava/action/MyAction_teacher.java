@@ -17,7 +17,16 @@ public class MyAction_teacher extends ActionSupport{
 	private Page page;
 	private TeacherMapperBiz teacherMapperBiz; //注入teacherMapperBiz
 	List<Teacher> list = new ArrayList<Teacher>();
+	private String danceclass;
 	
+	public String getDanceclass() {
+		return danceclass;
+	}
+
+	public void setDanceclass(String danceclass) {
+		this.danceclass = danceclass;
+	}
+
 	public Page getPage() {
 		return page;
 	}
@@ -59,6 +68,31 @@ public class MyAction_teacher extends ActionSupport{
 		int totalCount = teacherMapperBiz.findCount_teacher();
 		Page page=new Page(pageNo,pageSize,totalCount);
 		list=teacherMapperBiz.findPage_teacher(page);
+		if(list!=null){
+			System.out.println("list不为空");
+			HttpServletRequest request=ServletActionContext.getRequest();
+			request.getSession().setAttribute("list", list);
+			request.getSession().setAttribute("page", page);
+			return SUCCESS;
+		}else{
+			return ERROR;
+		}
+	}
+	
+	public String findStudentByClass() {
+		System.out.println("findStudentByClass");
+		int pageNo=1;
+		if(page!= null) {
+			System.out.println("page不为空");
+			pageNo=page.getPageno();
+		}else {
+			System.out.println("page为空");
+		}
+		int pageSize=3;
+		int totalCount = teacherMapperBiz.findCount_student();
+		Page page=new Page(pageNo,pageSize,totalCount);
+		page.setCanShu1(danceclass);
+		list=teacherMapperBiz.findStudentByClass(page);
 		if(list!=null){
 			System.out.println("list不为空");
 			HttpServletRequest request=ServletActionContext.getRequest();

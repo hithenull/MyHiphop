@@ -12,4 +12,8 @@ public interface TeacherMapperBiz {
 	public int findCount_teacher();
 	
 	public List<Teacher> findPage_teacher(Page page);
+
+	public int findCount_student();
+
+	public List<Teacher> findStudentByClass(Page page);
 }

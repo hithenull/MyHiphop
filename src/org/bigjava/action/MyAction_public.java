@@ -85,7 +85,11 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 		// TODO Auto-generated method stub
 		return student1;	
 	}
-	
+	/**
+	 *	用户注册
+	 * @return
+	 * @throws Exception
+	 */
 	public String register() throws Exception{
 		System.out.println(user.getUsersex());
 		System.out.println(jobapplication);
@@ -103,6 +107,12 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	            
 	        }
 	}
+	
+	/**
+	 *	登陆页面，老师，学生，管理员登陆
+	 * @return
+	 * @throws Exception
+	 */
     public String login() throws Exception{
         
     	student1.setStudentNumber(loginname);
@@ -119,7 +129,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	}else if(mapperBiz.login_teacher(teacher)) {
     		return SUCCESS;
     	}else if(mapperBiz.login_admin(management)){
-    		return SUCCESS;
+    		return "admin";
     	}else {
     		return ERROR;
     	}
