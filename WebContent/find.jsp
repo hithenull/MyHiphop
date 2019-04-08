@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="teacher_findfenye" method="post">
+<form action="teacher_findPage_teacher" method="post">
 		   
        <input type="submit" value="查询"/>
 	</form>

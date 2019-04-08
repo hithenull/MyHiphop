@@ -25,10 +25,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="admin_findUserWait" method="post">
       <input type="submit" value="333">
      </form> 
-   
+    <form action="admin_findTeacher" method="post">
+      <input type="submit" value="分页全部老师">
+     </form> 
      <center>
        <table border="1">
-          <tr><td>ID</td><td>姓名</td><td>电话号码</td><td>职位</td><td>状态</td></tr>
+          <tr><td>ID</td><td>姓名</td><td>电话号码</td><td>职位</td><td>状态</td><td>舞龄</td><td>图片路径</td></tr>
           <c:forEach var="i" items="${requestScope.list}">
             <tr>
               <td>${i.teacher_id}</td>
@@ -36,6 +38,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <td>${i.teacherSex}</td>
               <td>${i.phone}</td>
               <td>${i.professional}</td>
+              <td>${i.danceAge}</td>
+              <td>${i.timg_src}</td>
             </tr>
           </c:forEach>
        </table>

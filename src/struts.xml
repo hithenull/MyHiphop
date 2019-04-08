@@ -44,7 +44,7 @@
 				method:	teacher_*** 
 		 -->
 		<action name="teacher_findPage_teacher" class="org.bigjava.action.MyAction_teacher" method="findPage_teacher">
-			<result name="success">/find.jsp</result>
+			<result name="success">/teacherfeye.jsp</result>
 		</action>
 
 	
@@ -89,7 +89,7 @@
          <action name="admin_findUserWait" class="org.bigjava.action.MyAction_admin" method="findUserWait">
          	<result name="success">/findUserWait.jsp</result>
          </action>
-         <action name="admin_findTeacher" class="org.bigjava.action.MyAction_admin" method="findTeacher">
+         <action name="admin_findTeacher" class="org.bigjava.action.MyAction_teacher" method="findPage_teacher">
          	<result name="success">/findTeacher.jsp</result>
          </action>
          

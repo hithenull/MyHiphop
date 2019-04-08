@@ -24,6 +24,7 @@
 	}
 	
 	.div_big2 {
+	
 		width: 100%;
 		height: 1500px;
 	}
@@ -37,13 +38,28 @@
 	}
 	
 	.div_middle {
+	    background: url(imgs/333.JPG) no-repeat ;
+	    background-size: 100% 100%;
 		width: 100%;
-		height: 970px;
+		height: 600px;
 		background-color:white;
 		color:black;
+	
+	}
+	#table{
+	   margin-left:440px;
+   	   background:rgba(255,255,255,0.3);
+	   width:600px;
+	   height:300px;
+	   margin-top:150px;
+	   
+	}
+	td{
+	  text-align: center;
 	}
 	
 	.div_bottom {
+	   
 		text-align: center;
 		width: 100%;
 		height: 150px;
@@ -144,7 +160,7 @@
 		width: 230px;
 		height: 230px;
 		position: absolute;
-		top: 1725px;
+		top: 1350px;
 		left: 50px;
 	}
 	
@@ -201,6 +217,9 @@
 		top:900px;
 		left:620px;
 	}
+	.list-div td:hover {
+    color: red;
+}
 </style>
 <script src="laydate/laydate.js"></script>
 <script type="text/javascript">
@@ -234,8 +253,7 @@
 		    month = "0" + month;
 		}
 		if (day < 10) {
-		    day = "0" + day;
-		    
+		    day = "0" + day;	    
 		}
 		
 		document.getElementById("info").innerHTML=year + "-" + month + "-" + day;
@@ -307,8 +325,11 @@
 		}
 	}
 	
+
 </script>
 </head>
+
+
 <body>
 	<div class="div_big">
 		<div class="div_big2">
@@ -319,7 +340,7 @@
 					<br />
 					<li><b><a href="mentor.jsp">指导员</a></b></li>
 					<br />
-					<li><b><a href="curriculum.jsp">CLASS</a></b></li>
+					<li><b><a href="	">CLASS</a></b></li>
 					<br />
 					<li><a href="">视频</a></li>
 					<br />
@@ -343,6 +364,40 @@
 					<iframe width="300" scrolling="no" height="25" frameborder="0"allowtransparency="true"
 											src="http://i.tianqi.com/index.php？c=code&id=10&icon=1&site=12">
 					</iframe>
+				</div>
+				<div id="table" class="list-div" id="listDiv">
+				   <table  width="100%" height="100%" >
+				     <tr>
+				       <td></td>
+				       <td >时间</td>
+				       <td>内容</td>
+				       <td>老师</td>
+				     </tr>
+				     <tr>
+				       <td rowspan="2" >上午</td> 
+				       <td>8:00~10:00</td>
+				       <td>老师</td>
+				       <td>老师</td>
+				     </tr>
+				     <tr>
+                       <td>10:00~12:00</td>
+				       <td>内容</td>
+				       <td>老师</td>
+				     </tr>
+				     <tr height="10px"></tr>
+				     <tr>
+				        <td rowspan="2" >下午</td> 
+				        <td>14:00~15:00</td>
+				       <td>内容</td>
+				       <td>老师</td>
+				     </tr>
+				     <tr>
+				       <td>15:00~16:00</td>
+				       <td>内容</td>
+				       <td>老师</td>
+				     </tr>
+				
+				   </table>
 				</div>
 			</div>
 			<div class="div_bottom">

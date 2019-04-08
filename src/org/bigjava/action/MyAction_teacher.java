@@ -39,7 +39,7 @@ public class MyAction_teacher extends ActionSupport{
 			}else {
 				System.out.println("page为空");
 			}
-			int pageSize=1;
+			int pageSize=4;
 			int totalCount = teacherMapperBiz.findCount_teacher();
 			Page page=new Page(pageNo,pageSize,totalCount);
 			List<Teacher> list=teacherMapperBiz.findPage_teacher(page);
