@@ -3,6 +3,7 @@ package org.bigjava.dao;
 import java.util.List;
 
 import org.bigjava.action.tool.Page;
+import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
@@ -16,12 +17,13 @@ public interface PublicMapper {
 
 	public User findUserById(User user) throws  Exception;                    //通过id查询User
 
-	public Teacher findTeacherById(Teacher teacher);                          //通过id查询老师
-
-	public Student findStudentById(Student student);                          //通过id查询学生
-
 	public int findNewsAll();										  		  //查询new总条数
 
 	public List<User> findNews(Page page);									  //分页查询news
 
+	public Student login_student(Student student1);								//登陆时校验是否是学生
+
+	public Teacher login_teacher(Teacher teacher);								//登陆时校验是否是老师
+
+	public Management login_admin(Management management);								//登陆时校验是否是管理员
 }

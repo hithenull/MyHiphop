@@ -18,11 +18,11 @@ public class ImageUtil {
 		String imgsrc = null;
 		try {
 			imgsrc = directory.getCanonicalPath()+"\\WebContent\\images\\"+imageName;	//项目路径+""
-			System.out.println(imgsrc);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			System.out.println(imgsrc);
 			return imgsrc;
 		}
 		
@@ -39,7 +39,7 @@ public class ImageUtil {
 		String image = getImgSrc(imageName);
 		FileInputStream in =  new FileInputStream(imageSrc);
 		FileOutputStream outputStream = new FileOutputStream(image);
-		    
+		   System.out.println(image);
 		byte [] b = new byte[in.available()];   
 		while (in.read(b)!=-1) {
 		        outputStream.write(b);

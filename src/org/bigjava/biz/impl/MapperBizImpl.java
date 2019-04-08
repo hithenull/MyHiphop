@@ -10,6 +10,7 @@ import org.bigjava.dao.AdminMapper;
 import org.bigjava.dao.Mapper;
 import org.bigjava.dao.PublicMapper;
 import org.bigjava.dao.TeacherMapper;
+import org.bigjava.entitys.Management;
 import org.bigjava.entitys.News;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.User;
@@ -23,7 +24,6 @@ import org.bigjava.entitys.Teacher;
 public class MapperBizImpl implements MapperBiz {
 
 	private PublicMapper publicMapper;
-	
 
 	public void setPublicMapper(PublicMapper publicMapper) {
 		this.publicMapper = publicMapper;
@@ -59,23 +59,6 @@ public class MapperBizImpl implements MapperBiz {
 		// TODO Auto-generated method stub
 		
 	}
-	public boolean findStudentById(Student student) throws Exception{
-	    
-	     if(student!=null) {
-	    	publicMapper.findStudentById(student);
-	    	return true;
-	     }else {
-	    	return false;
-	     }
-	 }
-	 public boolean findTeacherById(Teacher teacher) throws Exception{
-		    if(teacher!=null) {
-		    	publicMapper.findTeacherById(teacher);
-		    	return true;
-		     }else {
-		    	return false;
-		     }
-		 }
 
 
 	@Override
@@ -90,6 +73,38 @@ public class MapperBizImpl implements MapperBiz {
 	public List<User> findNews(Page page) {
 		// TODO Auto-generated method stub
 		return publicMapper.findNews(page);
+	}
+
+
+	@Override
+	public boolean login_student(Student student1) {
+		// TODO Auto-generated method stub
+		if(publicMapper.login_student(student1)==null) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+
+	@Override
+	public boolean login_teacher(Teacher teacher) {
+		// TODO Auto-generated method stub
+		if(publicMapper.login_teacher(teacher)==null) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+
+
+	@Override
+	public boolean login_admin(Management management) {
+		// TODO Auto-generated method stub
+		if(publicMapper.login_admin(management)==null) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 

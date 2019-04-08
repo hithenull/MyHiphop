@@ -8,6 +8,7 @@ import org.apache.struts2.ServletActionContext;
 import org.bigjava.action.tool.ImageUtil;
 import org.bigjava.action.tool.Page;
 import org.bigjava.biz.MapperBiz;
+import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
@@ -19,11 +20,24 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	
 	private User user;
 	private MapperBiz mapperBiz;	//注入mapperBiz
-	private String name;
-	private String password;
 	private String jobapplication;
 	private Page page;
+	private Student student1=new Student();
+	private String loginname;
+	private String loginpassword;
 	
+	public String getLoginname() {
+		return loginname;
+	}
+	public void setLoginname(String loginname) {
+		this.loginname = loginname;
+	}
+	public String getLoginpassword() {
+		return loginpassword;
+	}
+	public void setLoginpassword(String loginpassword) {
+		this.loginpassword = loginpassword;
+	}
 	public Page getPage() {
 		return page;
 	}
@@ -36,22 +50,9 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	public void setJobapplication(String jobapplication) {
 		this.jobapplication = jobapplication;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public void setMapperBiz(MapperBiz mapperBiz) {
 		this.mapperBiz = mapperBiz;
 	}
-	private Student student1=new Student();
 	
 	public User getUser() {
 		return user;
@@ -86,10 +87,11 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	}
 	
 	public String register() throws Exception{
+		System.out.println(user.getUsersex());
 		System.out.println(jobapplication);
 		user.setJobapplication(user.getJobapplication()+","+jobapplication);
 		ImageUtil i = new ImageUtil();
-		user.setImagesrc(i.copyImage("", user.getUsername()+"jpg"));
+		user.setImagesrc(i.copyImage(user.getImagesrc(), user.getUsername()+".jpg"));
 		System.out.println(user);
 		 if(user!=null){
 	            mapperBiz.insertUser(user);
@@ -103,23 +105,25 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	}
     public String login() throws Exception{
         
-    	if(name.equals("")&&password.equals("")) {
-    		Student student=new Student();
-        	student.setStudentName(name);
-        	student.setPassword(password);
-        	Teacher teacher=new Teacher();
-        	teacher.setTeacherName(name);
-        	teacher.setTeacherPassword(password);	
-        	if(mapperBiz.findStudentById(student)) {
-        		
-        		return "success";
-            }else if(mapperBiz.findTeacherById(teacher)) {
-            	
-            	return "error";
-          
-               }
-    	  }
-		return "input";
+    	student1.setStudentNumber(loginname);
+    	student1.setPassword(loginpassword);
+    	Teacher teacher = new Teacher();
+    	teacher.setTeacherNumber(loginname);
+    	teacher.setTeacherPassword(loginpassword);
+    	Management management = new Management();
+    	management.setAccount(loginname);
+    	management.setPassword(loginpassword);
+    	
+    	if(mapperBiz.login_student(student1)) {
+    		return SUCCESS;
+    	}else if(mapperBiz.login_teacher(teacher)) {
+    		return SUCCESS;
+    	}else if(mapperBiz.login_admin(management)){
+    		return SUCCESS;
+    	}else {
+    		return ERROR;
+    	}
+    	
      }
     /**
      * 	新闻页面显示新闻

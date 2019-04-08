@@ -258,10 +258,9 @@ a {
 	}
 </script>
 </head>
-<body oncontextmenu='return false' ondragstart='return false'
-	onselectstart='return false' onselect='document.selection.empty()'
-	oncopy='document.selection.empty()' onbeforecopy='return false'
-	onmouseup='document.selection.empty()'>
+<body oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()'
+	oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+	
 	<img class="logobai" src="imgs/logobai.png" />
 	<font class="mydance" size="20"> <span>M</span>Y <span>D</span>ANCE
 	</font>
@@ -271,11 +270,15 @@ a {
 		<form id="submit_form" name="submit_form" method="post"
 			action="public_register">
 
-			<img class="person" src="imgs/person.png" /> <img class="phone"
-				src="imgs/phone.png" /> <img class="lock" src="imgs/lock.png" /> <input
-				type="radio" name="sex" value="男" checked="checked" />男
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="sex"
-				value="女" />女<br /> 姓 &nbsp;&nbsp;名：<input type="text"
+			<img class="person" src="imgs/person.png" /> 
+			<img class="phone" src="imgs/phone.png" /> 
+			<img class="lock" src="imgs/lock.png" /> 
+			
+			<input type="radio" name="user.usersex" value="男" checked="checked" />男
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<input type="radio" name="user.usersex" value="女" />女
+			
+			<br /> 姓 &nbsp;&nbsp;名：<input type="text"
 				name="user.username" id="name" placeholder="name*" /><br /> 职
 			&nbsp;&nbsp;业：<select onChange="changeselect1(this.value)"
 				name="user.jobapplication">
@@ -289,18 +292,18 @@ a {
 				pattern="[0-9]{11}" onchange='check()' />
 
 			<button class="yzm" type="submit">获取验证码</button>
-			<br /> 验证码：<input type="text" name="verification code"
-				placeholder="verification code" /><br /> <font class="tx">头 &nbsp;&nbsp;像：</font><span class="span"> 
-<input name="" type="text" id="viewfile" placeholder="head portrait" 
- onmouseout="document.getElementById('upload').style.display='none';"
- class="inputstyle" /> 
-</span> 
-<label for="unload"
- onmouseover="document.getElementById('upload').style.display='block';"
- class="file1">浏览...</label> 
-<input type="file"
- onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"
- class="file" id="upload" /> 
+			<br /> 验证码：<input type="text" name="verification code" placeholder="verification code" /><br /> 
+			
+				<font class="tx">头 &nbsp;&nbsp;像：</font>
+				<span class="span"> 
+				
+				<input name="user.imagesrc" type="text" id="viewfile" placeholder="head portrait" onmouseout="document.getElementById('upload').style.display='none';"
+				 			class="inputstyle" /> 
+				</span> 
+				<label for="unload" onmouseover="document.getElementById('upload').style.display='block';" class="file1">浏览...</label> 
+				
+				<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"
+				 			class="file" id="upload" /> 
 			
 			<button class="btn" type="submit">submit</button>
 		</form>

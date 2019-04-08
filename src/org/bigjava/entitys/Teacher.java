@@ -11,6 +11,7 @@ public class Teacher {
 	private String teacherNumber;        //老师编号
 	private String teacherPassword;      //老师密码
 	private String timg_src;             //老师图片路径
+	
 	public int getTeacher_id() {
 		return teacher_id;
 	}
