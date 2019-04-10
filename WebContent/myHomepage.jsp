@@ -144,7 +144,7 @@ ul li {
 
 .gyw {
 	position: absolute;
-	top: 1050px;
+	top: 950px;
 	left: 700px;
 }
 

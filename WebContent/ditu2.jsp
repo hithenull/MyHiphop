@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<title>展示公交换乘的结果面板</title>
+	<title>地图导航</title>
 	<style type="text/css">
 		#l-map{
 			height:450px;width:1210px;
