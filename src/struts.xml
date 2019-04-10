@@ -96,7 +96,7 @@
          	<result name="success">/findUserWait.jsp</result>
          </action>
          <action name="admin_findTeacher" class="org.bigjava.action.MyAction_admin" method="findTeacher">
-         	<result name="success">/findTeacher.jsp</result>
+         	<result name="success">/teacherfeye.jsp</result>
          </action>
 
 	</package>

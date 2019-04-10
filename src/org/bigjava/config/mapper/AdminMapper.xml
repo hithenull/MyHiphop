@@ -23,7 +23,7 @@
 			select count(user_id) from User where jobapplication='teacher' and applicationstatus='未通过'
 		</select>
 		
-		<select id="findTeacherCont">
+		<select id="findTeacherCount" resultType="int">
 			select count(teacher_id) from teacher
 		</select>
 		

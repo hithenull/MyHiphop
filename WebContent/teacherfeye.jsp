@@ -116,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    &nbsp;&nbsp;性别:${i.teacherSex}<br />
                    &nbsp;&nbsp;电话:${i.phone}<br />
 	               &nbsp;&nbsp;职称:${i.professional}<br />
-	                  <div class="d111"></div><br /><br /><br /><br /><br />
+	                  <div class="d111"><img alt="" src="${i.timg_src}" width="100px";></div><br /><br /><br /><br /><br />
 	                  <input type="submit" value="通过"  style="height:30px;width:100px;"><input type="submit" style="height:30px;width:100px;" value="未通过">
 	             </div>
 	           </td>
@@ -138,7 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <li id="pagePrevious" class="previous">
             <c:choose>
                <c:when test="${page.pageno>1}">
-                  <a href="teacher_findPage_teacher?page.pageno=${page.pageno-1 }">←</a>&nbsp;
+                  <a href="admin_findTeacher?page.pageno=${page.pageno-1 }">←</a>&nbsp;
                </c:when>
                <c:otherwise>
                   <a href="javascript:alert('已经是第一页了！');">上一页</a>&nbsp;
@@ -149,7 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <li id="pageNext" class="next">
            <c:choose>
                <c:when test="${page.pageno<page.totalpage}">
-                  <a href="teacher_findPage_teacher?page.pageno=${page.pageno+1 }">←</a>&nbsp;
+                  <a href="admin_findTeacher?page.pageno=${page.pageno+1 }">←</a>&nbsp;
                </c:when>
                <c:otherwise>
                     <a href="javascript:alert('已经是最后一页了！');">←</a>&nbsp;

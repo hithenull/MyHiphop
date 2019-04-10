@@ -164,7 +164,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 			}else {
 				System.out.println("page为空");
 			}
-			int pageSize=1;
+			int pageSize=6;
 			int totalCount = adminMapperBiz.findTeacherCount();
 			Page page=new Page(pageNo,pageSize,totalCount);
 			List<User> list= adminMapperBiz.findTeacher(page);
