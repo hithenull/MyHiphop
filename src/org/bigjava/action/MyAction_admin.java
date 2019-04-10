@@ -16,7 +16,6 @@ import org.bigjava.entitys.DanceClass;
 
 import org.bigjava.entitys.News;
 import org.bigjava.entitys.SchoolInformation;
-import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -31,14 +30,9 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	private Management management;
 	private AllUserTool allUserTool;
    
-	
-
 	public void setAllUserTool(AllUserTool allUserTool) {
 		this.allUserTool = allUserTool;
 	}
-
-
-
 	public Management getManagement() {
 		return management;
 	}
@@ -56,7 +50,6 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	public void setdClass(DanceClass dClass) {
 		this.dClass = dClass;
 	}
-
 	private SchoolInformation schoolIf = new SchoolInformation();
 	
 	public void setSchoolIf(SchoolInformation schoolIf) {

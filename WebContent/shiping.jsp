@@ -23,7 +23,7 @@
 
 <section class="demo-section demo-section--light" id="demo">
 	<div class="container">
-		<h2 class="title heading">Custom HTML5 Video Player with Ckins...</h2>
+		<h2 class="title heading">舞蹈视频播放界面</h2>
 		
 		
 		<video poster="images/ckin.jpg" src="images/11.MP4" data-ckin="default" data-overlay="1" data-title="The curious case of Chameleon..."></video>
@@ -42,23 +42,23 @@
 		<ul class="demo-list">
 			<li class="demo-list__item">
 				<p>Default Ckin without overlay</p>
-				<video poster="images/ckin.jpg" src="images/ckin.mp4" data-ckin="default"></video>
+				<video poster="images/ckin.jpg" src="images/22.MP4" data-ckin="default"></video>
 			</li>
 			<li class="demo-list__item">
 				<p>Minimal Ckin with overlay</p>
-				<video poster="images/ckin.jpg" src="images/22.mp4" data-ckin="minimal" data-overlay="1"></video>
+				<video poster="images/ckin.jpg" src="images/33.MP4" data-ckin="minimal" data-overlay="1"></video>
 			</li>
 			<li class="demo-list__item">
 				<p>Compact Ckin with overlay</p>
-				<video poster="images/ckin.jpg" src="images/ckin.mp4" data-ckin="compact" data-overlay="2"></video>
+				<video poster="images/ckin.jpg" src="images/44.MP4" data-ckin="compact" data-overlay="2"></video>
 			</li>
 			<li class="demo-list__item">
 				<p>Compact Ckin with custom color</p>
 				<video poster="c" src="images/ckin.mp4" data-color="#fff000" data-ckin="compact" data-overlay="2"></video>
 			</li>
 			<li class="demo-list__item">
-				<img src="images/logo.png" class="nav__logo" alt="Ckin">
-				<h2 class="coming-soon">More ckins coming soon...</h2>
+				
+				<h2 class="coming-soon">舞蹈视频播放</h2>
 			</li>
 		</ul>
 	</div>
@@ -67,9 +67,5 @@
 <script src="js/ckin.js"></script>
 
 
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
-<p>来源：<a href="http://www.lanrenzhijia.com/" target="_blank">懒人</a></p>
-</div>
 </body>
 </html>

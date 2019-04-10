@@ -41,15 +41,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		   $('#login_phone').on('input propertychange',function(){
 			   var username = $('#login_phone').val();
-			   if(username.length<5){
-				   $('#span_use').text("输入错误");
-			   }else{
-				   $('#span_use').text("");
+			   var firstChar=username.substr(0,1);
+			   if(!/^[a-zA-Z]*$/.test(firstChar)){
+				   $('#span_use').text("第一个应该为字母");
+				   return false;
 			   }
+			   if(username.length<5){
+				   $('#span_use').text("输入不能少于五位");
+				   return false;
+			   }
+			  if(username.length>7){
+				   $('#span_use').text("输入超过七位");
+				   return false;
+			   }
+			  return true;
 		   });
 
 		 });
+		$(function(){
 
+			   $('#login_password').on('input propertychange',function(){
+				   var password = $('#login_password').val();
+				   if(password.length==0){
+					   $('#span_pas').text("密码为空");
+					   return false;
+				   }
+				   return true;
+			   });
+              
+			 });
 	</script>
     
 </head>
@@ -69,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<span id="span_use"></span>
 					</div>
 					<div class="login_passda">
-						<input type="password" name="loginpassword" id="login_password" >
+						<input type="password" name="loginpassword" id="login_password" ><br/>
 						<span id="span_pas"></span>
 					</div>
 					<div class="button-row">

@@ -124,7 +124,7 @@
 	.ziti {
 		position: absolute;
 		top: 350px;
-		left: 650px;
+		left: 680px;
 		font-size: 60px;
 	}
 	
@@ -329,7 +329,7 @@
 				</ul>
 				<hr class="hr1" />
 				<div class="ziti">
-					<b>指导员</b>
+					<b>课程</b>
 				</div>
 			</div>
 			<div class="div_middle">

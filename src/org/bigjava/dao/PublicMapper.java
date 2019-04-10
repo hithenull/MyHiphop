@@ -1,5 +1,9 @@
 package org.bigjava.dao;
 
+import java.util.List;
+
+import org.bigjava.action.tool.Page;
+import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
@@ -7,13 +11,19 @@ import org.bigjava.entitys.User;
 public interface PublicMapper {
 	public void add(Student student)throws Exception;
 	
-    public void insertUser(User user) throws Exception;                        //Ìí¼ÓÓÃ»§
+    public void insertUser(User user) throws Exception;                        //æ·»åŠ å­¦ç”Ÿ
 	
-	public void updateUser(User user) throws Exception;                       //ÓÃ»§ĞŞ¸Ä
+	public void updateUser(User user) throws Exception;                       //æŸ¥è¯¢User
 
-	public User findUserById(User user) throws  Exception;                    //¸ù¾İID²éÑ¯ÓÃ»§
+	public User findUserById(User user) throws  Exception;                    //é€šè¿‡idæŸ¥è¯¢User
 
-	public Teacher findTeacherById(Teacher teacher);                          //¸ù¾İID²éÑ¯ÀÏÊ¦
+	public int findNewsAll();										  		  //æŸ¥è¯¢newæ€»æ¡æ•°
 
-	public Student findStudentById(Student student);                          //¸ù¾İID²éÑ¯Ñ§Éú
+	public List<User> findNews(Page page);									  //åˆ†é¡µæŸ¥è¯¢news
+
+	public Student login_student(Student student1);								//ç™»é™†æ—¶æ ¡éªŒæ˜¯å¦æ˜¯å­¦ç”Ÿ
+
+	public Teacher login_teacher(Teacher teacher);								//ç™»é™†æ—¶æ ¡éªŒæ˜¯å¦æ˜¯è€å¸ˆ
+
+	public Management login_admin(Management management);								//ç™»é™†æ—¶æ ¡éªŒæ˜¯å¦æ˜¯ç®¡ç†å‘˜
 }

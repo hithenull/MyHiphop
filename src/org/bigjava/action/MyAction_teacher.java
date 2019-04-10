@@ -1,5 +1,6 @@
 package org.bigjava.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ public class MyAction_teacher extends ActionSupport{
 	
 	private Page page;
 	private TeacherMapperBiz teacherMapperBiz; //注入teacherMapperBiz
+	List<Teacher> list = new ArrayList<Teacher>();
 	
 	public Page getPage() {
 		return page;
@@ -30,30 +32,41 @@ public class MyAction_teacher extends ActionSupport{
 	 
 	 
 
-	public String findPage_teacher() {
-		 System.out.println("findPage_teacher");
-			int pageNo=1;
-			if(page!= null) {
-				System.out.println("page不为空");
-				pageNo=page.getPageno();
-			}else {
-				System.out.println("page为空");
-			}
-			int pageSize=1;
-			int totalCount = teacherMapperBiz.findCount_teacher();
-			Page page=new Page(pageNo,pageSize,totalCount);
-			List<Teacher> list=teacherMapperBiz.findPage_teacher(page);
-		  if(list!=null){
-			  System.out.println("list不为空");
-	             HttpServletRequest request=ServletActionContext.getRequest();
-	             request.setAttribute("list", list);
-	             request.setAttribute("page", page);
-	             return SUCCESS;
-	         }else{
-	             return ERROR;
-	         }
-	  }
+
+	public List<Teacher> getList() {
+		return list;
+	}
+
+	public void setList(List<Teacher> list) {
+		this.list = list;
+	}
 	  
 
-	
+	/**
+	 * 分页查询老师，并在指导员页面显示
+	 * @return
+	 */
+	public String findPage_teacher() {
+		System.out.println("findPage_teacher");
+		int pageNo=1;
+		if(page!= null) {
+			System.out.println("page不为空");
+			pageNo=page.getPageno();
+		}else {
+			System.out.println("page为空");
+		}
+		int pageSize=3;
+		int totalCount = teacherMapperBiz.findCount_teacher();
+		Page page=new Page(pageNo,pageSize,totalCount);
+		list=teacherMapperBiz.findPage_teacher(page);
+		if(list!=null){
+			System.out.println("list不为空");
+			HttpServletRequest request=ServletActionContext.getRequest();
+			request.getSession().setAttribute("list", list);
+			request.getSession().setAttribute("page", page);
+			return SUCCESS;
+		}else{
+			return ERROR;
+		}
+	}
 }

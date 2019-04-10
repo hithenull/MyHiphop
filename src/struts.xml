@@ -26,10 +26,13 @@
 		</action>
 		
 		  <action name="public_login" class="org.bigjava.action.MyAction_public" method="login">
-          <result name="input">login.jsp</result>
-          <result name="success">success.jsp</result>
-          <result name="error">error.jsp</result>      
+          <result name="success">myHomepage.jsp</result>
+          <result name="error">login.jsp</result>      
        </action>
+       
+       <action name="public_showNews" class="org.bigjava.action.MyAction_public" method="showNews">
+			<result name="success">/xinwen.jsp</result>
+		</action>
 		  
 	</package> 
 	
@@ -43,14 +46,12 @@
 				映射的class:	org.bigjava.action.MyAction_teacher
 				method:	teacher_*** 
 		 -->
-		<action name="teacher_findPage_teacher" class="org.bigjava.action.MyAction_teacher" method="findPage_teacher">
-			<result name="success">/find.jsp</result>
+		<action name="teacher_findteacher" class="org.bigjava.action.MyAction_teacher" method="findPage_teacher">
+			<result type="redirect" name="success">/tupianyidong.jsp</result>
 		</action>
 
-	
 	</package>
-	
-	
+
 	
 	
 	<!-- 这里添加管理员的action(即管理员享有的功能){基本：查询所有学员}  其他 -->
@@ -84,7 +85,6 @@
          <action name="admin_adminupdate1" class="org.bigjava.action.MyAction_admin" method="adminupdate1">
          	<result name="success">/findAdmin.jsp</result>
          </action>
-         
 
          <action name="admin_findUserWait" class="org.bigjava.action.MyAction_admin" method="findUserWait">
          	<result name="success">/findUserWait.jsp</result>
@@ -92,8 +92,6 @@
          <action name="admin_findTeacher" class="org.bigjava.action.MyAction_admin" method="findTeacher">
          	<result name="success">/findTeacher.jsp</result>
          </action>
-         
-       
 
 	</package>
 	
