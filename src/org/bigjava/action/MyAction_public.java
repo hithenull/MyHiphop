@@ -91,11 +91,10 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	 * @throws Exception
 	 */
 	public String register() throws Exception{
-		System.out.println(user.getUsersex());
-		System.out.println(jobapplication);
 		user.setJobapplication(user.getJobapplication()+","+jobapplication);
 		ImageUtil i = new ImageUtil();
-		user.setImagesrc(i.copyImage(user.getImagesrc(), user.getUsername()+".jpg"));
+		String[] arr = user.getImagesrc().split("\\\\");
+		user.setImagesrc(i.copyImage("C:\\Users\\yclyc\\Desktop\\teacher\\"+arr[2], user.getUsername()+".jpg"));
 		System.out.println(user);
 		 if(user!=null){
 	            mapperBiz.insertUser(user);

@@ -22,10 +22,11 @@
 				method: public_***
 		 -->
 		<action name="public_register" class="org.bigjava.action.MyAction_public" method="register">
-			<result name="success">/index.jsp</result>
+			<result name="success">/home.jsp</result>
+			<result name="error">/home.jsp</result>
 		</action>
 		
-		  <action name="public_login" class="org.bigjava.action.MyAction_public" method="login">
+		<action name="public_login" class="org.bigjava.action.MyAction_public" method="login">
           <result name="success">myHomepage.jsp</result>
           <result name="error">login.jsp</result> 
           <result name="admin">myHomepage.jsp</result>     

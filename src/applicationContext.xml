@@ -45,7 +45,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/educational?useUnicode=true&amp;characterEncoding=utf-8"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="1008611"></property>
+		<property name="password" value="root"></property>
 	</bean>
 	<!-- 配置SQLSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

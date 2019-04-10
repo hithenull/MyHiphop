@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class ImageUtil {
 	
+	String imgsrc="";
 	
 	/**
 	 * 获得项目路径并追加路径
@@ -14,23 +15,21 @@ public class ImageUtil {
 	 * @return
 	 */
 	public String getImgSrc(String imageName) {
-		File directory = new File("");	// 参数为空
-		String imgsrc = null;
+		
 		try {
-			imgsrc = directory.getCanonicalPath()+"\\WebContent\\images\\"+imageName;	//项目路径+""
-		} catch (IOException e) {
+			imgsrc = getPath()+"images\\"+imageName;			//项目路径+""
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-			System.out.println(imgsrc);
 			return imgsrc;
 		}
 		
 	}
 	/**
 	 * 把图片保存到项目路径的images目录下
-	 * @param imageSrc
-	 * @param imageName
+	 * @param imageSrc		图片的名字
+	 * @param imageName		图片的路径
 	 * @return 
 	 * @throws Exception
 	 */
@@ -49,7 +48,17 @@ public class ImageUtil {
 		outputStream.close();
 		in.close();
 		    
-		return image;
+		return "images\\"+imageName;
 	}
 	
+	
+	public String getPath() {
+		String rootPath=getClass().getResource("\\").getFile().toString(); 
+		String[] arr = rootPath.split("/");
+		for(int i=1;i<arr.length-6;i++) {
+			imgsrc = imgsrc + arr[i]+"\\";
+		}
+		System.out.println(imgsrc);
+		return imgsrc;
+	}
 }

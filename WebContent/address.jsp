@@ -8,27 +8,48 @@
 <title>百度地图API自定义地图</title>
 
 	<script>
-	function coursePptChange(){
-		  var MyTest = document.getElementById("pptPic").files[0];
-		  var reader = new FileReader();
-		  reader.readAsDataURL(MyTest);
-		  reader.onload = function(theFile) {
-		  var image = new Image();
-		  image.src = theFile.target.result;
-		  image.onload = function(){
-		  if(this.width > 2208 || this.height >1242){
-		  $.messager.alert("系统提示信息","ppt图片的最大宽度为 2208 像素，最大高度为 1242 像素！","info");
-		   $("#pptPic").val("");
-		  return false;
-		 }
-		 };
-		 };
-		}
+	function getImgURL(node) {
+
+	    var imgURL = "";
+	    try{
+	        var file = null;
+	        if(node.files && node.files[0] ){
+	            file = node.files[0];
+	        }else if(node.files && node.files.item(0)) {
+	            file = node.files.item(0);
+	        }
+	        //Firefox 因安全性问题已无法直接通过input[file].value 获取完整的文件路径
+	        try{
+	            //Firefox7.0
+	            imgURL =  file.getAsDataURL();
+	            //alert("//Firefox7.0"+imgRUL);
+	        }catch(e){
+	            //Firefox8.0以上
+	            imgURL = window.URL.createObjectURL(file);
+	            //alert("//Firefox8.0以上"+imgRUL);
+	        }
+	    }catch(e){      //这里不知道怎么处理了，如果是遨游的话会报这个异常
+	        //支持html5的浏览器,比如高版本的firefox、chrome、ie10
+	        if (node.files && node.files[0]) {
+	            var reader = new FileReader();
+	            reader.onload = function (e) {
+	                imgURL = e.target.result;
+	            };
+	            reader.readAsDataURL(node.files[0]);
+	        }
+	    }
+	    return imgURL;
+	}
+	
+	function getPath(){
+		var a = document.getElementById("aptitude");
+		alert(getImgURL(a));
+	}
 	</script>
 	
 </head>
 
 <body>
-	<input type="file" id="editPptPic" name="pptPic" style="width:200px;" onchange="coursePptChange()"/>
+	<input type="file" id="aptitude" onchange="getPath()" />
 </body>
 </html>
