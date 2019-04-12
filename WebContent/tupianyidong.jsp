@@ -15,7 +15,7 @@
 
 
 <body>
-<div id="wrap">
+<div id="wrap" >
   <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
 	<div class="c">
 	  <img src="images/yujing.jpg" style="width:300px;height:450px;">

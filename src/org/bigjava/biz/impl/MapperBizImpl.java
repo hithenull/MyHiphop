@@ -77,34 +77,25 @@ public class MapperBizImpl implements MapperBiz {
 
 
 	@Override
-	public boolean login_student(Student student1) {
+	public Student login_student(Student student1) {
 		// TODO Auto-generated method stub
-		if(publicMapper.login_student(student1)==null) {
-			return false;
-		}else {
-			return true;
-		}
+		return publicMapper.login_student(student1);
+		
 	}
 
 	@Override
-	public boolean login_teacher(Teacher teacher) {
+	public Teacher login_teacher(Teacher teacher) {
 		// TODO Auto-generated method stub
-		if(publicMapper.login_teacher(teacher)==null) {
-			return false;
-		}else {
-			return true;
-		}
+		return publicMapper.login_teacher(teacher);
+		
 	}
 
 
 	@Override
-	public boolean login_admin(Management management) {
+	public Management login_admin(Management management) {
 		// TODO Auto-generated method stub
-		if(publicMapper.login_admin(management)==null) {
-			return false;
-		}else {
-			return true;
-		}
+		return publicMapper.login_admin(management);
+		
 	}
 
 
