@@ -7,6 +7,7 @@
 <title>蚂蚁街舞官网</title>
 <link rel="stylesheet" type="text/css" href="css/simple-calendar.css">
 <style>
+    
 	* {
 		padding: 0px;
 		margin: 0px;
@@ -39,8 +40,25 @@
 	.div_middle {
 		width: 100%;
 		height: 970px;
+		background: url(imgs/kebiao.jpg) no-repeat;
+		background-size: 100% 100%;
 		background-color:white;
-		color:black;
+		color:white	;
+	
+	}
+	.tb{
+	  
+	   width: 1200px;
+	   height: 450px;
+	   margin-left:200px;
+	   margin-top: 230px;
+	}
+	tr:hover{
+	  color:red;
+	}
+	table{
+	  text-align: center;
+	  	
 	}
 	
 	.div_bottom {
@@ -344,6 +362,46 @@
 											src="http://i.tianqi.com/index.php？c=code&id=10&icon=1&site=12">
 					</iframe>
 				</div>
+				   <div class="tb">
+				     <table  border=1px; width=100%; height=100%;>
+				       <tr>
+				         <td></td>
+				         <td>时间</td>
+				         <td>老师</td>
+				         <td>内容</td>
+				         <td>教室</td>
+				       </tr>
+				       <tr>
+				         <td rowspan="2">上午</td>
+				         <td>8:00~10:00</td>
+				         <td>3</td>
+				         <td>4</td>
+				         <td>5</td>
+				       </tr>
+				       <tr>
+				         <td>10:20~12:00</td>
+				         <td>3</td>
+				         <td>4</td>
+				         <td>5</td>
+				       </tr>
+				       
+				       
+				       <tr>
+				         <td rowspan="2">下午</td>
+				         <td>14:00~15:30</td>
+				         <td>3</td>
+				         <td>4</td>
+				         <td>5</td>
+				       </tr>
+				       <tr>
+				         <td>15:40~17:00</td>
+				         <td>3</td>
+				         <td>4</td>
+				         <td>5</td>
+				       </tr>
+				     </table>
+				   </div>
+				
 			</div>
 			<div class="div_bottom">
 				<img class="logowei" src="imgs/logowei.png" />
