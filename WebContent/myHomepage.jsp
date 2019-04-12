@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -228,7 +229,8 @@ hr{
 			<span class="gyw">关于我</span>
 			<hr />
 			<div class="picture" id="demo">
-				<img src="imgs/1.jpg" onmouseover="xuanzhuan()" />
+				<c:if test="${requestScope.student == null}"><img src="${requestScope.teacher.timg_src}" onmouseover="xuanzhuan()" /></c:if>
+				<c:if test="${requestScope.teacher == null}"><img src="${requestScope.student.simg_src}" onmouseover="xuanzhuan()" /></c:if>
 			</div>
 			<div class="div_all">
 				<a><div class="div_1">个人资料</div></a>
@@ -259,7 +261,6 @@ hr{
 			
 			var a = $("#student").val();
 			var b = $("#teacher").val();
-			
 			if(a!=null){
 				$(".div_5").hide();
 				$(".div_7").hide();
