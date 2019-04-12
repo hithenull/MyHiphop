@@ -60,7 +60,6 @@
 	  text-align: center;
 	  	
 	}
-	
 	.div_bottom {
 		text-align: center;
 		width: 100%;
