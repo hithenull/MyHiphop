@@ -44,7 +44,7 @@
 		}
 		#allDiv{
 			width: 1000px;
-            height: 900px;
+            height: 950px;
             border: 1px solid #eeecec;
             margin:60px 244px;
             background-color:#f5f3f3;
@@ -80,7 +80,7 @@
 					<td><a href="#">链接1</a></td>
 					<td><a href="#">链接1</a></td>
 					<td><a href="#">链接1</a></td>
-					<td><a href="#">链接1</a></td>
+					<td><a href="home.jsp">返回主页</a></td>
 				</tr>
 			</table>
 		</div>

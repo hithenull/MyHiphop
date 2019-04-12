@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@ body {
 	height: 160px;
 	border-radius: 80px;
 	position: absolute;
-	top: 1200px;
+	top: 1000px;
 	left: 670px;
 }
 
@@ -144,7 +145,7 @@ ul li {
 
 .gyw {
 	position: absolute;
-	top: 950px;
+	top: 920px;
 	left: 700px;
 }
 
@@ -188,6 +189,24 @@ ul li {
 	color: white;
 	font-size: 15;
 }
+hr{
+	margin:-20px 0px;
+}
+.div_all{
+	width:930px;height:500px;
+	margin:280px 300px;
+}
+.div_all div{
+	width:290px;height:240px;
+	border:1px solid red;
+	margin:5px 5px;
+	float:left;	
+	border-radius: 45px;
+	
+}
+.div_all div: hover{
+	box-shadow: 0 10px 10px 0 rgba(0,0,0,0.10),0 10px 10px 0 rgba(0,0,0,0.10);
+}
 </style>
 </head>
 <body oncontextmenu='return false' ondragstart='return false'
@@ -198,7 +217,7 @@ ul li {
 		<div class="top" id="container">
 			<h1>个人中心</h1>
 			<hr />
-			<font size="5"><a href="">资料</a>·<a href="">官网</a>·<a href="">修改资料</a></font>
+			<font size="5"><a href="">资料</a>·<a href="home.jsp">官网</a>·<a href="update.jsp">修改资料</a></font>
 			<br /> <a id="skip"><button>关于自己</button></a>
 		</div>
 		<div class="middle" id="box">
@@ -210,9 +229,22 @@ ul li {
 			<span class="gyw">关于我</span>
 			<hr />
 			<div class="picture" id="demo">
-				<img src="imgs/1.jpg" onmouseover="xuanzhuan()" />
+				<c:if test="${requestScope.student == null}"><img src="${requestScope.teacher.timg_src}" onmouseover="xuanzhuan()" /></c:if>
+				<c:if test="${requestScope.teacher == null}"><img src="${requestScope.student.simg_src}" onmouseover="xuanzhuan()" /></c:if>
 			</div>
-			<a href="home.jsp"><button>官网入口</button></a>
+			<div class="div_all">
+				<a><div class="div_1">个人资料</div></a>
+				<a href="update.jsp"><div class="div_2">修改资料</div></a>
+				<a><div class="div_3">个人课表</div></a>
+				<a><div class="div_4">班级信息</div></a>
+				<a><div class="div_5">班级学员</div></a>
+				<a href="xinwen.jsp"><div class="div_6">学校详情</div></a>
+				<a href="home.jsp"><div class="div_7">退出系统</div></a>
+				<a><div class="div_8">退出系统</div></a>
+				<input type="hidden" value="${requestScope.student}" id="student1"/>
+				<input type="hidden" value="${requestScope.teacher}" id="teacher"/>
+			</div>
+			<a href="home.jsp" class="guan"><button>官网入口</button></a>
 		</div>
 		<div class="bottom">
 			<img class="logowei" src="imgs/logowei.png" />
@@ -223,96 +255,27 @@ ul li {
 			</div>
 		</div>
 	</div>
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		//页面下滑
-		var oSkip = document.getElementById("skip");
-		var oTarget = document.getElementById("box");
-		var oTarget_Top = oTarget.offsetTop;
-		oSkip.onclick = function() {
-			starmove(oTarget_Top);
-		}
-		function starmove(top) {
-			var timer = '';
-			var speed = 1;
-			timer = setInterval(function() {
-				var t = document.documentElement.scrollTop
-						|| document.body.scrollTop;
-				if (t < top) {
-					if (document.documentElement.scrollTop) {
-						document.documentElement.scrollTop = speed;
-					} else {
-						document.body.scrollTop = speed;
-					}
-					speed += 4;
-				} else {
-					clearInterval(timer);
-				}
-			}, 10);
-
-		}
-
-		//头像转动
-		var canTransition = function() {
-			var el = document.createElement('foo');
-			el.style.cssText = '-webkit-transition: all .5s linear;';
-			return !!el.style.webkitTransitionProperty;
-		}();
-		var o = document.getElementById('demo');
-		function rotationImg() {
-			if (document.all) {
-				var i = 0, j = 0, vx = 0, vy = 0, exp = 1 / 36;
-				function run(angle) {
-					j++;
-					vx = Math.cos(angle * Math.PI / 180) * j * exp;
-					vy = Math.sin(angle * Math.PI / 180) * j * exp;
-					with (o.filters.item(0)) {
-						M11 = M22 = vx;
-						M12 = -(M21 = vy);
-						M22 = vx;
-					}
-					o.style.top = (333 - o.offsetHeight) / 2 + 'px';
-					o.style.left = (500 - o.offsetWidth) / 2 + 'px';
-				}
-				function doRotation() {
-					o.onfilterchange = doRotation;
-					i += 10;
-					if (i > 359) {
-						i = 0;
-						o.onfilterchange = null;
-					}
-					run(i);
-				}
-				doRotation();
-			} else {
-				if (canTransition) {
-					o.style.webkitTransition = '-webkit-transform 1s ease-in';
-					o.style.webkitTransform = 'rotate(360deg)';
-				}
+		$(function(){
+			
+			var a = $("#student").val();
+			var b = $("#teacher").val();
+			if(a!=null){
+				$(".div_5").hide();
+				$(".div_7").hide();
+				$(".div_4").show();
+				$(".div_6").show();
 			}
-		}
-		function xuanzhuan() {
-			rotationImg();
-			o.onclick = function() {
-				rotationImg();
+			if(b!=null){
+				$(".div_4").hide();
+				$(".div_6").hide();
+				$(".div_5").show();
+				$(".div_7").show();
+				
 			}
-		}
-		//浮框
-		window.onload = function() {
-			var oDiv = document.getElementById("fixPara"), H = 0, Y = oDiv
-			while (Y) {
-				H += Y.offsetTop;
-				Y = Y.offsetParent;
-			}
-			window.onscroll = function() {
-				var s = document.body.scrollTop
-						|| document.documentElement.scrollTop
-				if (s > H) {
-					oDiv.style = "position:fixed;top:0;"
-				} else {
-					oDiv.style = ""
-				}
-			}
-		}
+		});
+		
 	</script>
 </body>
 </html>

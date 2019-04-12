@@ -25,11 +25,11 @@ public interface MapperBiz {
 
 	public List<User> findNews(Page page);
 
-	public boolean login_student(Student student1);
+	public Student login_student(Student student1);
 
-	public boolean login_teacher(Teacher teacher);
+	public Teacher login_teacher(Teacher teacher);
 
-	public boolean login_admin(Management management);
+	public Management login_admin(Management management);
 
 }
 

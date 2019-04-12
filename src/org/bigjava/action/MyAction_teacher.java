@@ -79,6 +79,10 @@ public class MyAction_teacher extends ActionSupport{
 		}
 	}
 	
+	/**
+	 * 根据班级分页查询学生
+	 * @return
+	 */
 	public String findStudentByClass() {
 		System.out.println("findStudentByClass");
 		int pageNo=1;

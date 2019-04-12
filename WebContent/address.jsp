@@ -1,55 +1,42 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
-<meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
-<title>百度地图API自定义地图</title>
-
-	<script>
-	function getImgURL(node) {
-
-	    var imgURL = "";
-	    try{
-	        var file = null;
-	        if(node.files && node.files[0] ){
-	            file = node.files[0];
-	        }else if(node.files && node.files.item(0)) {
-	            file = node.files.item(0);
-	        }
-	        //Firefox 因安全性问题已无法直接通过input[file].value 获取完整的文件路径
-	        try{
-	            //Firefox7.0
-	            imgURL =  file.getAsDataURL();
-	            //alert("//Firefox7.0"+imgRUL);
-	        }catch(e){
-	            //Firefox8.0以上
-	            imgURL = window.URL.createObjectURL(file);
-	            //alert("//Firefox8.0以上"+imgRUL);
-	        }
-	    }catch(e){      //这里不知道怎么处理了，如果是遨游的话会报这个异常
-	        //支持html5的浏览器,比如高版本的firefox、chrome、ie10
-	        if (node.files && node.files[0]) {
-	            var reader = new FileReader();
-	            reader.onload = function (e) {
-	                imgURL = e.target.result;
-	            };
-	            reader.readAsDataURL(node.files[0]);
-	        }
-	    }
-	    return imgURL;
-	}
-	
-	function getPath(){
-		var a = document.getElementById("aptitude");
-		alert(getImgURL(a));
-	}
-	</script>
-	
+<title>自动固定顶部的悬浮菜单栏代码</title>
+<meta http-equiv="content-type" content="text/html;charset=gb2312">
+<style type="text/css">
+*{margin:0;padding:0;}
+#float_banner{
+				position:absolute;
+				top:200px;
+				border:2px solid red;width:500px;height:200px;
+}
+</style>
 </head>
-
 <body>
-	<input type="file" id="aptitude" onchange="getPath()" />
+<div id="float_banner">这里是顶部的横幅，随着页面滚动而浮动</div>    
+<div style="border:1px solid red;width:200px;height:2000px;">
+
+</div>
+<script language="javascript">
+var speed = 100;
+var scrollTop = null;
+var hold = 0;
+var pos = null;
+var timer = null;
+var moveHeight = null;
+var float_banner = document.getElementById("float_banner");
+window.onscroll=scroll_ad;
+function scroll_ad(){
+    scrollTop = document.documentElement.scrollTop+document.body.scrollTop;
+    pos = scrollTop - float_banner.offsetTop;
+    pos = pos/10
+    moveHeight = pos>0?Math.ceil(pos):Math.floor(pos);
+    if(moveHeight!=0){
+        float_banner.style.top = float_banner.offsetTop+moveHeight+"px";
+        setTimeout(scroll_ad,speed);
+    }
+//alert(scrollTop);
+}
+</script>
 </body>
 </html>

@@ -22,7 +22,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private MapperBiz mapperBiz;	//注入mapperBiz
 	private String jobapplication;
 	private Page page;
-	private Student student1=new Student();
+	private Student student=new Student();
 	private String loginname;
 	private String loginpassword;
 	
@@ -61,10 +61,10 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 		this.user = user;
 	}
 	public Student getStudent() {
-		return student1;
+		return student;
 	}
 	public void setStudent(Student student) {
-		 this.student1=student1;
+		 this.student=student;
 	}
 	
 
@@ -83,7 +83,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	@Override
 	public Student getModel() {
 		// TODO Auto-generated method stub
-		return student1;	
+		return student;	
 	}
 	/**
 	 *	用户注册
@@ -113,9 +113,10 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	 * @throws Exception
 	 */
     public String login() throws Exception{
-        
-    	student1.setStudentNumber(loginname);
-    	student1.setPassword(loginpassword);
+    	HttpServletRequest request=ServletActionContext.getRequest();
+    	
+    	student.setStudentNumber(loginname);
+    	student.setPassword(loginpassword);
     	Teacher teacher = new Teacher();
     	teacher.setTeacherNumber(loginname);
     	teacher.setTeacherPassword(loginpassword);
@@ -123,15 +124,20 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	management.setAccount(loginname);
     	management.setPassword(loginpassword);
     	
-    	if(mapperBiz.login_student(student1)) {
+    	if((student = mapperBiz.login_student(student))!=null) {
+    		request.setAttribute("student", student);
     		return SUCCESS;
-    	}else if(mapperBiz.login_teacher(teacher)) {
+    	}else if((teacher = mapperBiz.login_teacher(teacher))!=null) {
+    		request.setAttribute("teacher", teacher);
+    		System.out.println(teacher.getDanceAge());
     		return SUCCESS;
-    	}else if(mapperBiz.login_admin(management)){
+    	}else if((management = mapperBiz.login_admin(management))!=null){
+    		request.setAttribute("management", management);
     		return "admin";
     	}else {
     		return ERROR;
     	}
+    	
     	
      }
     /**
