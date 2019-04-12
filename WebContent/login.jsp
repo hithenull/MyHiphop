@@ -37,39 +37,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
-		$(function(){
 
-		   $('#login_phone').on('input propertychange',function(){
-			   var username = $('#login_phone').val();
-			   var firstChar=username.substr(0,1);
-			   if(!/^[a-zA-Z]*$/.test(firstChar)){
-				   $('#span_use').text("第一个应该为字母");
-				   return false;
-			   }
-			   if(username.length<5){
-				   $('#span_use').text("输入不能少于五位");
-				   return false;
-			   }
-			  if(username.length>7){
-				   $('#span_use').text("输入超过七位");
-				   return false;
-			   }
-			  return true;
-		   });
+	function checkusrn() {
+		var check = false;
+		var username = document.getElementById("login_phone").value;
+	    var firstChar=username.substr(0,1);
+		  if(!/^[a-zA-Z]*$/.test(firstChar)){
+			 document.getElementById("span_use").innerHTML = " 第一个要为字母";
+			 check = false;
+	    } else if (username.length < 5) {
+			document.getElementById("span_use").innerHTML = " 用户名不要少于5位";
+			check = false;
+		}else if (username.length > 7){
+			document.getElementById("span_use").innerHTML = " 用户名不要多于7位";
+		    check = false;
+		}else {
+			document.getElementById("span_use").innerHTML = "  √";
+			check = true;
+		}
+		return check;
+	}
+	 
+	function checkpwd() {
+		var check = false;
+		var password = document.getElementById("login_password").value;
+		if (password.length < 6) {
+			document.getElementById("span_pas").innerHTML = "密码不能少于6位";
+			check = false;
+		} else {
+			document.getElementById("span_pas").innerHTML = "  √";
+			check = true;
+		}
+		return check;
+	}
 
-		 });
-		$(function(){
+	function check() {
+		var check = checkusrn() && checkpwd();
+		return check;
+	}
 
-			   $('#login_password').on('input propertychange',function(){
-				   var password = $('#login_password').val();
-				   if(password.length==0){
-					   $('#span_pas').text("密码为空");
-					   return false;
-				   }
-				   return true;
-			   });
-              
-			 });
 	</script>
     
 </head>
@@ -83,13 +89,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="content1">
 			<h2>登录</h2>
 			<div class="content2">
-				<form class="form" id="loginForm" method="post" action="public_login">
+				<form class="form" id="loginForm" method="post" action="public_login" onsubmit="return check()">
 					<div class="login_nameda">
-						<input type="text"  name="loginname" id="login_phone"><br />
+						<input type="text"  name="loginname" id="login_phone" onchange="checkusrn()"><br />
 						<span id="span_use"></span>
 					</div>
 					<div class="login_passda">
-						<input type="password" name="loginpassword" id="login_password" ><br/>
+						<input type="password" name="loginpassword" id="login_password" onchange="checkpwd()"><br/>
 						<span id="span_pas"></span>
 					</div>
 					<div class="button-row">

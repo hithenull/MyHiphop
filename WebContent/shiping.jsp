@@ -26,35 +26,33 @@
 		<h2 class="title heading">舞蹈视频播放界面</h2>
 		
 		
-		<video poster="images/ckin.jpg" src="images/11.MP4" data-ckin="default" data-overlay="1" data-title="The curious case of Chameleon..."></video>
+		<video poster="imgs/3.jpg" src="images/11.MP4" data-ckin="default" data-overlay="1" data-title="女子舞蹈视频"></video>
 		
 		
-		<p class="tr">Demo video by
-			<a href="https://vimeo.com/lumatic" target="_blank">Lumatic</a>
-		</p>
+	
 		
 	</div>
 </section>
 
 <section class="demo-section demo-section--light" id="skins">
 	<div class="container">
-		<h2 class="title heading">Skins</h2>
+		<h2 class="title heading">视频</h2>
 		<ul class="demo-list">
 			<li class="demo-list__item">
-				<p>Default Ckin without overlay</p>
-				<video poster="images/ckin.jpg" src="images/22.MP4" data-ckin="default"></video>
+				<p>女子舞蹈天团</p>
+				<video poster="imgs/3.jpg" src="images/22.mp4" data-ckin="minimal" data-overlay="1"></video>
 			</li>
 			<li class="demo-list__item">
-				<p>Minimal Ckin with overlay</p>
-				<video poster="images/ckin.jpg" src="images/33.MP4" data-ckin="minimal" data-overlay="1"></video>
+				<p>男子舞蹈天团</p>
+				<video poster="imgs/3.jpg" src="images/33.mp4" data-ckin="minimal" data-overlay="1"></video>
 			</li>
 			<li class="demo-list__item">
-				<p>Compact Ckin with overlay</p>
-				<video poster="images/ckin.jpg" src="images/44.MP4" data-ckin="compact" data-overlay="2"></video>
+				<p>街舞展示</p>
+				<video poster="imgs/3.jpg" src="images/44.mp4" data-ckin="minimal" data-overlay="1"></video>
 			</li>
 			<li class="demo-list__item">
-				<p>Compact Ckin with custom color</p>
-				<video poster="c" src="images/ckin.mp4" data-color="#fff000" data-ckin="compact" data-overlay="2"></video>
+				<p>炫酷舞蹈</p>
+				<video poster="imgs/3.jpg" src="images/22.mp4" data-ckin="minimal" data-overlay="1"></video>
 			</li>
 			<li class="demo-list__item">
 				
