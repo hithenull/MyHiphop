@@ -129,6 +129,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     		return SUCCESS;
     	}else if((teacher = mapperBiz.login_teacher(teacher))!=null) {
     		request.setAttribute("teacher", teacher);
+    		System.out.println(teacher.getDanceAge());
     		return SUCCESS;
     	}else if((management = mapperBiz.login_admin(management))!=null){
     		request.setAttribute("management", management);
@@ -136,6 +137,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	}else {
     		return ERROR;
     	}
+    	
     	
      }
     /**
