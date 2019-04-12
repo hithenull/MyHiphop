@@ -15,25 +15,14 @@
 
 
 <body>
-<div id="wrap">
-  <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
-	<div class="c">
-	  <img src="images/yujing.jpg" style="width:300px;height:450px;">
-	  <div class="txt">
-		<h1>Title here</h1>
-		<p>Some longer text here thats wide enough to span on several lines.</p>
-	  </div>
-	</div>
-  </a>
-  <div class="fullBg">
-	<img src="images/yujing.jpg">
-  </div>
+<div id="wrap" >
+
   <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
 	<div class="c">
 	  <img src="images/huluwa.jpg" style="width:300px;height:450px;">
 	  <div class="txt">
-		<h1>Title here</h1>
-		<p>Some longer text here thats wide enough to span on several lines.</p>
+		<h1>葫芦娃</h1>
+		<p>职称:老师<br /> 舞龄:2年<br /> 手机号码:12025236295</p>
 	  </div>
 	</div>
   </a>
@@ -44,8 +33,8 @@
 	<div class="c">
 	  <img src="images/yiyi.jpg" style="width:300px;height:450px;">
 	  <div class="txt">
-		<h1>Title here</h1>
-		<p>Some longer text here thats wide enough to span on several lines.</p>
+		<h1>依依</h1>
+		<p>职称:老师<br /> 舞龄:3年<br /> 手机号码:15175836295</p>
 	  </div>
 	</div>
   </a>
@@ -54,27 +43,51 @@
   </div>
   <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
 	<div class="c">
-	  <img src="images/yujing.jpg" style="width:300px;height:450px;">
+	  <img src="images/zoujiahua.jpg" style="width:300px;height:450px;">
 	  <div class="txt">
-		<h1>Title here</h1>
-		<p>Some longer text here thats wide enough to span on several lines.</p>
+		<h1>邹佳华</h1>
+		<p>职称:老师<br /> 舞龄:1年<br /> 手机号码:15024127495</p>
 	  </div>
 	</div>
   </a>
   <div class="fullBg">
-	<img src="images/yujing.jpg" alt="">
+	<img src="images/zoujiahua.jpg" alt="">
   </div>
    <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
 	<div class="c">
 	  <img src="images/xuanxuan.jpg" style="width:300px;height:450px;">
 	  <div class="txt">
-		<h1>Title here</h1>
-		<p>Some longer text here thats wide enough to span on several lines.</p>
+		<h1>璇璇</h1>
+		<p>职称:老师<br /> 舞龄:5年<br /> 手机号码:18105236295</p>
 	  </div>
 	</div>
   </a>
   <div class="fullBg">
 	<img src="images/xuanxuan.jpg" alt="">
+  </div>
+   <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
+	<div class="c">
+	  <img src="images/dengzhengxing.jpg" style="width:300px;height:450px;">
+	  <div class="txt">
+		<h1>邓正鑫</h1>
+		<p>职称:老师<br /> 舞龄:2年<br /> 手机号码:18041236295</p>
+	  </div>
+	</div>
+  </a>
+  <div class="fullBg">
+	<img src="images/dengzhengxing.jpg" alt="">
+  </div>
+    <a href="#" class="hb" style="transform: translate3d(-714.272px, 0px, 0px);">
+	<div class="c">
+	  <img src="images/xiaopang.jpg" style="width:300px;height:450px;">
+	  <div class="txt">
+		<h1>小胖</h1>
+		<p>职称:老师<br /> 舞龄:3年<br /> 手机号码:18825238225</p>
+	  </div>
+	</div>
+  </a>
+  <div class="fullBg">
+	<img src="images/xiaopang.jpg" alt="">
   </div>
 </div>
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>	
