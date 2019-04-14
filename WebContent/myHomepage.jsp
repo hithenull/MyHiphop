@@ -192,9 +192,13 @@ ul li {
 hr{
 	margin:-20px 0px;
 }
+.big_div{
+	border:1px solid red;
+}
 .div_all{
 	width:930px;height:500px;
 	margin:280px 300px;
+	border:1px solid red;
 }
 .div_all div{
 	width:290px;height:240px;
@@ -229,20 +233,22 @@ hr{
 			<span class="gyw">关于我</span>
 			<hr />
 			<div class="picture" id="demo">
-				<c:if test="${requestScope.student == null}"><img src="${requestScope.teacher.timg_src}" onmouseover="xuanzhuan()" /></c:if>
-				<c:if test="${requestScope.teacher == null}"><img src="${requestScope.student.simg_src}" onmouseover="xuanzhuan()" /></c:if>
+				<c:if test="${sessionScope.student == null}"><img src="${sessionScope.teacher.timg_src}" onmouseover="xuanzhuan()" /></c:if>
+				<c:if test="${sessionScope.teacher == null}"><img src="${sessionScope.student.simg_src}" onmouseover="xuanzhuan()" /></c:if>
 			</div>
-			<div class="div_all">
-				<a><div class="div_1">个人资料</div></a>
-				<a href="update.jsp"><div class="div_2">修改资料</div></a>
-				<a><div class="div_3">个人课表</div></a>
-				<a><div class="div_4">班级信息</div></a>
-				<a><div class="div_5">班级学员</div></a>
-				<a href="xinwen.jsp"><div class="div_6">学校详情</div></a>
-				<a href="home.jsp"><div class="div_7">退出系统</div></a>
-				<a><div class="div_8">退出系统</div></a>
-				<input type="hidden" value="${requestScope.student}" id="student1"/>
-				<input type="hidden" value="${requestScope.teacher}" id="teacher"/>
+			<div class="big_div">
+				<div class="div_all">
+					<a><div class="div_1">个人资料</div></a>
+					<a href="public_getaddress"><div class="div_2">修改资料</div></a>
+					<a><div class="div_3">个人课表</div></a>
+					<a><div class="div_4">班级信息</div></a>
+					<a><div class="div_5">班级学员</div></a>
+					<a href="xinwen.jsp"><div class="div_6">学校详情</div></a>
+					<a href="home.jsp"><div class="div_7">退出系统</div></a>
+					<a><div class="div_8">退出系统</div></a>
+					<input type="hidden" value="${sessionScope.student}" id="student"/>
+					<input type="hidden" value="${sessionScope.teacher}" id="teacher"/>
+				</div>
 			</div>
 			<a href="home.jsp" class="guan"><button>官网入口</button></a>
 		</div>

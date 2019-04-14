@@ -8,6 +8,7 @@ import org.apache.struts2.ServletActionContext;
 import org.bigjava.action.tool.ImageUtil;
 import org.bigjava.action.tool.Page;
 import org.bigjava.biz.MapperBiz;
+import org.bigjava.entitys.Addresss;
 import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
@@ -23,6 +24,8 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private String jobapplication;
 	private Page page;
 	private Student student=new Student();
+	private Teacher teacher = new Teacher();
+	private Management management = new Management();
 	private String loginname;
 	private String loginpassword;
 	
@@ -117,22 +120,20 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	
     	student.setStudentNumber(loginname);
     	student.setPassword(loginpassword);
-    	Teacher teacher = new Teacher();
     	teacher.setTeacherNumber(loginname);
     	teacher.setTeacherPassword(loginpassword);
-    	Management management = new Management();
     	management.setAccount(loginname);
     	management.setPassword(loginpassword);
     	
     	if((student = mapperBiz.login_student(student))!=null) {
-    		request.setAttribute("student", student);
+    		request.getSession().setAttribute("student", student);
     		return SUCCESS;
     	}else if((teacher = mapperBiz.login_teacher(teacher))!=null) {
-    		request.setAttribute("teacher", teacher);
+    		request.getSession().setAttribute("teacher", teacher);
     		System.out.println(teacher.getDanceAge());
     		return SUCCESS;
     	}else if((management = mapperBiz.login_admin(management))!=null){
-    		request.setAttribute("management", management);
+    		request.getSession().setAttribute("management", management);
     		return "admin";
     	}else {
     		return ERROR;
@@ -165,5 +166,23 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	     }else{
 	        return ERROR;
 	     }
+    }
+    
+    public String getaddress() {
+    	HttpServletRequest request=ServletActionContext.getRequest();
+    	student = (Student) request.getSession().getAttribute("student");
+    	teacher = (Teacher) request.getSession().getAttribute("teacher");
+    	if(student!=null) {
+    		Addresss addresss = mapperBiz.getAddress(student.getAddress_id());
+    		request.setAttribute("address", addresss);
+    		return "update";
+    	}
+    	if(teacher!=null) {
+    		System.out.println(teacher.getAddress_id());
+    		Addresss addresss = mapperBiz.getAddress(teacher.getAddress_id());
+    		request.setAttribute("address", addresss);
+    		return "updateTeacher";
+    	}
+    	return SUCCESS;
     }
 }

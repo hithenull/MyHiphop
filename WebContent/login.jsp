@@ -73,7 +73,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	function check() {
 		var check = checkusrn() && checkpwd();
-		return check;
+		if(check==true){
+			return true;
+		}else{
+			document.getElementById("login_phone").value="";
+			document.getElementById("login_password").value="";
+			document.getElementById("span_use").innerHTML="";
+			document.getElementById("span_pas").innerHTML="";
+			return false;
+		}
 	}
 
 	</script>
@@ -91,11 +99,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="content2">
 				<form class="form" id="loginForm" method="post" action="public_login" onsubmit="return check()">
 					<div class="login_nameda">
-						<input type="text"  name="loginname" id="login_phone" onchange="checkusrn()"><br />
+						<input type="text"  name="loginname" id="login_phone" oninput="checkusrn()"><br />
 						<span id="span_use"></span>
 					</div>
 					<div class="login_passda">
-						<input type="password" name="loginpassword" id="login_password" onchange="checkpwd()"><br/>
+						<input type="password" name="loginpassword" id="login_password" oninput="checkpwd()"><br/>
 						<span id="span_pas"></span>
 					</div>
 					<div class="button-row">

@@ -2,7 +2,9 @@ package org.bigjava.dao;
 
 import java.util.List;
 
+import org.apache.tomcat.jni.Address;
 import org.bigjava.action.tool.Page;
+import org.bigjava.entitys.Addresss;
 import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
@@ -25,5 +27,9 @@ public interface PublicMapper {
 
 	public Teacher login_teacher(Teacher teacher);								//登陆时校验是否是老师
 
-	public Management login_admin(Management management);								//登陆时校验是否是管理员
+	public Management login_admin(Management management);						//登陆时校验是否是管理员
+
+	public Addresss getAddress(int a);									//根据address_id查询学生地址
+	
+	
 }

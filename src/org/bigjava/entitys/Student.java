@@ -13,6 +13,14 @@ public class Student {
 	private String studentNumber;     //学号
 	private int danceclass_id;        //班级ID
 	private String simg_src;          //学生图片路径
+	private int address_id;			//地址id
+	
+	public int getAddress_id() {
+		return address_id;
+	}
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
 	public int getStudent_id() {
 		return student_id;
 	}

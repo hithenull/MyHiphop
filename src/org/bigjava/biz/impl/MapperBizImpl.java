@@ -2,16 +2,12 @@ package org.bigjava.biz.impl;
 
 import java.util.List;
 
-
 import org.bigjava.action.tool.AllUserTool;
 import org.bigjava.action.tool.Page;
 import org.bigjava.biz.MapperBiz;
-import org.bigjava.dao.AdminMapper;
-import org.bigjava.dao.Mapper;
 import org.bigjava.dao.PublicMapper;
-import org.bigjava.dao.TeacherMapper;
+import org.bigjava.entitys.Addresss;
 import org.bigjava.entitys.Management;
-import org.bigjava.entitys.News;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.User;
 
@@ -97,6 +93,14 @@ public class MapperBizImpl implements MapperBiz {
 		return publicMapper.login_admin(management);
 		
 	}
+
+
+	@Override
+	public Addresss getAddress(int a) {
+		// TODO Auto-generated method stub
+		return publicMapper.getAddress(a);
+	}
+
 
 
 }

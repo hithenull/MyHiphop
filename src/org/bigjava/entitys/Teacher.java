@@ -11,7 +11,14 @@ public class Teacher {
 	private String teacherNumber;        //老师编号
 	private String teacherPassword;      //老师密码
 	private String timg_src;             //老师图片路径
+	private int address_id;					//地址id
 	
+	public int getAddress_id() {
+		return address_id;
+	}
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
 	public int getTeacher_id() {
 		return teacher_id;
 	}

@@ -35,6 +35,11 @@
        <action name="public_showNews" class="org.bigjava.action.MyAction_public" method="showNews">
 			<result name="success">/xinwen.jsp</result>
 		</action>
+		 
+       <action name="public_getaddress" class="org.bigjava.action.MyAction_public" method="getaddress">
+			<result name="updateTeacher">/updateTeacher.jsp</result>
+			<result name="update">/update.jsp</result>
+		</action>
 		  
 	</package> 
 	

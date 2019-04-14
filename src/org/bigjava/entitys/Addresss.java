@@ -1,14 +1,13 @@
 package org.bigjava.entitys;
 
  
-public class Address {
+public class Addresss {
 	
 	private int address_id;           //地址ID
 	private String province;          //省份
-	private String city;              //市民
-	private String district;          //区
-	private String addressName;       //地址名
-	private int student_id;			  //学生id
+	private String city;              //市
+	private String district;          //县
+	private String addressName;       //详细地址
 	public int getAddress_id() {
 		return address_id;
 	}
@@ -39,16 +38,12 @@ public class Address {
 	public void setAddressName(String addressName) {
 		this.addressName = addressName;
 	}
-	public int getStudent_id() {
-		return student_id;
-	}
-	public void setStudent_id(int student_id) {
-		this.student_id = student_id;
-	}
 	@Override
 	public String toString() {
 		return "Address [address_id=" + address_id + ", province=" + province + ", city=" + city + ", district="
-				+ district + ", addressName=" + addressName + ", student_id=" + student_id + "]";
-	}	
+				+ district + ", addressName=" + addressName + "]";
+	}
+	
+	
 
 }

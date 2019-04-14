@@ -426,6 +426,6 @@ var s = ["s1", "s2", "s3"];
 var opt0 = ["省份", "市级", "县区级"];
 function setup() {
     for (i = 0; i < s.length - 1; i++)
-        document.getElementById(s[i]).onchange = new Function("change(" + (i + 1) + ");promptinfo();");
+    	document.getElementById(s[i]).onchange = new Function("change(" + (i + 1) + ");promptinfo();");
     change(0);
 }

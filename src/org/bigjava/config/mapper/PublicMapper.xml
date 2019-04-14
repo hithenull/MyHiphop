@@ -37,4 +37,8 @@
 		<select id="login_admin" parameterType="org.bigjava.entitys.Management" resultType="org.bigjava.entitys.Management">
 			select*from management where account=#{account} and password=#{password}
 		</select>
+		
+		<select id="getAddress" parameterType="java.lang.Integer" resultType="org.bigjava.entitys.Addresss">
+			select*from address where address_id = #{a}
+		</select>
 </mapper>
