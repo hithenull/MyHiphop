@@ -2,13 +2,13 @@ package org.bigjava.other.massege;
 
 public class GetMassege {
 
-	private static String Uid = "hello_a";
+	private static String Uid = "yuankai";
 	
 	private static String Key = "d41d8cd98f00b204e980";
 	
-	public int toMassege(String phong) {
+	public String toMassege(String phong) {
 		
-		int mg = yzm();
+		String mg = yzm();
 		
 		HttpClientUtil client = HttpClientUtil.getInstance();
 		
@@ -23,9 +23,10 @@ public class GetMassege {
 		return mg;
 	}
 	
-	public int yzm() {
+	public String yzm() {
 		int a = (int)((Math.random()*9+1)*100000);
-		return a;
+		String a1 = a+"";
+		return a1;
 	}
 	
 }

@@ -9,10 +9,12 @@ import org.bigjava.action.tool.ImageUtil;
 import org.bigjava.action.tool.Page;
 import org.bigjava.biz.MapperBiz;
 import org.bigjava.entitys.Addresss;
+import org.bigjava.entitys.DanceClass;
 import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
+import org.bigjava.other.massege.GetMassege;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -30,7 +32,6 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private String loginpassword;
 	private String verification;
 	
-
 	public String getVerification() {
 		return verification;
 	}
@@ -177,7 +178,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	     }
     }
     /**
-     * 	获得用户的地址信息
+     * 	获得用户的地址信息以及用户的班级
      * @return
      */
     public String getaddress() {
@@ -202,12 +203,16 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     		mapperBiz.updateStudent(student);
     	return SUCCESS;
     }
-
+    /**
+     * 	异步加载短信验证码
+     * @return
+     */
     public String hello() {
-    	verification = "123456";
-    	ImageUtil i = new ImageUtil();
-    	
     	HttpServletRequest request=ServletActionContext.getRequest();
+    	String phone = (String) request.getAttribute("phone");
+    	//System.out.println(phone);
+    	//GetMassege gm = new GetMassege();
+    	verification = "aaaaaa";
     	request.getSession().setAttribute("verification", verification);
     	System.out.println("hello");
     	return SUCCESS;

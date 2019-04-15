@@ -245,7 +245,7 @@ hr{
 				<div class="div_all">
 					<a><div class="div_1" title="查看详情">个人资料</div></a>
 					<a href="public_getaddress"><div class="div_2" title="查看详情">修改资料</div></a>
-					<a><div class="div_3" title="查看详情">个人课表</div></a>
+					<a href="kebiao.jsp"><div class="div_3" title="查看详情">个人课表</div></a>
 					<a><div class="div_4" title="查看详情">班级信息</div></a>
 					<a><div class="div_5" title="查看详情">班级学员</div></a>
 					<a href="xinwen.jsp"><div class="div_6" title="查看详情">学校详情</div></a>

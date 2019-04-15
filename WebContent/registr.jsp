@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -214,18 +215,18 @@ a {
 <script>
 $(document).ready(function(){
 	
-	var u,verification;
+	var u,verification,phone1;
 	
 	$(".yzm").click(function(){
-			
+		phone1 = $("#phone").val();
 		$.ajax({
-				url:"index",
+				url:"index?phone="+phone1,
 				type:"post",
 				data: {
-					cao:"aa"
 				},
 				dateType:"json",
 				success:function(data,textStatus){
+					alert(data.verification);
 					return true;
 				},
 				error:function(data, textStatus){
@@ -244,6 +245,7 @@ $(document).ready(function(){
             return false;
        	}
     });
+	});
 		var subcat = new Array();
 		var biglist = new Array('学生', '指导员');
 		subcat[0] = new Array('0', '少儿HIPHOP启蒙班');
@@ -289,7 +291,6 @@ $(document).ready(function(){
 				}//建立option 
 			}
 		}
-	});
 </script>
 </head>
 <body oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()'
@@ -337,7 +338,6 @@ $(document).ready(function(){
 				
 				<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"
 				 			class="file" id="upload" /> 
-				<div>aaa</div>
 			<button class="btn" type="submit">submit</button>
 		</form>
 	</div>
