@@ -357,7 +357,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 
 					<a href="home.jsp"><img src="imgs/logobai.png" class="logobai" width="130px" height="130px"></a>
 					<ul>
-						<li><a href="xinwen.jsp">关于</a></li></br>
+						<li><a href="templatemo.jsp">关于</a></li></br>
 						<li><a href="tupianyidong.jsp">指导员</a></li></br>
 						<li><b><a href="curriculum.jsp">CLASS</a></b></li></br>
 						<li><a href="shiping.jsp">视频</a></li></br>
