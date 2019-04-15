@@ -198,19 +198,24 @@ hr{
 .div_all{
 	width:930px;height:500px;
 	margin:280px 300px;
-	border:1px solid red;
+	border:1px solid white;
 }
 .div_all div{
 	width:290px;height:240px;
-	border:1px solid red;
+	border:1px solid white;
 	margin:5px 5px;
 	float:left;	
 	border-radius: 45px;
-	
+	cursor: pointer;
+    border-radius: 10px;
+    background-color:white;
+    
 }
-.div_all div: hover{
-	box-shadow: 0 10px 10px 0 rgba(0,0,0,0.10),0 10px 10px 0 rgba(0,0,0,0.10);
+.div_all div:hover{
+	box-shadow: #ccc 0px 0px 30px 5px;
 }
+
+
 </style>
 </head>
 <body oncontextmenu='return false' ondragstart='return false'
@@ -238,14 +243,14 @@ hr{
 			</div>
 			<div class="big_div">
 				<div class="div_all">
-					<a><div class="div_1">个人资料</div></a>
-					<a href="public_getaddress"><div class="div_2">修改资料</div></a>
-					<a><div class="div_3">个人课表</div></a>
-					<a><div class="div_4">班级信息</div></a>
-					<a><div class="div_5">班级学员</div></a>
-					<a href="xinwen.jsp"><div class="div_6">学校详情</div></a>
-					<a href="home.jsp"><div class="div_7">退出系统</div></a>
-					<a><div class="div_8">退出系统</div></a>
+					<a><div class="div_1" title="查看详情">个人资料</div></a>
+					<a href="public_getaddress"><div class="div_2" title="查看详情">修改资料</div></a>
+					<a><div class="div_3" title="查看详情">个人课表</div></a>
+					<a><div class="div_4" title="查看详情">班级信息</div></a>
+					<a><div class="div_5" title="查看详情">班级学员</div></a>
+					<a href="xinwen.jsp"><div class="div_6" title="查看详情">学校详情</div></a>
+					<a href="home.jsp"><div class="div_7" title="退出个人中心">退出系统</div></a>
+					<a><div class="div_8" title="退出个人中心">退出系统</div></a>
 					<input type="hidden" value="${sessionScope.student}" id="student"/>
 					<input type="hidden" value="${sessionScope.teacher}" id="teacher"/>
 				</div>
