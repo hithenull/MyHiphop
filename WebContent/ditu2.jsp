@@ -102,6 +102,17 @@
 		var marker = new BMap.Marker(point);  // 创建标注
 		map.addOverlay(marker);               // 将标注添加到地图中
 		marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+		function findMap(){
+			// 百度地图API功能
+			var transit = new BMap.TransitRoute(map, {
+				renderOptions: {map: map, panel: "r-result"}
+			});
+			var start =  document.getElementById("input_a").value;
+			transit.search(start, "江西制造职业技术学院");
+		}
+		map.enableScrollWheelZoom(true);
+		
+		
 		window.onload=function(){
             //每1秒刷新时间
           setInterval("NowTime()",1000);
@@ -137,13 +148,4 @@
             //}
             //return i;
         }
-		function findMap(){
-			// 百度地图API功能
-			var transit = new BMap.TransitRoute(map, {
-				renderOptions: {map: map, panel: "r-result"}
-			});
-			var start =  document.getElementById("input_a").value;
-			transit.search(start, "江西制造职业技术学院");
-		}
-		map.enableScrollWheelZoom(true);
 </script>

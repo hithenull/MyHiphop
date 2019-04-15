@@ -41,4 +41,7 @@
 		<select id="getAddress" parameterType="java.lang.Integer" resultType="org.bigjava.entitys.Addresss">
 			select*from address where address_id = #{a}
 		</select>
+		
+		<update id="updateStudent" parameterType="org.bigjava.entitys.Student">
+		</update>
 </mapper>

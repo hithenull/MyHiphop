@@ -102,6 +102,13 @@ public class MapperBizImpl implements MapperBiz {
 	}
 
 
+	@Override
+	public void updateStudent(Student student) {
+		// TODO Auto-generated method stub
+		publicMapper.updateStudent(student);
+	}
+
+
 
 }
 

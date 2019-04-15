@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<option value="">选择 日</option>
 				</select><br/>
 			
-				电 &nbsp;&nbsp;话：<input type="text" id="phone" name="phone" placeholder="phone number*" pattern="[0-9]{11}"  onchange='check()'value="${sessionScope.teacher.phone}"/>
+				电 &nbsp;&nbsp;话：<input type="text" id="phone" name="phone" placeholder="phone number*" pattern="[0-9]{11}"  onchange='check()' value="${sessionScope.teacher.phone}"/>
 				<br/>
 				密 &nbsp;&nbsp;码：<input type="password" id="password" name="password" placeholder="password*" value="${sessionScope.teacher.teacherPassword}"/><br/>
 			<div id="div_hello1">

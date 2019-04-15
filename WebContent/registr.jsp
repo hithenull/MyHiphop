@@ -210,52 +210,86 @@ a {
 	text-decoration: none;
 }
 </style>
-<script language="javascript">
-	var subcat = new Array();
-	var biglist = new Array('学生', '指导员');
-	subcat[0] = new Array('0', '少儿HIPHOP启蒙班');
-	subcat[1] = new Array('0', '少儿HIPHOP初级班');
-	subcat[2] = new Array('0', '少儿HIPHOP中级班');
-	subcat[3] = new Array('0', '少儿HIPHOP高级班');
-	subcat[4] = new Array('0', '少儿JAZZ启蒙班');
-	subcat[5] = new Array('0', '少儿JAZZ初级班');
-	subcat[6] = new Array('0', '少儿JAZZ中级班');
-	subcat[7] = new Array('0', '少儿JAZZ高级班');
-	subcat[8] = new Array('0', '成年HIPHOP初级班');
-	subcat[9] = new Array('0', '成年HIPHOP中级班');
-	subcat[10] = new Array('0', '成年HIPHOP高级班');
-	subcat[11] = new Array('0', '成年JAZZ初级班');
-	subcat[12] = new Array('0', '成年JAZZ中级班');
-	subcat[13] = new Array('0', '成年JAZZ高级班');
-	subcat[14] = new Array('1', '少儿HIPHOP启蒙班');
-	subcat[15] = new Array('1', '少儿HIPHOP初级班');
-	subcat[16] = new Array('1', '少儿HIPHOP中级班');
-	subcat[17] = new Array('1', '少儿HIPHOP高级班');
-	subcat[18] = new Array('1', '少儿JAZZ启蒙班');
-	subcat[19] = new Array('1', '少儿JAZZ初级班');
-	subcat[20] = new Array('1', '少儿JAZZ中级班');
-	subcat[21] = new Array('1', '少儿JAZZ高级班');
-	subcat[22] = new Array('1', '成年HIPHOP初级班');
-	subcat[23] = new Array('1', '成年HIPHOP中级班');
-	subcat[24] = new Array('1', '成年HIPHOP高级班');
-	subcat[25] = new Array('1', '成年JAZZ初级班');
-	subcat[26] = new Array('1', '成年JAZZ中级班');
-	subcat[27] = new Array('1', '成年JAZZ高级班');
-
-	function changeselect1(locationid) {
-		for (j = 0; j < biglist.length; j++)
-			if (biglist[j] == locationid) {
-				locationid = j;
+<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>	
+<script>
+$(document).ready(function(){
+	
+	var u,verification;
+	
+	$(".yzm").click(function(){
+			
+		$.ajax({
+				url:"index",
+				type:"post",
+				data: {
+					cao:"aa"
+				},
+				dateType:"json",
+				success:function(data,textStatus){
+					return true;
+				},
+				error:function(data, textStatus){
+					alert("出错了");
+					return false;
+				}
+			});
+		});
+	
+	$('.btn').click(function(){
+		verification = '<%=session.getAttribute("verification")%>';
+		u = $("#lala").val();
+       	if(u == verification){
+       	 	$('form').submit();
+       	}else{
+            return false;
+       	}
+    });
+		var subcat = new Array();
+		var biglist = new Array('学生', '指导员');
+		subcat[0] = new Array('0', '少儿HIPHOP启蒙班');
+		subcat[1] = new Array('0', '少儿HIPHOP初级班');
+		subcat[2] = new Array('0', '少儿HIPHOP中级班');
+		subcat[3] = new Array('0', '少儿HIPHOP高级班');
+		subcat[4] = new Array('0', '少儿JAZZ启蒙班');
+		subcat[5] = new Array('0', '少儿JAZZ初级班');
+		subcat[6] = new Array('0', '少儿JAZZ中级班');
+		subcat[7] = new Array('0', '少儿JAZZ高级班');
+		subcat[8] = new Array('0', '成年HIPHOP初级班');
+		subcat[9] = new Array('0', '成年HIPHOP中级班');
+		subcat[10] = new Array('0', '成年HIPHOP高级班');
+		subcat[11] = new Array('0', '成年JAZZ初级班');
+		subcat[12] = new Array('0', '成年JAZZ中级班');
+		subcat[13] = new Array('0', '成年JAZZ高级班');
+		subcat[14] = new Array('1', '少儿HIPHOP启蒙班');
+		subcat[15] = new Array('1', '少儿HIPHOP初级班');
+		subcat[16] = new Array('1', '少儿HIPHOP中级班');
+		subcat[17] = new Array('1', '少儿HIPHOP高级班');
+		subcat[18] = new Array('1', '少儿JAZZ启蒙班');
+		subcat[19] = new Array('1', '少儿JAZZ初级班');
+		subcat[20] = new Array('1', '少儿JAZZ中级班');
+		subcat[21] = new Array('1', '少儿JAZZ高级班');
+		subcat[22] = new Array('1', '成年HIPHOP初级班');
+		subcat[23] = new Array('1', '成年HIPHOP中级班');
+		subcat[24] = new Array('1', '成年HIPHOP高级班');
+		subcat[25] = new Array('1', '成年JAZZ初级班');
+		subcat[26] = new Array('1', '成年JAZZ中级班');
+		subcat[27] = new Array('1', '成年JAZZ高级班');
+	
+		function changeselect1(locationid) {
+			for (j = 0; j < biglist.length; j++)
+				if (biglist[j] == locationid) {
+					locationid = j;
+				}
+			document.submit_form.jobapplication.length = 0;//初始化下拉列表，清空下拉数据 
+			document.submit_form.jobapplication.options[0] = new Option('舞种', '舞种');//给第一个值 
+			for (i = 0; i < subcat.length; i++) {
+				if (subcat[i][0] == locationid) {
+					document.submit_form.jobapplication.options[document.submit_form.jobapplication.length] = new Option(
+							subcat[i][1], subcat[i][2]);
+				}//建立option 
 			}
-		document.submit_form.jobapplication.length = 0;//初始化下拉列表，清空下拉数据 
-		document.submit_form.jobapplication.options[0] = new Option('舞种', '舞种');//给第一个值 
-		for (i = 0; i < subcat.length; i++) {
-			if (subcat[i][0] == locationid) {
-				document.submit_form.jobapplication.options[document.submit_form.jobapplication.length] = new Option(
-						subcat[i][1], subcat[i][2]);
-			}//建立option 
 		}
-	}
+	});
 </script>
 </head>
 <body oncontextmenu='return false' ondragstart='return false' onselectstart='return false' onselect='document.selection.empty()'
@@ -267,8 +301,7 @@ a {
 	<div class="big"></div>
 	<div class="form">
 		<font class="enrollfor">Enroll For</font><br /> <br />
-		<form id="submit_form" name="submit_form" method="post"
-			action="public_register">
+		<form id="submit_form" name="submit_form" method="post" action="public_register" >
 
 			<img class="person" src="imgs/person.png" /> 
 			<img class="phone" src="imgs/phone.png" /> 
@@ -291,8 +324,8 @@ a {
 				name="user.userphone" placeholder="phone number*"
 				pattern="[0-9]{11}" onchange='check()' />
 
-			<button class="yzm" type="submit">获取验证码</button>
-			<br /> 验证码：<input type="text" name="verification code" placeholder="verification code" /><br /> 
+			<button class="yzm" type="button">获取验证码</button>
+			<br /> 验证码：<input type="text" name="verification" placeholder="verification code" id="lala"/><br /> 
 			
 				<font class="tx">头 &nbsp;&nbsp;像：</font>
 				<span class="span"> 
@@ -304,7 +337,7 @@ a {
 				
 				<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"
 				 			class="file" id="upload" /> 
-			
+				<div>aaa</div>
 			<button class="btn" type="submit">submit</button>
 		</form>
 	</div>

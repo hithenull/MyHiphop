@@ -28,7 +28,15 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private Management management = new Management();
 	private String loginname;
 	private String loginpassword;
+	private String verification;
 	
+
+	public String getVerification() {
+		return verification;
+	}
+	public void setVerification(String verification) {
+		this.verification = verification;
+	}
 	public String getLoginname() {
 		return loginname;
 	}
@@ -94,6 +102,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	 * @throws Exception
 	 */
 	public String register() throws Exception{
+		System.out.println(verification);
 		user.setJobapplication(user.getJobapplication()+","+jobapplication);
 		ImageUtil i = new ImageUtil();
 		String[] arr = user.getImagesrc().split("\\\\");
@@ -167,7 +176,10 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	        return ERROR;
 	     }
     }
-    
+    /**
+     * 	获得用户的地址信息
+     * @return
+     */
     public String getaddress() {
     	HttpServletRequest request=ServletActionContext.getRequest();
     	student = (Student) request.getSession().getAttribute("student");
@@ -183,6 +195,21 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     		request.setAttribute("address", addresss);
     		return "updateTeacher";
     	}
+    	return SUCCESS;
+    }
+    public String updateStudent() {
+    	
+    		mapperBiz.updateStudent(student);
+    	return SUCCESS;
+    }
+
+    public String hello() {
+    	verification = "123456";
+    	ImageUtil i = new ImageUtil();
+    	
+    	HttpServletRequest request=ServletActionContext.getRequest();
+    	request.getSession().setAttribute("verification", verification);
+    	System.out.println("hello");
     	return SUCCESS;
     }
 }

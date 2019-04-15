@@ -33,6 +33,8 @@ public interface MapperBiz {
 	public Management login_admin(Management management);
 
 	public Addresss getAddress(int i);
+
+	public void updateStudent(Student student);
 	
 }
 

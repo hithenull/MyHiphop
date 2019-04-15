@@ -40,7 +40,10 @@
 			<result name="updateTeacher">/updateTeacher.jsp</result>
 			<result name="update">/update.jsp</result>
 		</action>
-		  
+		<action name="public_updateStudent" class="org.bigjava.action.MyAction_public" method="updateStudent">
+			<result name="success">/myHomepage.jsp</result>
+			<result name="update">/update.jsp</result>
+		</action>
 	</package> 
 	
 	
@@ -59,7 +62,9 @@
 		<action name="teacher_findStudentByClass" class="org.bigjava.action.MyAction_teacher" method="findStudentByClass">
 			<result name="success"></result>
 		</action>
-
+		<action name="teacher_updateTeacher" class="org.bigjava.action.MyAction_teacher" method="updateTeacher">
+			<result name="success">/myHomepage</result>
+		</action>
 	</package>
 
 	
@@ -104,6 +109,17 @@
          	<result name="success">/teacherfeye.jsp</result>
          </action>
 
+	</package>
+	
+	<!-- 
+		ajax异步获取验证码
+	 -->
+	<package name="ccc" extends="json-default">
+		<action name="index" class="org.bigjava.action.MyAction_public" method="hello">
+			<result type="json">
+				<param name="verification">verification</param>
+			</result>		
+		</action>
 	</package>
 	
 </struts>

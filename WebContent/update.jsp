@@ -39,12 +39,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 <input type="radio" name="sex" value="女" />女<br/>
 				
 				
-				学 &nbsp;&nbsp;号：<input type="text" name="id" id="id" placeholder="student number" value=""/><br/>
+				学 &nbsp;&nbsp;号：<input type="text" name="id" id="id" placeholder="student number" value="${sessionScope.student.studentNumber}"/><br/>
 				班 &nbsp;&nbsp;级：<input type="text" name="squad" id="squad"
 				placeholder="In the class" value=""/>
 				<br/>
 				  
-				姓 &nbsp;&nbsp;名：<input type="text" name="studentName" id="name" placeholder="name*" value=""/><br/>
+				姓 &nbsp;&nbsp;名：<input type="text" name="studentName" id="name" placeholder="name*" value="${sessionScope.student.studentName}"/><br/>
 				生 &nbsp;&nbsp;日：<select class="birth" name="YYYY" onChange="YYYYDD(this.value)">
 					<option value="">请选择 年</option>
 				</select>
@@ -55,9 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<option value="">选择 日</option>
 				</select><br/>
 			
-				电 &nbsp;&nbsp;话：<input type="text" id="phone" name="phone" placeholder="phone number*" pattern="[0-9]{11}"  onchange='check()'/>
+				电 &nbsp;&nbsp;话：<input type="text" id="phone" name="phone" placeholder="phone number*" pattern="[0-9]{11}"  onchange='check()' value="${sessionScope.student.phone}"/>
 				<br/>
-				密 &nbsp;&nbsp;码：<input type="password" id="password" name="password" placeholder="password*" /><br/>
+				密 &nbsp;&nbsp;码：<input type="password" id="password" name="password" placeholder="password*" value="${sessionScope.student.password}"/><br/>
 				住 &nbsp;&nbsp;址： 
             <select class="select" name="province" id="s1">
                 <option></option>

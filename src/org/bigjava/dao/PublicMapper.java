@@ -11,6 +11,7 @@ import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
 
 public interface PublicMapper {
+	
 	public void add(Student student)throws Exception;
 	
     public void insertUser(User user) throws Exception;                        //添加学生
@@ -30,6 +31,8 @@ public interface PublicMapper {
 	public Management login_admin(Management management);						//登陆时校验是否是管理员
 
 	public Addresss getAddress(int a);									//根据address_id查询学生地址
+
+	public void updateStudent(Student student);								//学生信息修改
 	
 	
 }
