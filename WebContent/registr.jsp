@@ -181,31 +181,34 @@ select {
 	border-radius: 4px;
 	color: #ccc;
 }
-.span{
-	width:80%;
-	position: absolute;
-	top:385px;
-	left:55px;
-}
-#upload{
-	position: absolute;
-	top:410px;
-	left:315px;
-	
-	opacity: 0;
 
+.span {
+	width: 80%;
+	position: absolute;
+	top: 385px;
+	left: 55px;
+}
+
+#upload {
+	position: absolute;
+	top: 410px;
+	left: 315px;
+	opacity: 0;
 	cursor: pointer;
 }
-.tx{
-	position:absolute;
-	top:410px;
-	left:35px;
-}
-.file1{
+
+.tx {
 	position: absolute;
-	top:410px;
-	left:405px;
+	top: 410px;
+	left: 35px;
 }
+
+.file1 {
+	position: absolute;
+	top: 410px;
+	left: 405px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -269,7 +272,7 @@ a {
 	<div class="form">
 		<font class="enrollfor">Enroll For</font><br /> <br />
 		<form id="submit_form" name="submit_form" method="post"
-			action="public_register">
+			action="public_register" enctype="multipart/form-data">
 
 			<img class="person" src="imgs/person.png" /> <img class="phone"
 				src="imgs/phone.png" /> <img class="lock" src="imgs/lock.png" /> <input
@@ -290,20 +293,38 @@ a {
 
 			<button class="yzm" type="submit">获取验证码</button>
 			<br /> 验证码：<input type="text" name="verification code"
-				placeholder="verification code" /><br /> <font class="tx">头 &nbsp;&nbsp;像：</font><span class="span"> 
-<input name="" type="text" id="viewfile" placeholder="head portrait" 
- onmouseout="document.getElementById('upload').style.display='none';"
- class="inputstyle" /> 
-</span> 
-<label for="unload"
- onmouseover="document.getElementById('upload').style.display='block';"
- class="file1">浏览...</label> 
-<input type="file"
- onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"
- class="file" id="upload" /> 
-			
+				placeholder="verification code" /><br /> <font class="tx">头
+				&nbsp;&nbsp;像：</font> <span class="span"> <input name="" type="text"
+				id="viewfile" placeholder="head portrait"
+				onmouseout="document.getElementById('upload').style.display='none';"
+				class="inputstyle" />
+			</span> <label for="unload"
+				onmouseover="document.getElementById('upload').style.display='block';"
+				class="file1">浏览...</label> <input type="file"
+				onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"
+				class="file" id="upload" />
+
 			<button class="btn" type="submit">submit</button>
 		</form>
 	</div>
+	<script type="text/javascript">
+		function getPath(obj) {
+			if (obj) {
+				if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+					obj.select();
+					return document.selection.createRange().text;
+				} else if (window.navigator.userAgent.indexOf("Firefox") >= 1) {
+					if (obj.files) {
+						return obj.files.item(0).getAsDataURL();
+					}
+					return obj.value;
+				}
+				return obj.value;
+			}
+		}
+
+		//以下即为完整客户端路径
+		var filepath = getPath(document.getElementById("iptfileupload"));
+	</script>
 </body>
 </html>
