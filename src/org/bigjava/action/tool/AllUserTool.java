@@ -7,26 +7,23 @@ import org.bigjava.entitys.User;
 
 public class AllUserTool {
 	
-	private Student student;
-	private Teacher teacher;
-	private Management management;
+	private User user = new User();
+	private Student student = new Student();
+	private Teacher teacher = new Teacher();
+	private Management management = new Management();
+	
 	public Management getManagement() {
 		return management;
 	}
 	public void setManagement(Management management) {
 		this.management = management;
 	}
-	private User user;
 	
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
-	@Override
-	public String toString() {
-		return "AllUserTool [student=" + student + ", teacher=" + teacher + "]";
 	}
 	public Student getStudent() {
 		return student;
@@ -39,6 +36,11 @@ public class AllUserTool {
 	}
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
+	}
+	@Override
+	public String toString() {
+		return "AllUserTool [user=" + user + ", student=" + student + ", teacher=" + teacher + ", management="
+				+ management + "]";
 	}
 	
 

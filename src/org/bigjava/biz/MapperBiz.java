@@ -7,6 +7,7 @@ import java.util.List;
 import org.bigjava.action.tool.AllUserTool;
 import org.bigjava.action.tool.Page;
 import org.bigjava.entitys.Addresss;
+import org.bigjava.entitys.DanceClass;
 import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
@@ -35,6 +36,8 @@ public interface MapperBiz {
 	public Addresss getAddress(int i);
 
 	public void updateStudent(Student student);
+
+	public DanceClass getDanceClass(AllUserTool aut);
 	
 }
 

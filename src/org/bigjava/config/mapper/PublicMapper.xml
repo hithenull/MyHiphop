@@ -44,4 +44,14 @@
 		
 		<update id="updateStudent" parameterType="org.bigjava.entitys.Student">
 		</update>
+		
+		<select id="getDanceClass" parameterType="org.bigjava.action.tool.AllUserTool" resultType="org.bigjava.entitys.DanceClass">
+			select*from danceclass where
+			<if test="student.studentName!=null">
+				danceclass_id = #{student.danceclass_id}
+			</if>
+			<if test="teacher.teacherName!=null">
+				teacher_id = #{teacher.teacher_id}
+			</if>
+		</select>
 </mapper>

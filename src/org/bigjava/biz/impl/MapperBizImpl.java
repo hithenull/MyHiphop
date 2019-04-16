@@ -7,6 +7,7 @@ import org.bigjava.action.tool.Page;
 import org.bigjava.biz.MapperBiz;
 import org.bigjava.dao.PublicMapper;
 import org.bigjava.entitys.Addresss;
+import org.bigjava.entitys.DanceClass;
 import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.User;
@@ -106,6 +107,14 @@ public class MapperBizImpl implements MapperBiz {
 	public void updateStudent(Student student) {
 		// TODO Auto-generated method stub
 		publicMapper.updateStudent(student);
+	}
+
+
+	@Override
+	public DanceClass getDanceClass(AllUserTool aut) {
+		System.out.println(">>>>>>>>>>>>>>>>>>"+aut.getStudent());
+		// TODO Auto-generated method stub
+		return publicMapper.getDanceClass(aut);
 	}
 
 

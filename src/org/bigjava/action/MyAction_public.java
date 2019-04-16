@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.bigjava.action.tool.AllUserTool;
 import org.bigjava.action.tool.ImageUtil;
 import org.bigjava.action.tool.Page;
 import org.bigjava.biz.MapperBiz;
@@ -14,7 +15,6 @@ import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
-import org.bigjava.other.massege.GetMassege;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -28,6 +28,13 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private Student student=new Student();
 	private Teacher teacher = new Teacher();
 	private Management management = new Management();
+	AllUserTool aut = new AllUserTool();
+	public AllUserTool getAut() {
+		return aut;
+	}
+	public void setAut(AllUserTool aut) {
+		this.aut = aut;
+	}
 	private String loginname;
 	private String loginpassword;
 	private String verification;
@@ -127,28 +134,25 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	 */
     public String login() throws Exception{
     	HttpServletRequest request=ServletActionContext.getRequest();
+    	aut.getStudent().setStudentNumber(loginname);
+    	aut.getStudent().setPassword(loginpassword);
+    	aut.getTeacher().setTeacherNumber(loginname);
+    	aut.getTeacher().setTeacherPassword(loginpassword);
+    	aut.getManagement().setAccount(loginname);
+    	aut.getManagement().setPassword(loginpassword);
     	
-    	student.setStudentNumber(loginname);
-    	student.setPassword(loginpassword);
-    	teacher.setTeacherNumber(loginname);
-    	teacher.setTeacherPassword(loginpassword);
-    	management.setAccount(loginname);
-    	management.setPassword(loginpassword);
-    	
-    	if((student = mapperBiz.login_student(student))!=null) {
+    	if((student = mapperBiz.login_student(aut.getStudent()))!=null) {
     		request.getSession().setAttribute("student", student);
     		return SUCCESS;
-    	}else if((teacher = mapperBiz.login_teacher(teacher))!=null) {
+    	}else if((teacher = mapperBiz.login_teacher(aut.getTeacher()))!=null) {
     		request.getSession().setAttribute("teacher", teacher);
-    		System.out.println(teacher.getDanceAge());
     		return SUCCESS;
-    	}else if((management = mapperBiz.login_admin(management))!=null){
+    	}else if((management = mapperBiz.login_admin(aut.getManagement()))!=null){
     		request.getSession().setAttribute("management", management);
     		return "admin";
     	}else {
     		return ERROR;
     	}
-    	
     	
      }
     /**
@@ -183,20 +187,24 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
      */
     public String getaddress() {
     	HttpServletRequest request=ServletActionContext.getRequest();
-    	student = (Student) request.getSession().getAttribute("student");
-    	teacher = (Teacher) request.getSession().getAttribute("teacher");
-    	if(student!=null) {
-    		Addresss addresss = mapperBiz.getAddress(student.getAddress_id());
+    	if((Student) request.getSession().getAttribute("student")!=null) {
+    		aut.setStudent((Student) request.getSession().getAttribute("student"));
+    		Addresss addresss = mapperBiz.getAddress(aut.getStudent().getAddress_id());
+    		DanceClass danceClass = mapperBiz.getDanceClass(aut);
     		request.setAttribute("address", addresss);
+    		request.setAttribute("danceClass", danceClass);
     		return "update";
     	}
-    	if(teacher!=null) {
+    	if((Teacher) request.getSession().getAttribute("teacher")!=null) {
+    		aut.setTeacher((Teacher) request.getSession().getAttribute("teacher"));
     		System.out.println(teacher.getAddress_id());
-    		Addresss addresss = mapperBiz.getAddress(teacher.getAddress_id());
+    		Addresss addresss = mapperBiz.getAddress(aut.getTeacher().getAddress_id());
+    		DanceClass danceClass = mapperBiz.getDanceClass(aut);
     		request.setAttribute("address", addresss);
+    		request.setAttribute("danceClass", danceClass);
     		return "updateTeacher";
     	}
-    	return SUCCESS;
+    	return ERROR;
     }
     public String updateStudent() {
     	

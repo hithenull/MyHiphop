@@ -39,6 +39,7 @@
        <action name="public_getaddress" class="org.bigjava.action.MyAction_public" method="getaddress">
 			<result name="updateTeacher">/updateTeacher.jsp</result>
 			<result name="update">/update.jsp</result>
+			<result name="error">/myHomepage.jsp</result>
 		</action>
 		<action name="public_updateStudent" class="org.bigjava.action.MyAction_public" method="updateStudent">
 			<result name="success">/myHomepage.jsp</result>
