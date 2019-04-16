@@ -5,109 +5,65 @@
 <head>
 <meta charset="utf-8">
 <title>蚂蚁街舞工作室</title>
-<style type="text/css">
-	body{
-		font-family: "微软雅黑";
-		background-color: black;
-		color:white;
-	}
-	.big{
-		margin:0 auto;
-		border:1px solid #ccc;
-		height:1000px;
-		width:1200px;
-	}
-	a{
-		color:white;
-		text-decoration: none;
-	}
-	.mc{
-	
-		position: absolute;
-		top:30px;
-	}
-	.hy{
-		position: absolute;
-		left:530px;
-		top:70px;
-	}
-	button{
-		cursor: pointer;
-		border:0px;
-		background-color: ;
-	}
-	#time1{
-		position: absolute;
-		left:1140px;
-		top:70px;
-	}
-	table{
-		border-collapse:collapse;
-		margin: 10px 15px;
 
-	}
-	table td{
-		border:1px solid white;
-		width:285px;
-		height:75px;
-	}
-	table font{
-		font-size:20px;
-	}
-	.td1{
-		cursor: pointer;
-		margin: 0px 30px;
-		font-weight: 900;
-	}
-	.td2{
-		cursor: pointer;
-		margin: 0px 30px;
-		font-weight: 900;
-	}
-	.td3{
-		cursor: pointer;
-		margin:0px 50px;
-		font-weight: 500;
-	}
-	.td4{
-		margin: 0px 50px;
-		font-weight:500;
-	}
-	iframe{
-		float: right;
-		width:850px;
-		height:500px;
-		margin: 114px 0px;
-		border:1px solid white;
-	}
+<link rel="stylesheet" type="text/css" href="css/nav.css">
+<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/nav.js"></script>
+<style type="text/css">
+	iframe {
+	margin:-75px 0px;
+	float:right;
+	width:85.5%;
+	height:720px;
+	border:none;
+}
 </style>
 </head>
-<script type="text/javascript">
-
-//动态显示
-setInterval("document.getElementById('time1').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
-</script>
 <body>
-	<div class="big">
-		<img src="imgs/logobai.png" width="100" height="100"><font class="mc" size="5">蚂蚁街舞后台管理系统</font>
-		<span class="hy">欢迎管理员： hehe <a href="login.jsp"><button>[安全退出]</button></a></span>
-		<span id="time1"></span>
-		<iframe name="iframe"></iframe>
-		
-	<table>
-		<tr><td><a href="" target="iframe"><font class="td1">主页</font></a></td></tr>
-		<tr><td><a href="" target="iframe"><font class="td2">新闻管理</font></a></td></tr>
-		<tr><td><a href="add.jsp" target="iframe"><font class="td3">添加新闻</font></a></td></tr>
-		<tr><td><a href="list.jsp" target="iframe"><font class="td4">新闻列表</font></a></td></tr>
-		<tr><td><a href="" target="iframe"><font class="td2">班级管理</font></a></td></tr>
-		<tr><td><a href="addClass.jsp" target="iframe"><font class="td3">添加班级</font></a></td></tr>
-		<tr><td><a href="classList.jsp" target="iframe"><font class="td4">班级列表</font></a></td></tr>
-		<tr><td><a href="" target="iframe"><font class="td2">人员管理</font></a></td></tr>
-		<tr><td><a href="studentList.jsp" target="iframe"><font class="td3">学生列表</font></a></td></tr>
-		<tr><td><a href="findTeacher.jsp" target="iframe"><font class="td4">老师列表</font></a></td></tr>	
-	</table>
-	
+
+<div class="nav">
+	<div class="nav-top">
+		<div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="images/mini.png" ></div>
 	</div>
+	<ul>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_1"></i><span>班级管理</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a href="addClass.jsp" target="iframe"><span>添加班级</span></a></li>
+				<li><a href="addClass.jsp" target="iframe"><span>班级列表</span></a></li>
+				<li><a href="addClass.jsp" target="iframe"><span>班级分类</span></a></li>
+				<li><a href="addClass.jsp" target="iframe"><span>班级修改</span></a></li>
+				
+			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_2"></i><span>文章管理</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a href="xinwen.jsp" target="iframe"><span>新闻列表</span></a></li>
+				<li><a href="xinwen.jsp" target="iframe"><span>新闻分类</span></a></li>
+				<li><a href="xinwen.jsp" target="iframe"><span>添加新闻</span></a></li>
+				<li><a href="xinwen.jsp" target="iframe"><span>新闻修改</span></a></li>
+			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_3"></i><span>人员管理</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a href="personnel.jsp" target="iframe"><span>添加人员</span></a></li>
+				<li><a href="personnel.jsp" target="iframe"><span>人员列表</span></a></li>
+				<li><a href="personnel.jsp" target="iframe"><span>人员分类</span></a></li>
+				<li><a href="personnel.jsp" target="iframe"><span>信息修改</span></a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div style="text-align:center;margin:-650px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<iframe name="iframe">
 	
+
+</iframe>
+</div>
 </body>
 </html>

@@ -1,82 +1,121 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
+<meta charset="utf-8">
 <title>蚂蚁街舞工作室</title>
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
-<title>蚂蚁街舞管理添加</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/style1.css">
 
-<style type="text/css">
-body {
-	text-align: center; /*让div内部文字居中*/
-	background-color: black;
-	color: white;
-	border-radius: 20px;
-	width: 300px;
-	height: 350px;
-	margin: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
-.form {
-	width: 200px;
-	height: 25px;
-	border-radius: 5px;
-}
-
-a {
-	font-size: 25px;
-}
-
-.anniu {
-	width: 80px;
-	height: 30px;
-	border-radius: 10px;
-	cursor: pointer;
-}
-
-input[type="text"] {
-	color: white;
-	background-color: transparent;
-	border: 1px solid white;
-}
-</style>
-
-
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bootbox.min.js"></script>
 
 </head>
 <body>
-	<h1>班 级 添 加</h1>
-	<form>
 
-		<a>班 级:</a><input type="text" class="form" name="firstname"> <br />
-		<br /> <a>导 师:</a><input type="text" class="form" name="firstname">
-		<br /> <br /> <input type="submit" name="tijiao" class="anniu" id=""
-			value="添加"> &nbsp;&nbsp;&nbsp; <input type="reset"
-			name="button" class="anniu" id="button" value="重置" />
+<div class="box">
+    <div class="title">班级管理页面</div>
+    <div class="content">
+        <!--搜索输入框及查询、重置按钮-->
+        <div class="container content_width">
+            <div class="person_search">
+                <div class="search_input">
+                    <div class="input-group mb-3">
+                        <span>班级名称：</span>
+                        <input id="danceclassName" type="text" class="form-control" placeholder="请输入班级名称">
+                    </div>
+                </div>
+                <div class="search_input">
+                    <div class="input-group mb-3" hidden>
+                        <span>班级序号：</span>
+                        <input id="danceclass_id" type="text" class="form-control" placeholder="请输入班级序号">
+                    </div>
+                </div>
+                <div class="search_input">
+                    <button class="btn btn-primary search_btn" type="button" id="search_btn">查询</button>
+                    <button class="btn btn-primary search_btn" type="button" id="back_btn">重置</button>
+                </div>
+            </div>
+            <div class="line"></div>
+        </div>
+        <!--添加按钮及bootstrap的模态框-->
+        <div class="export">
+            <button id="new_add" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#renyuan">
+                <img src="img/add_two.png">
+                <span>添加</span>
+            </button>
+            <div class="modal fade" id="renyuan">
+                <div class="modal-dialog modal-lg modal_position">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">添加</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <table id="xztb" class="table">
+                                <!--新修改弹窗的样式-->
+                                <tbody>
+                                <tr>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>班级名称</label>
+                                    </td>
+                                    <td><input class="danceclassName" type="text" placeholder="请输入班级名称"></td>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>班级序号</label>
+                                    </td>
+                                    <td><input class="danceclass_id" type="number" placeholder="请输入班级序号"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>上课时长</label>
+                                    </td>
+                                    <td><input class="classHour" type="number" placeholder="请输入上课时长"></td>
+                                    <td class="tb_bg"><label for="">班级名称</label></td>
+                                    <td><input type="text" placeholder="请输入班级名称"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>代课老师</label>
+                                    </td>
+                                    <td><input class="teacherName" type="text" placeholder="请输入老师名称"></td>
+                            
+                                     <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>教学内容</label>
+                                    </td>
+                                    <td><input class="content" type="text" placeholder="请输入教学内容"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                            <button id="add_btn" type="button" class="btn btn-secondary">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--表格列表-->
+        <table id="tb" class="table">
+            <thead>
+            <tr>
+                <th>班级名称</th>
+                <th>班级序号</th>
+                <th>上课时长</th>
+                <th>班级名称</th>
+                <th>代课老师</th>
+                <th>教学内容</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="show_tbody">
+           
+            </tbody>
+        </table>
+    </div>
+</div>
 
-	</form>
-
-
-
-
+<script src="js/mejs.js"></script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
 </body>
-
-
 </html>
