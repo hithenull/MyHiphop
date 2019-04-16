@@ -94,6 +94,7 @@
 					 var b = new Date(Date.parse(value.replace(/\-/g,"/")));
 				     document.getElementById("info_1").innerHTML=weeks[b.getDay()];
 				 }
+		
 		});
 
 	}
