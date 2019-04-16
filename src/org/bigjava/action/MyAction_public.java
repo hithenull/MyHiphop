@@ -11,6 +11,7 @@ import org.bigjava.action.tool.Page;
 import org.bigjava.biz.MapperBiz;
 import org.bigjava.entitys.Addresss;
 import org.bigjava.entitys.DanceClass;
+import org.bigjava.entitys.KeBiao;
 import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
@@ -19,15 +20,12 @@ import org.bigjava.entitys.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class MyAction_public extends ActionSupport implements ModelDriven<Student> {
+public class MyAction_public extends ActionSupport {
 	
 	private User user;
 	private MapperBiz mapperBiz;	//注入mapperBiz
 	private String jobapplication;
 	private Page page;
-	private Student student=new Student();
-	private Teacher teacher = new Teacher();
-	private Management management = new Management();
 	AllUserTool aut = new AllUserTool();
 	public AllUserTool getAut() {
 		return aut;
@@ -72,19 +70,9 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	public void setMapperBiz(MapperBiz mapperBiz) {
 		this.mapperBiz = mapperBiz;
 	}
-	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	public Student getStudent() {
-		return student;
-	}
-	public void setStudent(Student student) {
-		 this.student=student;
-	}
+	private Student student=new Student();
+	private Teacher teacher = new Teacher();
+	private Management management = new Management();
 	
 
 	
@@ -99,11 +87,6 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 //		
 //	}
 
-	@Override
-	public Student getModel() {
-		// TODO Auto-generated method stub
-		return student;	
-	}
 	/**
 	 *	用户注册
 	 * @return
@@ -143,9 +126,15 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	
     	if((student = mapperBiz.login_student(aut.getStudent()))!=null) {
     		request.getSession().setAttribute("student", student);
+    		aut.setStudent(student);
+    		DanceClass danceClass = mapperBiz.getDanceClass(aut);
+    		request.getSession().setAttribute("danceClass", danceClass);
     		return SUCCESS;
     	}else if((teacher = mapperBiz.login_teacher(aut.getTeacher()))!=null) {
     		request.getSession().setAttribute("teacher", teacher);
+    		aut.setTeacher(teacher);
+    		DanceClass danceClass = mapperBiz.getDanceClass(aut);
+    		request.getSession().setAttribute("danceClass", danceClass);
     		return SUCCESS;
     	}else if((management = mapperBiz.login_admin(aut.getManagement()))!=null){
     		request.getSession().setAttribute("management", management);
@@ -190,18 +179,14 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	if((Student) request.getSession().getAttribute("student")!=null) {
     		aut.setStudent((Student) request.getSession().getAttribute("student"));
     		Addresss addresss = mapperBiz.getAddress(aut.getStudent().getAddress_id());
-    		DanceClass danceClass = mapperBiz.getDanceClass(aut);
     		request.setAttribute("address", addresss);
-    		request.setAttribute("danceClass", danceClass);
     		return "update";
     	}
     	if((Teacher) request.getSession().getAttribute("teacher")!=null) {
     		aut.setTeacher((Teacher) request.getSession().getAttribute("teacher"));
     		System.out.println(teacher.getAddress_id());
     		Addresss addresss = mapperBiz.getAddress(aut.getTeacher().getAddress_id());
-    		DanceClass danceClass = mapperBiz.getDanceClass(aut);
     		request.setAttribute("address", addresss);
-    		request.setAttribute("danceClass", danceClass);
     		return "updateTeacher";
     	}
     	return ERROR;
@@ -225,4 +210,11 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	System.out.println("hello");
     	return SUCCESS;
     }
+    
+    public void getKeBiao(KeBiao kebiao) {
+    	HttpServletRequest request=ServletActionContext.getRequest();
+    	kebiao = mapperBiz.getKeBiao(kebiao);
+    	request.setAttribute("kebiao", kebiao);
+    }
+    
 }

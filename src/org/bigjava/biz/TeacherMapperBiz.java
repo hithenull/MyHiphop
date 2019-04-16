@@ -13,7 +13,7 @@ public interface TeacherMapperBiz {
 	
 	public List<Teacher> findPage_teacher(Page page);
 
-	public int findCount_student();
+	public int findCount_student(int i);
 
 	public List<Teacher> findStudentByClass(Page page);
 }

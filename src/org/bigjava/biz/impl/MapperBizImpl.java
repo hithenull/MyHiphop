@@ -8,6 +8,7 @@ import org.bigjava.biz.MapperBiz;
 import org.bigjava.dao.PublicMapper;
 import org.bigjava.entitys.Addresss;
 import org.bigjava.entitys.DanceClass;
+import org.bigjava.entitys.KeBiao;
 import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.User;
@@ -112,9 +113,15 @@ public class MapperBizImpl implements MapperBiz {
 
 	@Override
 	public DanceClass getDanceClass(AllUserTool aut) {
-		System.out.println(">>>>>>>>>>>>>>>>>>"+aut.getStudent());
 		// TODO Auto-generated method stub
 		return publicMapper.getDanceClass(aut);
+	}
+
+
+	@Override
+	public KeBiao getKeBiao(KeBiao kebiao) {
+		// TODO Auto-generated method stub
+		return publicMapper.getKeBiao(kebiao);
 	}
 
 

@@ -61,7 +61,7 @@
 			<result type="redirect" name="success">/tupianyidong.jsp</result>
 		</action>
 		<action name="teacher_findStudentByClass" class="org.bigjava.action.MyAction_teacher" method="findStudentByClass">
-			<result name="success"></result>
+			<result name="success">/student_class.jsp</result>
 		</action>
 		<action name="teacher_updateTeacher" class="org.bigjava.action.MyAction_teacher" method="updateTeacher">
 			<result name="success">/myHomepage</result>

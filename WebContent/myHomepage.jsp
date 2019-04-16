@@ -247,9 +247,9 @@ hr{
 					<a href="public_getaddress"><div class="div_2" title="查看详情">修改资料</div></a>
 					<a href="kebiao.jsp"><div class="div_3" title="查看详情">个人课表</div></a>
 					<a><div class="div_4" title="查看详情">班级信息</div></a>
-					<a><div class="div_5" title="查看详情">班级学员</div></a>
+					<a href="teacher_findStudentByClass"><div class="div_5" title="查看详情">班级学员</div></a>
 					<a href="xinwen.jsp"><div class="div_6" title="查看详情">学校详情</div></a>
-					<a href="home.jsp"><div class="div_7" title="退出个人中心">退出系统</div></a>
+					<a href="home.jsp"><div class="div_7" title="退出个人中心">班级信息</div></a>
 					<a><div class="div_8" title="退出个人中心">退出系统</div></a>
 					<input type="hidden" value="${sessionScope.student}" id="student"/>
 					<input type="hidden" value="${sessionScope.teacher}" id="teacher"/>

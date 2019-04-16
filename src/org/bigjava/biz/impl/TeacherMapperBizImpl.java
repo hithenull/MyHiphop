@@ -48,9 +48,9 @@ public class TeacherMapperBizImpl implements TeacherMapperBiz {
 
 
 	@Override
-	public int findCount_student() {
+	public int findCount_student(int i) {
 		// TODO Auto-generated method stub
-		return teacherMapper.findCount_student();
+		return teacherMapper.findCount_student(i);
 	}
 
 

@@ -11,7 +11,7 @@ public interface TeacherMapper {
 
 	public List<Teacher> findPage_teacher(Page page);				
 
-	public int findCount_student();									//查询学生的总数
+	public int findCount_student(int i);									//查询学生的总数
 
 	public List<Teacher> findStudentByClass(Page page);				//分页查询班级的学生
 }

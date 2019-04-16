@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				学 &nbsp;&nbsp;号：<input type="text" name="id" id="id" placeholder="student number" value="${sessionScope.student.studentNumber}"/><br/>
 				班 &nbsp;&nbsp;级：<input type="text" name="squad" id="squad"
-				placeholder="In the class" value="${requestScope.danceClass.danceclass_id }"/>
+				placeholder="In the class" readonly="readonly" value="${sessionScope.danceClass.danceclass_id }"/>
 				<br/>
 				  
 				姓 &nbsp;&nbsp;名：<input type="text" name="studentName" id="name" placeholder="name*" value="${sessionScope.student.studentName}"/><br/>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.bigjava.action.tool.Page;
 import org.bigjava.biz.TeacherMapperBiz;
+import org.bigjava.entitys.DanceClass;
 import org.bigjava.entitys.Teacher;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,15 +18,6 @@ public class MyAction_teacher extends ActionSupport{
 	private Page page;
 	private TeacherMapperBiz teacherMapperBiz; //注入teacherMapperBiz
 	List<Teacher> list = new ArrayList<Teacher>();
-	private String danceclass;
-	
-	public String getDanceclass() {
-		return danceclass;
-	}
-
-	public void setDanceclass(String danceclass) {
-		this.danceclass = danceclass;
-	}
 
 	public Page getPage() {
 		return page;
@@ -84,7 +76,9 @@ public class MyAction_teacher extends ActionSupport{
 	 * @return
 	 */
 	public String findStudentByClass() {
-		System.out.println("findStudentByClass");
+		HttpServletRequest request=ServletActionContext.getRequest();
+		DanceClass dc = (DanceClass) request.getSession().getAttribute("danceClass");
+		System.out.println(">>>>>>>>>>"+dc);
 		int pageNo=1;
 		if(page!= null) {
 			System.out.println("page不为空");
@@ -93,15 +87,15 @@ public class MyAction_teacher extends ActionSupport{
 			System.out.println("page为空");
 		}
 		int pageSize=3;
-		int totalCount = teacherMapperBiz.findCount_student();
+		int totalCount = teacherMapperBiz.findCount_student(dc.getDanceclass_id());
 		Page page=new Page(pageNo,pageSize,totalCount);
-		page.setCanShu1(danceclass);
+		page.setCanShu1(dc.getDanceclass_id());
 		list=teacherMapperBiz.findStudentByClass(page);
 		if(list!=null){
 			System.out.println("list不为空");
-			HttpServletRequest request=ServletActionContext.getRequest();
-			request.getSession().setAttribute("list", list);
-			request.getSession().setAttribute("page", page);
+			request=ServletActionContext.getRequest();
+			request.setAttribute("list", list);
+			request.setAttribute("page", page);
 			return SUCCESS;
 		}else{
 			return ERROR;

@@ -54,4 +54,8 @@
 				teacher_id = #{teacher.teacher_id}
 			</if>
 		</select>
+		
+		<select id="getKeBiao" parameterType="org.bigjava.entitys.KeBiao" resultType="org.bigjava.entitys.KeBiao">
+			select * from kebiao where danceClass_id = #{i}
+		</select>
 </mapper>

@@ -9,11 +9,11 @@
 			select count(teacher_id) from Teacher 
 		</select>
 		
-		<select id="findStudentByClass" resultType="org.bigjava.entitys.Teacher" parameterType="org.bigjava.action.tool.Page">
+		<select id="findStudentByClass" resultType="org.bigjava.entitys.Student" parameterType="org.bigjava.action.tool.Page">
             select * from student where danceclass_id=#{canShu1} limit #{startrow},#{pagesize}
 		</select>
 		<select id="findCount_student" resultType="int">
-			select count(student_id) from student where student danceclass_id=#{canShu1}
+			select count(student_id) from student where danceclass_id=#{i}
 		</select>
 
 </mapper>

@@ -7,6 +7,7 @@ import org.bigjava.action.tool.AllUserTool;
 import org.bigjava.action.tool.Page;
 import org.bigjava.entitys.Addresss;
 import org.bigjava.entitys.DanceClass;
+import org.bigjava.entitys.KeBiao;
 import org.bigjava.entitys.Management;
 import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
@@ -36,7 +37,9 @@ public interface PublicMapper {
 
 	public void updateStudent(Student student);								//学生信息修改
 
-	public DanceClass getDanceClass(AllUserTool aut);						//得到用户的班级信息
+	public DanceClass getDanceClass(AllUserTool aut);									//得到用户的班级信息
+
+	public KeBiao getKeBiao(KeBiao kebiao);											//的到该班级的课表
 	
 	
 }

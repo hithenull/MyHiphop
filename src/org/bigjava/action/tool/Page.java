@@ -7,14 +7,14 @@ public class Page {
     private int totalpage;         //总页数
     private int startrow;          //开始数据条数
     private int endrow;            //结束数据条数
-    private String canShu1;			//page分页时需要使用的参数1
+    private int canShu1;			//page分页时需要使用的参数1
     private String canShu2;			//page分页时需要使用的参数2
     
-    public String getCanShu1() {
+    public int getCanShu1() {
 		return canShu1;
 	}
-	public void setCanShu1(String canShu1) {
-		this.canShu1 = canShu1;
+	public void setCanShu1(int i) {
+		this.canShu1 = i;
 	}
 	public String getCanShu2() {
 		return canShu2;
