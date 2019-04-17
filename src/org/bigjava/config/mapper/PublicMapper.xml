@@ -43,6 +43,7 @@
 		</select>
 		
 		<update id="updateStudent" parameterType="org.bigjava.entitys.Student">
+			update student set studentName = #{},phone=#{},birthday=#{},password=#{},
 		</update>
 		
 		<select id="getDanceClass" parameterType="org.bigjava.action.tool.AllUserTool" resultType="org.bigjava.entitys.DanceClass">

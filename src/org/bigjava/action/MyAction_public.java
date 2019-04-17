@@ -20,7 +20,7 @@ import org.bigjava.entitys.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class MyAction_public extends ActionSupport {
+public class MyAction_public extends ActionSupport implements ModelDriven<Student>{
 	
 	private User user;
 	private MapperBiz mapperBiz;	//注入mapperBiz
@@ -117,6 +117,8 @@ public class MyAction_public extends ActionSupport {
 	 */
     public String login() throws Exception{
     	HttpServletRequest request=ServletActionContext.getRequest();
+    	request.getSession().removeAttribute("student");
+    	request.getSession().removeAttribute("teacher");
     	aut.getStudent().setStudentNumber(loginname);
     	aut.getStudent().setPassword(loginpassword);
     	aut.getTeacher().setTeacherNumber(loginname);
@@ -180,6 +182,7 @@ public class MyAction_public extends ActionSupport {
     		aut.setStudent((Student) request.getSession().getAttribute("student"));
     		Addresss addresss = mapperBiz.getAddress(aut.getStudent().getAddress_id());
     		request.setAttribute("address", addresss);
+    		System.out.println(">>>>>>>>>>>>update");
     		return "update";
     	}
     	if((Teacher) request.getSession().getAttribute("teacher")!=null) {
@@ -193,7 +196,8 @@ public class MyAction_public extends ActionSupport {
     }
     public String updateStudent() {
     	
-    		mapperBiz.updateStudent(student);
+    	mapperBiz.updateStudent(student);
+    		
     	return SUCCESS;
     }
     /**
@@ -210,11 +214,20 @@ public class MyAction_public extends ActionSupport {
     	System.out.println("hello");
     	return SUCCESS;
     }
-    
+    /**
+     * 查询该用户所在班级的课表
+     * @param kebiao
+     */
     public void getKeBiao(KeBiao kebiao) {
     	HttpServletRequest request=ServletActionContext.getRequest();
     	kebiao = mapperBiz.getKeBiao(kebiao);
     	request.setAttribute("kebiao", kebiao);
     }
+    
+	@Override
+	public Student getModel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

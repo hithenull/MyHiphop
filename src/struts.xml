@@ -29,7 +29,7 @@
 		<action name="public_login" class="org.bigjava.action.MyAction_public" method="login">
           <result name="success">myHomepage.jsp</result>
           <result name="error">login.jsp</result> 
-          <result name="admin">myHomepage.jsp</result>     
+          <result name="admin">Administrator.jsp</result>     
        </action>
        
        <action name="public_showNews" class="org.bigjava.action.MyAction_public" method="showNews">

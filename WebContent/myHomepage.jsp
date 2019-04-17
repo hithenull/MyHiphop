@@ -272,13 +272,13 @@ hr{
 			
 			var a = $("#student").val();
 			var b = $("#teacher").val();
-			if(a!=null){
+			if(a!=""){
 				$(".div_5").hide();
 				$(".div_7").hide();
 				$(".div_4").show();
 				$(".div_6").show();
 			}
-			if(b!=null){
+			if(b!=""){
 				$(".div_4").hide();
 				$(".div_6").hide();
 				$(".div_5").show();
