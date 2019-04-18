@@ -243,12 +243,13 @@ hr{
 			</div>
 			<div class="big_div">
 				<div class="div_all">
-					<a><div class="div_1" title="查看详情">个人资料</div></a>
+					<a href="data.jsp"><div class="div_1" title="查看详情">个人资料</div></a>
+					<a href="data_teacher.jsp"><div class="div_1_1" title="查看详情">个人资料</div></a>
 					<a href="public_getaddress"><div class="div_2" title="查看详情">修改资料</div></a>
 					<a href="kebiao.jsp"><div class="div_3" title="查看详情">个人课表</div></a>
 					<a><div class="div_4" title="查看详情">班级信息</div></a>
 					<a href="teacher_findStudentByClass"><div class="div_5" title="查看详情">班级学员</div></a>
-					<a href="xinwen.jsp"><div class="div_6" title="查看详情">学校详情</div></a>
+					<a href="templatemo.jsp"><div class="div_6" title="查看详情">学校详情</div></a>
 					<a href="home.jsp"><div class="div_7" title="退出个人中心">班级信息</div></a>
 					<a><div class="div_8" title="退出个人中心">退出系统</div></a>
 					<input type="hidden" value="${sessionScope.student}" id="student"/>
@@ -273,12 +274,17 @@ hr{
 			var a = $("#student").val();
 			var b = $("#teacher").val();
 			if(a!=""){
+				
+				$(".div_1").show();
+				$(".div_1_1").hide();
 				$(".div_5").hide();
 				$(".div_7").hide();
 				$(".div_4").show();
 				$(".div_6").show();
 			}
 			if(b!=""){
+				$(".div_1").hide();
+				$(".div_1_1").show;
 				$(".div_4").hide();
 				$(".div_6").hide();
 				$(".div_5").show();

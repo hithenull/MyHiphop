@@ -17,6 +17,7 @@ import org.bigjava.entitys.DanceClass;
 
 import org.bigjava.entitys.News;
 import org.bigjava.entitys.SchoolInformation;
+import org.bigjava.entitys.Student;
 import org.bigjava.entitys.User;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -83,7 +84,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	 * 	学生分页
 	 * @return
 	 */
-	 public String findPage() {
+//	 public String findPage() {
 //		int pageNo=1;
 //		if(page!= null) {
 //			System.out.println("page不为空");
@@ -103,8 +104,8 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 //	     }else{
 //	        return ERROR;
 //	     }
-		 return SUCCESS;
-	  }
+//		 return SUCCESS;
+//	  }
 	  
 	  /**
 	   * 	添加新闻
@@ -366,5 +367,14 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 				}
 			}
 			return SUCCESS;
+	  }
+	  
+	  public String findAllStudent() {
+		  HttpServletRequest request=ServletActionContext.getRequest();
+	    	List<Student> list = adminMapperBiz.findAllStudent();
+	    	if(list!=null) {
+	    		request.setAttribute("list", list);
+	    	}
+	    	return SUCCESS;
 	  }
 }

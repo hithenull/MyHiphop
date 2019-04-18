@@ -77,6 +77,10 @@
             select * from danceclass ;
 		</select>
 		
+		<select id="findAllStudent" resultType="org.bigjava.entitys.Student">
+            select * from student ;
+		</select>
+		
 		<select id="updateClass"  parameterType="org.bigjava.entitys.DanceClass">
 		    update danceclass set danceclassName=#{danceclassName},classHour=#{classHour},
 		    					content=#{content},teacher_id=#{teacher_id} where danceclass_id=#{danceclass_id}

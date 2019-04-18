@@ -96,7 +96,7 @@
          	<result name="success">/test.jsp</result>
          </action>
           <action name="admin_adminfind" class="org.bigjava.action.MyAction_admin" method="adminfind">
-         	<result name="success">/findAdmin.jsp</result>
+         	<result name="success">/personnel.jsp</result>
          </action>
          
           <action name="admin_adminupdate" class="org.bigjava.action.MyAction_admin" method="adminupdate">
@@ -128,6 +128,10 @@
          
          <action name="admin_updateClass" class="org.bigjava.action.MyAction_admin" method="updateClass">
          	<result name="success">/addClass.jsp</result>
+         </action>
+         
+         <action name="admin_findAllStudent" class="org.bigjava.action.MyAction_admin" method="findAllStudent">
+         	<result name="success">/personnel_student.jsp</result>
          </action>
          
          

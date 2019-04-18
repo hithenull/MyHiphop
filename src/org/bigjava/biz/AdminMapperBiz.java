@@ -8,6 +8,7 @@ import org.bigjava.entitys.Management;
 import org.bigjava.entitys.DanceClass;
 import org.bigjava.entitys.News;
 import org.bigjava.entitys.SchoolInformation;
+import org.bigjava.entitys.Student;
 import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
 
@@ -48,5 +49,7 @@ public interface AdminMapperBiz {
 	public List<DanceClass> getAllClass();
 
 	public void updateClass(DanceClass dc);
+
+	public List<Student> findAllStudent();
 
 }

@@ -179,6 +179,14 @@ public class AdminMapperBizImpl implements AdminMapperBiz {
 
 
 
+	@Override
+	public List<Student> findAllStudent() {
+		// TODO Auto-generated method stub
+		return adminMapper.findAllStudent();
+	}
+
+
+
 
 
 

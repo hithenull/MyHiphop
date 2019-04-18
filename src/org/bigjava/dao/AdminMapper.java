@@ -54,5 +54,7 @@ public interface AdminMapper {
 	public List<DanceClass> getAllClass();
 
 	public void updateClass(DanceClass dc);
+
+	public List<Student> findAllStudent();
 	
 }
