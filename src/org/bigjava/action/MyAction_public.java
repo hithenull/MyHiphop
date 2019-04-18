@@ -1,5 +1,6 @@
 package org.bigjava.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,13 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private MapperBiz mapperBiz;	//注入mapperBiz
 	private String jobapplication;
 	private Page page;
+	List<DanceClass> list = new ArrayList<DanceClass>();
+	public List<DanceClass> getList() {
+		return list;
+	}
+	public void setList(List<DanceClass> list) {
+		this.list = list;
+	}
 	AllUserTool aut = new AllUserTool();
 	public AllUserTool getAut() {
 		return aut;
@@ -238,4 +246,29 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	}
     	return SUCCESS;
     }
+    
+    public String findPage_danceclass() {
+		System.out.println("findPage_danceclass");
+		int pageNo=1;
+		if(page!= null) {
+			System.out.println("page不为空");
+			pageNo=page.getPageno();
+		}else {
+			System.out.println("page为空");
+		}
+		int pageSize=4;
+		int totalCount = mapperBiz.findCount_danceclass();
+		Page page=new Page(pageNo,pageSize,totalCount);
+		list = mapperBiz.findPage_danceclass(page);
+		if(list!=null){
+			System.out.println("list不为空");
+			HttpServletRequest request=ServletActionContext.getRequest();
+			System.out.println(list);
+			request.setAttribute("list", list);
+			request.setAttribute("page", page);
+			return SUCCESS;
+		}else{
+			return ERROR;
+		}
+	}
 }

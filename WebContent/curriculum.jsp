@@ -480,7 +480,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       ${i.content}
 	            </td>
 	             <td class="d11">    
-                      ${i.teacherName}
+                      ${i.teacher_id}
 	            </td>
            </tr>
               </c:forEach>

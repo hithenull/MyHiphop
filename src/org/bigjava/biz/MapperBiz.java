@@ -44,5 +44,8 @@ public interface MapperBiz {
 
 	public List<User> getAllUser();
 	
+	public List<DanceClass> findPage_danceclass(Page page);
+	
+	public int findCount_danceclass();
 }
 

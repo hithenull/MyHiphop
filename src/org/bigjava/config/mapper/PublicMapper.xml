@@ -63,4 +63,11 @@
 		<select id="getAllUser" resultType="org.bigjava.entitys.User">
 			select * from user where applicationstatus = '未通过';
 		</select>
+		    		<select id="findPage_danceclass" resultType="org.bigjava.entitys.DanceClass" parameterType="org.bigjava.action.tool.Page">
+            select*from danceclass  limit #{startrow},#{pagesize}
+		</select>
+		
+		<select id="findCount_danceclass" resultType="java.lang.Integer">
+			select count(danceclass_id) from danceclass
+		</select>
 </mapper>

@@ -131,7 +131,14 @@ public class MapperBizImpl implements MapperBiz {
 		return publicMapper.getAllUser();
 	}
 
-
+	public List<DanceClass> findPage_danceclass(Page page) {
+		return publicMapper.findPage_danceclass(page);	
+	}
+    
+	public int findCount_danceclass() {
+	    	System.out.println("danceclass findcount");
+	    	return publicMapper.findCount_danceclass();
+    }
 
 }
 

@@ -43,5 +43,7 @@ public interface PublicMapper {
 
 	public List<User> getAllUser();
 	
-	
+	public List<DanceClass> findPage_danceclass(Page page);                  //班级信息显示分页
+
+	public int findCount_danceclass();	
 }

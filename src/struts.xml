@@ -49,6 +49,10 @@
 		<action name="public_getAllUser" class="org.bigjava.action.MyAction_public" method="getAllUser">
 			<result name="success">/personnel_user.jsp</result>
 		</action>
+		
+		<action name="public_findPage_danceclass" class="org.bigjava.action.MyAction_public" method="findPage_danceclass">
+			<result name="success">/curriculum.jsp</result>
+		</action>  
 	</package> 
 	
 	
