@@ -18,6 +18,7 @@ import org.bigjava.entitys.DanceClass;
 import org.bigjava.entitys.News;
 import org.bigjava.entitys.SchoolInformation;
 import org.bigjava.entitys.Student;
+import org.bigjava.entitys.Teacher;
 import org.bigjava.entitys.User;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -327,6 +328,11 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	         }
 		  
 	  }
+	  /**
+	   * 管理员添加班级
+	   * @return
+	   * @throws Exception
+	   */
 	  public String addDClass() throws Exception {
 		  HttpServletRequest request=ServletActionContext.getRequest();
 		  String toul = new String(request.getParameter("toul").getBytes("ISO-8859-1"),"UTF-8");
@@ -345,7 +351,11 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 			}
 			return SUCCESS;
 	  }
-	
+	/**
+	 * 管理员修改班级
+	 * @return
+	 * @throws Exception
+	 */
 	  public String updateClass() throws Exception {
 		  HttpServletRequest request=ServletActionContext.getRequest();
 		  System.out.println("hello>>>ypdateClass");
@@ -368,10 +378,58 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 			}
 			return SUCCESS;
 	  }
-	  
+	  /**
+	   * 管理员查询全部学生
+	   * @return
+	   */
 	  public String findAllStudent() {
 		  HttpServletRequest request=ServletActionContext.getRequest();
 	    	List<Student> list = adminMapperBiz.findAllStudent();
+	    	if(list!=null) {
+	    		request.setAttribute("list", list);
+	    	}
+	    	return SUCCESS;
+	  }
+	  
+	  public String changeeUser() {
+		  
+		  System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>changeUser");
+		  HttpServletRequest request=ServletActionContext.getRequest();
+		  int i = Integer.valueOf(request.getParameter("toul"));
+		  user = adminMapperBiz.findUserById(i);
+		  
+		  if(user.getJobapplication().indexOf("学生")>-1) {
+			  adminMapperBiz.delUserById(user.getUser_id());
+			  Student student = new Student();
+			  student.setStudentName(user.getUsername());
+			  student.setPhone(user.getUserphone());
+			  student.setStudentSex(user.getUsersex());
+			  student.setSimg_src(user.getImagesrc());
+			  adminMapperBiz.addStudent(student);
+			  student.setStudentNumber("s000"+student.getStudent_id());
+			  student.setPassword("hiphops000"+student.getStudent_id());
+			  adminMapperBiz.addStudent2(student);
+			  
+		  }else {
+			  adminMapperBiz.delUserById(user.getUser_id());
+			  Teacher teacher = new Teacher();
+			  teacher.setTeacherName(user.getUsername());
+			  teacher.setTeacherSex(user.getUsersex());
+			  teacher.setPhone(user.getUserphone());
+			  teacher.setTimg_src(user.getImagesrc());
+			  adminMapperBiz.addTeacher(teacher);
+			  teacher.setTeacher_id(teacher.getTeacher_id());
+			  teacher.setTeacherNumber("t000"+teacher.getTeacher_id());
+			  teacher.setTeacherPassword("hiphopt000"+teacher.getTeacher_id());
+			  adminMapperBiz.addTeacher2(teacher);
+		  }
+		  
+		  return SUCCESS;
+	  }
+	  
+	  public String getAllTeacher() {
+		  HttpServletRequest request=ServletActionContext.getRequest();
+	    	List<Teacher> list = adminMapperBiz.getAllTeacher();
 	    	if(list!=null) {
 	    		request.setAttribute("list", list);
 	    	}

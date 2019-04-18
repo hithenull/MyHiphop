@@ -19,6 +19,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--
     <link rel="stylesheet" type="text/css" href="styles.css">
     -->
+   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	function checkusrn() {
+		var check = false;
+		var password = document.getElementById("password").value;
+		var password2 = document.getElementById("password2").value;
+		if(password!=password2){
+			 document.getElementById("span_use").innerHTML = " 密码不一致";
+		}else{
+			 document.getElementById("span_use").innerHTML = " ok";
+			 check = true;
+		}
+		return check;
+	}
+	function check() {
+		var check = checkusrn();
+		if(check==true){
+			return true;
+		}else{
+			document.getElementById("password2").value="";
+			document.getElementById("span_use").innerHTML="";
+			return false;
+		}
+	}
+	</script>
   </head>
 	<link type="text/css" rel="stylesheet" href="css/update_style.css" />
 	<script text="text/javascript" src="js/update.js"></script>
@@ -33,14 +58,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="form">
 			<font class="enrollfor">Edit Profile</font><br/><br/>
-			<form name="reg_testdate" action="/cgi-bin/feedback" method="post">
-				<input type="radio" name="sex" value="男" checked="checked"/>男
+			<form name="reg_testdate" action="public_updateStudent" method="post" onsubmit="return check()">
+				<input type="radio" name="studentSex" value="男" />男
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				 <input type="radio" name="sex" value="女" />女<br/>
-				
-				
-				学 &nbsp;&nbsp;号：<input type="text" name="id" id="id" placeholder="student number" value="${sessionScope.student.studentNumber}"/><br/>
-				班 &nbsp;&nbsp;级：<input type="text" name="squad" id="squad"
+				 <input type="radio" name="studentSex" value="女" />女<br/>
+				学 &nbsp;&nbsp;号：<input type="text" name="studentNumber" id="id" readonly="readonly" placeholder="student number" value="${sessionScope.student.studentNumber}"/><br/>
+				班 &nbsp;&nbsp;级：<input type="text" name="danceclass_id" id="squad"
 				placeholder="In the class" readonly="readonly" value="${sessionScope.danceClass.danceclass_id }"/>
 				<br/>
 				  
@@ -58,19 +81,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				电 &nbsp;&nbsp;话：<input type="text" id="phone" name="phone" placeholder="phone number*" pattern="[0-9]{11}"  onchange='check()' value="${sessionScope.student.phone}"/>
 				<br/>
 				密 &nbsp;&nbsp;码：<input type="password" id="password" name="password" placeholder="password*" value="${sessionScope.student.password}"/><br/>
-				住 &nbsp;&nbsp;址： 
-            <select class="select" name="province" id="s1">
-                <option></option>
-            </select>
-            <select class="select" name="city" id="s2">
-                <option></option>
-            </select>
-            <select class="select" name="town" id="s3">
-                <option></option>
-            </select><br/><br/>
-            <font class="address">具体住址：</font>
-			<textarea id="feedbackcontent"  name="address" cols="32" rows="2" placeholder="The specific address"></textarea>
-			<br/>
+				确认密码：<input type="password" id="password2" name="password1"  oninput="checkusrn()"/><br/>
+				<span id="span_use"></span>
+            
 				<button class="btn" type="submit">save</button>
 				<button class="btn1" type="submit">return</button>
 			</form>

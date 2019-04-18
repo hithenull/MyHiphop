@@ -41,9 +41,11 @@ public interface PublicMapper {
 
 	public KeBiao getKeBiao(KeBiao kebiao);											//的到该班级的课表
 
-	public List<User> getAllUser();
+	public List<User> getAllUser();											//拿到所有的用户
 	
 	public List<DanceClass> findPage_danceclass(Page page);                  //班级信息显示分页
 
-	public int findCount_danceclass();	
+	public int findCount_danceclass();										//查询舞蹈班级的总数
+
+	public Student find_idStudent(int student_id);							//根据id查询所有的student		
 }

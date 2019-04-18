@@ -231,7 +231,7 @@ hr{
 		</div>
 		<div class="middle" id="box">
 			<ul class="levitate" id="fixPara">
-				<li><a href="xinwen.jsp">关于</a></li>
+				<li><a href="templatemo.jsp">关于</a></li>
 				<li><a href="">资料</a></li>
 				<li><a href="update.jsp">修改</a></li>
 			</ul>
@@ -251,7 +251,7 @@ hr{
 					<a href="teacher_findStudentByClass"><div class="div_5" title="查看详情">班级学员</div></a>
 					<a href="templatemo.jsp"><div class="div_6" title="查看详情">学校详情</div></a>
 					<a href="home.jsp"><div class="div_7" title="退出个人中心">班级信息</div></a>
-					<a><div class="div_8" title="退出个人中心">退出系统</div></a>
+					<a href="public_break_break"><div class="div_8" title="退出个人中心">退出系统</div></a>
 					<input type="hidden" value="${sessionScope.student}" id="student"/>
 					<input type="hidden" value="${sessionScope.teacher}" id="teacher"/>
 				</div>

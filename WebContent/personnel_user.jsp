@@ -14,11 +14,6 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/bootbox.min.js"></script>
-<script type="text/javascript">
-	window.onload = function(){
-		
-	}
-</script>
 </head>
 <body>
 
@@ -120,7 +115,7 @@
 		                <td style="background-color:pink;">${i.userphone }</td>
 		                <td style="background-color:pink;">${i.usersex }</td>
 		                <td style="background-color:pink;">${i.jobapplication }</td>
-		                <td style="background-color:pink;"><a href="#" class="edit">通过</a> <a href="#"  class="del">删除</a></th>
+		                <td style="background-color:pink;"><a href="#" class="load">通过</a> <a href="#"  class="del">删除</a></th>
 	           		 </tr>
               	</c:forEach>
             </tbody>
@@ -131,6 +126,18 @@
 <script type="text/javascript">
 $(function () {
 	
+	$(".load").click(function (){
+		trIndex = $('.load', '.t_t').index($(this));
+    	trIndex = trIndex+1;
+        addEnter = false;
+        $(this).parents('tr').addClass('has_case');
+        var nowConArr = "";
+        nowConArr = document .getElementById ("tb").rows [trIndex].cells[1].innerHTML
+        if(nowConArr!=""){
+        	window.location.href="admin_changeUser?toul="+nowConArr;
+        }
+        
+	})
 
     $('#add_btn').click(function () {
         methods.addHandle()

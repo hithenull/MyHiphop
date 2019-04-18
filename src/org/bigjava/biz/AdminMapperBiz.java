@@ -52,4 +52,18 @@ public interface AdminMapperBiz {
 
 	public List<Student> findAllStudent();
 
+	public User findUserById(int i);
+
+	public void delUserById(int user_id);
+
+	public int addStudent(Student student);
+
+	public void addStudent2(Student student);
+
+	public int addTeacher(Teacher teacher);
+
+	public void addTeacher2(Teacher teacher);
+
+	public List<Teacher> getAllTeacher();
+
 }

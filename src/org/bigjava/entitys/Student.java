@@ -14,13 +14,11 @@ public class Student {
 	private int danceclass_id;        //班级ID
 	private String simg_src;          //学生图片路径
 	private int address_id;			//地址id
+	private String YYYY;
+	private String MM;
+	private String DD;
 	
-	public int getAddress_id() {
-		return address_id;
-	}
-	public void setAddress_id(int address_id) {
-		this.address_id = address_id;
-	}
+	
 	public int getStudent_id() {
 		return student_id;
 	}
@@ -87,13 +85,40 @@ public class Student {
 	public void setSimg_src(String simg_src) {
 		this.simg_src = simg_src;
 	}
+	public int getAddress_id() {
+		return address_id;
+	}
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
+	public String getYYYY() {
+		return YYYY;
+	}
+	public void setYYYY(String yYYY) {
+		YYYY = yYYY;
+	}
+	public String getMM() {
+		return MM;
+	}
+	public void setMM(String mM) {
+		MM = mM;
+	}
+	public String getDD() {
+		return DD;
+	}
+	public void setDD(String dD) {
+		DD = dD;
+	}
 	@Override
 	public String toString() {
 		return "Student [student_id=" + student_id + ", studentName=" + studentName + ", phone=" + phone
 				+ ", paymentstatus=" + paymentstatus + ", studentSex=" + studentSex + ", StudentAge=" + StudentAge
 				+ ", password=" + password + ", birthday=" + birthday + ", studentNumber=" + studentNumber
-				+ ", danceclass_id=" + danceclass_id + ", simg_src=" + simg_src + "]";
+				+ ", danceclass_id=" + danceclass_id + ", simg_src=" + simg_src + ", address_id=" + address_id
+				+ ", YYYY=" + YYYY + ", MM=" + MM + ", DD=" + DD + "]";
 	}
+	
+
 	
 	
 }

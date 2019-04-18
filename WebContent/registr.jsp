@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="/struts-tags" prefix="s" %>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -213,39 +213,6 @@ a {
 </style>
 <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>	
 <script>
-$(document).ready(function(){
-	
-	var u,verification,phone1;
-	
-	$(".yzm").click(function(){
-		phone1 = $("#phone").val();
-		$.ajax({
-				url:"index?phone="+phone1,
-				type:"post",
-				data: {
-				},
-				dateType:"json",
-				success:function(data,textStatus){
-					alert(data.verification);
-					return true;
-				},
-				error:function(data, textStatus){
-					alert("出错了");
-					return false;
-				}
-			});
-		});
-	
-	$('.btn').click(function(){
-		verification = '<%=session.getAttribute("verification")%>';
-		u = $("#lala").val();
-       	if(u == verification){
-       	 	$('form').submit();
-       	}else{
-            return false;
-       	}
-    });
-	});
 		var subcat = new Array();
 		var biglist = new Array('学生', '指导员');
 		subcat[0] = new Array('0', '少儿HIPHOP启蒙班');
@@ -334,6 +301,8 @@ $(document).ready(function(){
 				
 				<input type="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';"
 				 			class="file" id="upload" /> 
+				 			
+				 			
 			<button class="btn" type="submit">submit</button>
 		</form>
 	</div>

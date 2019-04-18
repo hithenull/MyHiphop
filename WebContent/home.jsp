@@ -381,7 +381,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div id="div2" class="div2">
 						<img src="imgs/2.jpg" width="100%" height="100%">
 						<div class="div2_mask"></div>
-						<a href="curriculum.jsp" class="div2_sub">查看课表</a>
+						<a href="public_findPage_danceclass" class="div2_sub">查看课表</a>
 					</div>
 					<b class="curriculum">课程安排</b>
 					<hr class="hr3" />

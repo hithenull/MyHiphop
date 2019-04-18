@@ -7,13 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="admin_findTeacher" method="post">
-		   
-       <input type="submit" value="查询"/>
-	</form>
-	<form action="public_findPage_danceclass" method="post">
-		   
-       <input type="submit" value="查询"/>
-	</form>
+<img alt="" src="/images\1.jpg">
 </body>
 </html>

@@ -140,6 +140,13 @@ public class MapperBizImpl implements MapperBiz {
 	    	return publicMapper.findCount_danceclass();
     }
 
+
+	@Override
+	public Student find_idStudent(int student_id) {
+		// TODO Auto-generated method stub
+		return publicMapper.find_idStudent(student_id);
+	}
+
 }
 
 

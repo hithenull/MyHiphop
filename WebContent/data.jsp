@@ -98,9 +98,12 @@ h3{
 .tx{
 	width:160px;
 	height:160px;
-	border:1px solid red;
 	border-radius: 80px;
 	margin:-60px 0px;
+}
+.tx img{
+	width:100%;height:100%;
+	border-radius: 80px;
 }
 </style>
 
@@ -111,7 +114,7 @@ h3{
 	<img class="logo" src="imgs/logowei.png" />
 	<h3 style="color: aliceblue;font-size:30px" >个人资料</h3>
 	<div class="tx">
-	
+		<img alt="" src="${sessionScope.student.simg_src }">
 	</div>
 	<div class="introduce">
 		<p>

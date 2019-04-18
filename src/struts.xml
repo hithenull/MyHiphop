@@ -52,7 +52,12 @@
 		
 		<action name="public_findPage_danceclass" class="org.bigjava.action.MyAction_public" method="findPage_danceclass">
 			<result name="success">/curriculum.jsp</result>
-		</action>  
+		</action>
+		
+		<action name="public_break_break" class="org.bigjava.action.MyAction_public" method="break_break">
+			<result name="success">/home.jsp</result>
+		</action>
+		  
 	</package> 
 	
 	
@@ -136,6 +141,14 @@
          
          <action name="admin_findAllStudent" class="org.bigjava.action.MyAction_admin" method="findAllStudent">
          	<result name="success">/personnel_student.jsp</result>
+         </action>
+         
+         <action name="admin_changeUser" class="org.bigjava.action.MyAction_admin" method="changeeUser">
+         	<result name="success">/personnel_user.jsp</result>
+         </action>
+         
+         <action name="admin_getAllTeacher" class="org.bigjava.action.MyAction_admin" method="getAllTeacher">
+         	<result name="success">/personnel_teacher.jsp</result>
          </action>
          
          

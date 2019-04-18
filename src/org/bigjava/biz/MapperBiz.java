@@ -47,5 +47,7 @@ public interface MapperBiz {
 	public List<DanceClass> findPage_danceclass(Page page);
 	
 	public int findCount_danceclass();
+
+	public Student find_idStudent(int student_id);
 }
 

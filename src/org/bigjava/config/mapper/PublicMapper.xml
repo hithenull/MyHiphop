@@ -10,13 +10,14 @@
    			select * from user where user_id=#{user_id}
         </select>
         
-        <insert id="insertUser" parameterType="org.bigjava.entitys.User">
-	        <selectKey keyProperty="user_id" order="AFTER" resultType="java.lang.Integer">
-	            SELECT LAST_INSERT_ID()
+         <insert id="insertUser" parameterType="org.bigjava.entitys.Teacher">
+	        <selectKey keyProperty="teacher_id" order="AFTER" resultType="java.lang.Integer">
+	           select last_insert_id();
 	        </selectKey>
             insert into user(username,usersex,userphone,jobapplication,imagesrc) 
             				value(#{username},#{usersex},#{userphone},#{jobapplication},#{imagesrc})
         </insert>
+        
         
         <select id="findNewsAll" resultType="int">
 		    select count(news_id) from news 
@@ -42,10 +43,6 @@
 			select*from address where address_id = #{a}
 		</select>
 		
-		<update id="updateStudent" parameterType="org.bigjava.entitys.Student">
-			update student set studentName = #{},phone=#{},birthday=#{},password=#{} where studentNumber = #{studentNumber}
-		</update>
-		
 		<select id="getDanceClass" parameterType="org.bigjava.action.tool.AllUserTool" resultType="org.bigjava.entitys.DanceClass">
 			select*from danceclass where
 			<if test="student.studentName!=null">
@@ -69,5 +66,13 @@
 		
 		<select id="findCount_danceclass" resultType="java.lang.Integer">
 			select count(danceclass_id) from danceclass
+		</select>
+		
+		<update id="updateStudent" parameterType="org.bigjava.entitys.Student">
+			update student set studentName = #{studentName},phone=#{phone},password=#{password},address_id=#{address_id},studentSex=#{studentSex},YYYY=#{YYYY},MM=#{MM},DD=#{DD} where studentNumber = #{studentNumber}
+		</update>
+		
+		<select id="find_idStudent" parameterType="int" resultType="org.bigjava.entitys.Student">
+			select*from student where student_id=#{student_id}
 		</select>
 </mapper>

@@ -187,6 +187,62 @@ public class AdminMapperBizImpl implements AdminMapperBiz {
 
 
 
+	@Override
+	public User findUserById(int i) {
+		// TODO Auto-generated method stub
+		return adminMapper.findUserById(i);
+	}
+
+
+
+	@Override
+	public void delUserById(int user_id) {
+		// TODO Auto-generated method stub
+		adminMapper.delUserById(user_id);
+	}
+
+
+
+	@Override
+	public int addStudent(Student student) {
+		// TODO Auto-generated method stub
+		return adminMapper.addStudent(student);
+	}
+
+
+
+	@Override
+	public void addStudent2(Student student) {
+		// TODO Auto-generated method stub
+		adminMapper.addStudent2(student);
+	}
+
+
+
+	@Override
+	public int addTeacher(Teacher teacher) {
+		// TODO Auto-generated method stub
+		return adminMapper.addTeacher(teacher);
+	}
+
+
+
+	@Override
+	public void addTeacher2(Teacher teacher) {
+		// TODO Auto-generated method stub
+		adminMapper.addTeacher2(teacher);
+	}
+
+
+
+	@Override
+	public List<Teacher> getAllTeacher() {
+		// TODO Auto-generated method stub
+		return adminMapper.getAllTeacher();
+	}
+
+
+
 
 
 

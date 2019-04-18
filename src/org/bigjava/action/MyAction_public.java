@@ -28,6 +28,12 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	private String jobapplication;
 	private Page page;
 	List<DanceClass> list = new ArrayList<DanceClass>();
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public List<DanceClass> getList() {
 		return list;
 	}
@@ -43,14 +49,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	}
 	private String loginname;
 	private String loginpassword;
-	private String verification;
 	
-	public String getVerification() {
-		return verification;
-	}
-	public void setVerification(String verification) {
-		this.verification = verification;
-	}
 	public String getLoginname() {
 		return loginname;
 	}
@@ -101,7 +100,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	 * @throws Exception
 	 */
 	public String register() throws Exception{
-		System.out.println(verification);
+		System.out.println("??????????????????????register");
 		user.setJobapplication(user.getJobapplication()+","+jobapplication);
 		ImageUtil i = new ImageUtil();
 		String[] arr = user.getImagesrc().split("\\\\");
@@ -202,12 +201,8 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	}
     	return ERROR;
     }
-    public String updateStudent() {
-    	
-    	mapperBiz.updateStudent(student);
-    		
-    	return SUCCESS;
-    }
+    
+    
     /**
      * 	异步加载短信验证码
      * @return
@@ -217,8 +212,8 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
     	String phone = (String) request.getAttribute("phone");
     	//System.out.println(phone);
     	//GetMassege gm = new GetMassege();
-    	verification = "aaaaaa";
-    	request.getSession().setAttribute("verification", verification);
+    	//verification = "aaaaaa";
+    	//request.getSession().setAttribute("verification", verification);
     	System.out.println("hello");
     	return SUCCESS;
     }
@@ -235,7 +230,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 	@Override
 	public Student getModel() {
 		// TODO Auto-generated method stub
-		return null;
+		return student;
 	}
 	
     public String getAllUser() {
@@ -271,4 +266,23 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 			return ERROR;
 		}
 	}
+    
+    public String updateStudent() {
+    	HttpServletRequest request=ServletActionContext.getRequest();
+    	Student student1 = new Student();
+    	student1 = (Student) request.getSession().getAttribute("student");
+    	System.out.println(">>>>>>>>"+student);
+    	mapperBiz.updateStudent(student);
+    	student=mapperBiz.find_idStudent(student1.getStudent_id());
+    	System.out.println("成功"+student);
+    	request.getSession().removeAttribute("student");
+    	request.getSession().setAttribute("student", student);
+    	return SUCCESS;
+    }
+    
+    public String break_break() {
+    	HttpServletRequest request=ServletActionContext.getRequest();
+    	request.getSession().invalidate();
+    	return SUCCESS;
+    }
 }
