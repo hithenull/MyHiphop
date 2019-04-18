@@ -47,8 +47,8 @@
 		</insert>
 		
 		<insert id="addDClass" parameterType="org.bigjava.entitys.DanceClass">
-			insert into danceClass(danceclassName,duration,price,saturday,sunday) 
-					value(#{danceclassName},#{duration},#{price},#{saturday},#{sunday})
+			insert into danceClass(danceclassName,classHour,price,content,teacher_id) 
+					value(#{danceclassName},#{classHour},#{price},#{content},#{teacher_id})
 		</insert>
 	
 		
@@ -67,6 +67,19 @@
 		<select id="adminupdate1"  parameterType="String">
 		    update Management set account=#{account},password=#{password} where management_id=2
 		</select>
-
+		
+		
+		<select id="updateNews"  parameterType="org.bigjava.entitys.News">
+		    update news set headline=#{headline},date=#{date} where news_id=#{news_id};
+		</select>
+		
+		<select id="getAllClass" resultType="org.bigjava.entitys.DanceClass">
+            select * from danceclass ;
+		</select>
+		
+		<select id="updateClass"  parameterType="org.bigjava.entitys.DanceClass">
+		    update danceclass set danceclassName=#{danceclassName},classHour=#{classHour},
+		    					content=#{content},teacher_id=#{teacher_id} where danceclass_id=#{danceclass_id}
+		</select>
 		
 </mapper>

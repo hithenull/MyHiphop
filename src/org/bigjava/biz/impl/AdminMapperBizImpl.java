@@ -155,6 +155,30 @@ public class AdminMapperBizImpl implements AdminMapperBiz {
 
 
 
+	@Override
+	public void updateNews(News news) {
+		// TODO Auto-generated method stub
+		adminMapper.updateNews(news);
+	}
+
+
+
+	@Override
+	public List<DanceClass> getAllClass() {
+		// TODO Auto-generated method stub
+		return adminMapper.getAllClass();
+	}
+
+
+
+	@Override
+	public void updateClass(DanceClass dc) {
+		// TODO Auto-generated method stub
+		adminMapper.updateClass(dc);
+	}
+
+
+
 
 
 

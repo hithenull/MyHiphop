@@ -125,6 +125,13 @@ public class MapperBizImpl implements MapperBiz {
 	}
 
 
+	@Override
+	public List<User> getAllUser() {
+		// TODO Auto-generated method stub
+		return publicMapper.getAllUser();
+	}
+
+
 
 }
 

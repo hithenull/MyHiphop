@@ -159,7 +159,7 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 		}else {
 			System.out.println("page为空");
 		}
-		int pageSize=5;
+		int pageSize=10;
 		int totalCount = mapperBiz.findNewsAll();
 		Page page=new Page(pageNo,pageSize,totalCount);
 		List<User> list= mapperBiz.findNews(page);
@@ -229,5 +229,13 @@ public class MyAction_public extends ActionSupport implements ModelDriven<Studen
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
+	
+    public String getAllUser() {
+    	HttpServletRequest request=ServletActionContext.getRequest();
+    	List<User> list = mapperBiz.getAllUser();
+    	if(list!=null) {
+    		request.setAttribute("list", list);
+    	}
+    	return SUCCESS;
+    }
 }

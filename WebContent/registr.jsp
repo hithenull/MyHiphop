@@ -104,8 +104,8 @@ input[type="radio"] {
 	border: 0px;
 	background-color: #4c9a39;
 	position: absolute;
-	top: 490px;
-	left: 175px;
+	top: 425px;
+	left: 160px;
 	width: 45%;
 	height: 50px;
 	border-radius: 4px;
@@ -185,12 +185,12 @@ select {
 .span{
 	width:80%;
 	position: absolute;
-	top:385px;
+	top:325px;
 	left:55px;
 }
 #upload{
 	position: absolute;
-	top:410px;
+	top:350px;
 	left:315px;
 	
 	opacity: 0;
@@ -199,12 +199,12 @@ select {
 }
 .tx{
 	position:absolute;
-	top:410px;
+	top:350px;
 	left:35px;
 }
 .file1{
 	position: absolute;
-	top:410px;
+	top:350px;
 	left:405px;
 }
 a {
@@ -306,7 +306,6 @@ $(document).ready(function(){
 
 			<img class="person" src="imgs/person.png" /> 
 			<img class="phone" src="imgs/phone.png" /> 
-			<img class="lock" src="imgs/lock.png" /> 
 			
 			<input type="radio" name="user.usersex" value="男" checked="checked" />男
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -319,15 +318,12 @@ $(document).ready(function(){
 				<option value="职业" selected>职业</option>
 				<option value="学生">学生</option>
 				<option value="指导员">指导员</option>
-			</select> <select name="jobapplication">
+			</select>
+			 <select name="jobapplication">
 				<option value="舞种" selected>舞种</option>
 			</select> <br /> 电 &nbsp;&nbsp;话：<input type="text" id="phone"
 				name="user.userphone" placeholder="phone number*"
 				pattern="[0-9]{11}" onchange='check()' />
-
-			<button class="yzm" type="button">获取验证码</button>
-			<br /> 验证码：<input type="text" name="verification" placeholder="verification code" id="lala"/><br /> 
-			
 				<font class="tx">头 &nbsp;&nbsp;像：</font>
 				<span class="span"> 
 				

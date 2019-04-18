@@ -1,5 +1,6 @@
 package org.bigjava.action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 
@@ -113,9 +114,20 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	  
 	  public String addNew() throws Exception {
 		  
-		  adminMapperBiz.addNew(news);
+		  HttpServletRequest request=ServletActionContext.getRequest();
+		  String toul = new String(request.getParameter("toul").getBytes("ISO-8859-1"),"UTF-8");
+			String[] arr = toul.split(",");
+			System.out.println(arr[0]);
+			for(int i=0,j=0;i<arr.length;i++,j++) {
+				if(j%3==0) {
+					news = new News();
+					news.setHeadline(arr[i]);
+					news.setDate(arr[i+2]);
+					adminMapperBiz.addNew(news);
+				}
+			}
+			return SUCCESS;
 		  
-		  return SUCCESS;
 	  }
 	 /**
 	  * 	淇敼寰呭鎵圭敤鎴风殑瀹℃壒鐘舵��
@@ -197,16 +209,6 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 		  return SUCCESS;
 	  }
 	  
-	  /**
-	   * 	老师申请通过后添加班级
-	   * @return
-	   */
-	  public String addDClass() {
-		  
-		   adminMapperBiz.addDClass(dClass);
-		  return SUCCESS;
-	  }
-	  
 	  
 	  /**
 	   * 	添加二级管理员
@@ -242,7 +244,7 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 		  
 	  }
 	  /*
-	   * 淇敼
+	   * 修改管理员
 	   */
 	
 	  public String adminupdate1() {
@@ -255,7 +257,10 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	   *分页查询管理员
 	   */
 	
-	  
+	  /**
+	   * 查询管理员
+	   * @return
+	   */
 	  public String adminfind() {
 		  System.out.println("findPage_admin");
 			int pageNo=1;
@@ -280,5 +285,86 @@ public class MyAction_admin extends ActionSupport implements ModelDriven<News>{
 	         }
 
 	  }
+	  /**
+	   * 更改新闻相关信息
+	   * @return
+	   * @throws Exception
+	   */
+	  public String updateNews() throws Exception {
+		  
+		  HttpServletRequest request=ServletActionContext.getRequest();
+//		  request.setCharacterEncoding("utf-8");
+		  String toul = new String(request.getParameter("toul").getBytes("ISO-8859-1"),"UTF-8");
+//			String a = request.getParameter("toul");
+			String[] arr = toul.split(",");
+			System.out.println(arr[0]);
+			for(int i=0,j=0;i<arr.length;i++,j++) {
+				if(j%3==0) {
+					news = new News();
+					news.setHeadline(arr[i]);
+					news.setNews_id(Integer.valueOf(arr[i+1]));
+					news.setDate(arr[i+2]);
+					adminMapperBiz.updateNews(news);
+				}
+			}
+			return SUCCESS;
+		  
+	  }
+	  /**
+	   * 管理员获得班级列表
+	   * @return
+	   */
+	  public String getAllClass() {
+		  List<DanceClass> list=adminMapperBiz.getAllClass();
+		  if(list!=null){
+			  System.out.println("list不为空");
+	             HttpServletRequest request=ServletActionContext.getRequest();
+	             request.setAttribute("list", list);
+	             return SUCCESS;
+	         }else{
+	             return ERROR;
+	         }
+		  
+	  }
+	  public String addDClass() throws Exception {
+		  HttpServletRequest request=ServletActionContext.getRequest();
+		  String toul = new String(request.getParameter("toul").getBytes("ISO-8859-1"),"UTF-8");
+			String[] arr = toul.split(",");
+			System.out.println(arr[0]);
+			DanceClass dc;
+			for(int i=0,j=0;i<arr.length;i++,j++) {
+				if(j%5==0) {
+					dc = new DanceClass();
+					dc.setDanceclassName(arr[i]);
+					dc.setClassHour(arr[i+2]);
+					dc.setTeacher_id(Integer.valueOf(arr[i+3]));
+					dc.setContent(arr[i+4]);
+					adminMapperBiz.addDClass(dc);
+				}
+			}
+			return SUCCESS;
+	  }
 	
+	  public String updateClass() throws Exception {
+		  HttpServletRequest request=ServletActionContext.getRequest();
+		  System.out.println("hello>>>ypdateClass");
+//		  request.setCharacterEncoding("utf-8");
+		  String toul = new String(request.getParameter("toul").getBytes("ISO-8859-1"),"UTF-8");
+//			String a = request.getParameter("toul");
+			String[] arr = toul.split(",");
+			System.out.println(arr[0]);
+			DanceClass dc;
+			for(int i=0,j=0;i<arr.length;i++,j++) {
+				if(j%5==0) {
+					dc = new DanceClass();
+					dc.setDanceclassName(arr[i]);
+					dc.setDanceclass_id(Integer.valueOf(arr[i+1]));
+					dc.setClassHour(arr[i+2]);
+					dc.setTeacher_id(Integer.valueOf(arr[i+3]));
+					dc.setContent(arr[i+4]);
+					adminMapperBiz.updateClass(dc);
+				}
+			}
+			return SUCCESS;
+	  }
 }

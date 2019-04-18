@@ -41,6 +41,8 @@ public interface MapperBiz {
 	public DanceClass getDanceClass(AllUserTool aut);
 
 	public KeBiao getKeBiao(KeBiao kebiao);
+
+	public List<User> getAllUser();
 	
 }
 

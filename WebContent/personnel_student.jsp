@@ -65,17 +65,38 @@
                                 <!--新修改弹窗的样式-->
                                 <tbody>
                                 <tr>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>id</label>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>姓名</label>
                                     </td>
                                     <td><input class="userName" type="text" placeholder="请输入姓名"></td>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>用户名</label>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>学号</label>
                                     </td>
-                                    <td><input class="jobNum" type="number" placeholder="请输入id"></td>
+                                    <td><input class="jobNum" type="number" placeholder="请输入学号"></td>
                                 </tr>
                                 <tr>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>密码</label>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>手机号</label>
                                     </td>
-                                    <td><input class="phoneNum" type="number" placeholder="请输入密码"></td>
+                                    <td><input class="phoneNum" type="number" placeholder="请输入手机号"></td>
+                                    <td class="tb_bg"><label for="">班级名称</label></td>
+                                    <td><input type="text" placeholder="请输入班级名称"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tb_bg"><label for="">性别</label></td>
+                                    <td>
+                                        <select class="form-control select_down" style="font-size: 13px; color: #666;">
+                                            <option>男</option>
+                                            <option>女</option>
+                                            
+                                        </select>
+                                    </td>
+                                    <td class="tb_bg"><label for="">职业</label></td>
+                                    <td>
+                                        <select class="form-control select_down" style="font-size: 13px; color: #666;">
+                                            <option>学生</option>
+                                            <option>老师</option>
+                                            <option>管理员</option>
+                                            
+                                        </select>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -92,21 +113,19 @@
         <table id="tb" class="table">
             <thead>
             <tr>
-                <th>id</th>
-                <th>用户名</th>
-                <th>密码</th>
+                <th>姓名</th>
+                <th>学号</th>
+                <th>手机号</th>
+                <th>班级名称</th>
+                <th>性别</th>
+                <th>职业</th>
                 <th>操作</th>
             </tr>
-            	<c:forEach var="i" items="${requestScope.list}" varStatus="st">
-            	<tr class="t_t">
-                	<td style="background-color:pink;">${i.management_id }</td>
-	                <td style="background-color:pink;">${i.account }</td>
-	                <td style="background-color:pink;">${i.password }</td>
-	                <td style="background-color:pink;"><a href="#" class="edit">编辑</a> <a href="#"  class="del">删除</a></th>
-	            </tr>
-              	</c:forEach>
             </thead>
             <tbody id="show_tbody">
+            	<c:forEach var="i" items="${requestScope.list}" varStatus="st">
+                	
+              	</c:forEach>
             </tbody>
         </table>
     </div>

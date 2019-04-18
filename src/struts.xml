@@ -45,6 +45,10 @@
 			<result name="success">/myHomepage.jsp</result>
 			<result name="update">/update.jsp</result>
 		</action>
+		
+		<action name="public_getAllUser" class="org.bigjava.action.MyAction_public" method="getAllUser">
+			<result name="success">/personnel_user.jsp</result>
+		</action>
 	</package> 
 	
 	
@@ -79,7 +83,7 @@
 				method:	admin_*** 
 		 -->	
 		 <action name="admin_addNew" class="org.bigjava.action.MyAction_admin" method="addNew">
-		 	<result name="success">/index.jsp</result>
+		 	<result name="success">/xinwen.jsp</result>
 		 </action>
 		 
 		 <action name="admin_findPage" class="org.bigjava.action.MyAction_admin" method="findPage">
@@ -109,6 +113,24 @@
          <action name="admin_findTeacher" class="org.bigjava.action.MyAction_admin" method="findTeacher">
          	<result name="success">/teacherfeye.jsp</result>
          </action>
+         
+         <action name="admin_updateNews" class="org.bigjava.action.MyAction_admin" method="updateNews">
+         	<result name="success">/xinwen.jsp</result>
+         </action>
+         
+         <action name="admin_getAllClass" class="org.bigjava.action.MyAction_admin" method="getAllClass">
+         	<result name="success">/addClass.jsp</result>
+         </action>
+         
+         <action name="admin_addDClass" class="org.bigjava.action.MyAction_admin" method="addDClass">
+         	<result name="success">/addClass.jsp</result>
+         </action>
+         
+         <action name="admin_updateClass" class="org.bigjava.action.MyAction_admin" method="updateClass">
+         	<result name="success">/addClass.jsp</result>
+         </action>
+         
+         
 
 	</package>
 	

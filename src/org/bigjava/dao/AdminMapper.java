@@ -48,5 +48,11 @@ public interface AdminMapper {
 	public List<Management> adminupdate(int id);
 
 	public void adminupdate1(Management management1);
+
+	public void updateNews(News news);
+
+	public List<DanceClass> getAllClass();
+
+	public void updateClass(DanceClass dc);
 	
 }

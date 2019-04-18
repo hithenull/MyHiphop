@@ -40,6 +40,8 @@ public interface PublicMapper {
 	public DanceClass getDanceClass(AllUserTool aut);									//得到用户的班级信息
 
 	public KeBiao getKeBiao(KeBiao kebiao);											//的到该班级的课表
+
+	public List<User> getAllUser();
 	
 	
 }

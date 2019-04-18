@@ -14,26 +14,30 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/bootbox.min.js"></script>
-
+<script type="text/javascript">
+	window.onload = function(){
+		
+	}
+</script>
 </head>
 <body>
 
 <div class="box">
-    <div class="title">班级管理页面</div>
+    <div class="title">人员管理页面</div>
     <div class="content">
         <!--搜索输入框及查询、重置按钮-->
         <div class="container content_width">
             <div class="person_search">
                 <div class="search_input">
                     <div class="input-group mb-3">
-                        <span>班级名称：</span>
-                        <input id="Ktext" type="text" class="form-control" placeholder="请输入班级名称">
+                        <span>姓名：</span>
+                        <input id="Ktext" type="text" class="form-control" placeholder="请输入姓名">
                     </div>
                 </div>
                 <div class="search_input">
                     <div class="input-group mb-3" hidden>
-                        <span>班级序号：</span>
-                        <input id="job_num" type="text" class="form-control" placeholder="请输入班级序号">
+                        <span>学号：</span>
+                        <input id="job_num" type="text" class="form-control" placeholder="请输入学号">
                     </div>
                 </div>
                 <div class="search_input">
@@ -61,25 +65,29 @@
                                 <!--新修改弹窗的样式-->
                                 <tbody>
                                 <tr>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>班级名称</label>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>姓名</label>
                                     </td>
-                                    <td><input class="className" type="text" placeholder="请输入班级名称"></td>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>班级序号</label>
+                                    <td><input class="userName" type="text" placeholder="请输入姓名"></td>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>学号</label>
                                     </td>
-                                    <td><input class="jobNum" type="number" placeholder="请输入班级序号"></td>
+                                    <td><input class="jobNum" type="number" placeholder="请输入学号"></td>
                                 </tr>
                                 <tr>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>上课时长</label>
+                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>手机号</label>
                                     </td>
-                                    <td><input class="phoneNum" type="number" placeholder="请输入上课时长"></td>
-                                    <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>代课老师</label>
-                                    </td>
-                                    <td><input class="teacherName" type="text" placeholder="请输入老师名称"></td>
+                                    <td><input class="phoneNum" type="number" placeholder="请输入手机号"></td>
+                                    <td class="tb_bg"><label for="">职业</label></td>
+                                    <td><input type="text" placeholder="请输入申请职业"></td>
                                 </tr>
                                 <tr>
-                                     <td class="tb_bg"><label for=""><font style="font-size: 14px; color: red;">*</font>教学内容</label>
+                                    <td class="tb_bg"><label for="">性别</label></td>
+                                    <td>
+                                        <select class="form-control select_down" style="font-size: 13px; color: #666;">
+                                            <option>男</option>
+                                            <option>女</option>
+                                            
+                                        </select>
                                     </td>
-                                    <td><input class="userName" type="text" placeholder="请输入教学内容"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -96,82 +104,34 @@
         <table id="tb" class="table">
             <thead>
             <tr>
-                <th>班级名称</th>
-                <th>班级序号</th>
-                <th>上课时长</th>
-                <th>老师id</th>
-                <th>教学内容</th>
+                <th>姓名</th>
+                <th>序号</th>
+                <th>手机号</th>
+                <th>性别</th>
+                <th>职业</th>
                 <th>操作</th>
             </tr>
-            <c:forEach var="i" items="${requestScope.list}" varStatus="st">
-            	<tr class="t_t">
-                	<td style="background-color:pink;">${i.danceclassName }</td>
-	                <td style="background-color:pink;">${i.danceclass_id }</td>
-	                <td style="background-color:pink;">${i.classHour }</td>
-	                <td style="background-color:pink;">${i.teacher_id }</td>
-	                <td style="background-color:pink;">${i.content }</td>
-	                <td style="background-color:pink;"><a href="#" class="edit">编辑</a> <a href="#"  class="del">删除</a></th>
-	            </tr>
-              </c:forEach>
             </thead>
             <tbody id="show_tbody">
+            	<c:forEach var="i" items="${requestScope.list}" varStatus="st">
+                	<tr class="t_t">
+	                	<td style="background-color:pink;">${i.username }</td>
+		                <td style="background-color:pink;">${i.user_id }</td>
+		                <td style="background-color:pink;">${i.userphone }</td>
+		                <td style="background-color:pink;">${i.usersex }</td>
+		                <td style="background-color:pink;">${i.jobapplication }</td>
+		                <td style="background-color:pink;"><a href="#" class="edit">通过</a> <a href="#"  class="del">删除</a></th>
+	           		 </tr>
+              	</c:forEach>
             </tbody>
         </table>
-        <div style="margin:0px 500px;width:100px;height:50px;border:1px solid red;">
-	        <button class="tt">保存</button><button id="nn" class="nn">复原</button>
-        </div>
     </div>
 </div>
 
 <script type="text/javascript">
 $(function () {
 	
-	$(".nn").click(function() {
-		location.reload(false);
-	})
-	
-	$(".tt").click(function() {
-			var arr = "";
-	        for (var i = 0; i<$('#show_tbody tr:not(".has_case")').length;i++) {
-	            var par = '#show_tbody tr:not(".has_case"):eq(' + i + ')';
-	            var a = $('td:eq(0)', par).html().trim();
-	            var b = $('td:eq(1)', par).html().trim();
-	            var c = $('td:eq(2)', par).html().trim();
-	            var d = $('td:eq(3)', par).html().trim();
-	            var e = $('td:eq(4)', par).html().trim();
-	            toul = a+","+b+","+c+","+d+","+e+",";
-	            arr += toul;
-	        }
-	        if(toul!=""){
-	        	alert(toul);
-		        window.location.href="admin_addDClass?toul="+arr;
-	        }
-	})
-	
-	$('.edit').click(function() {
-	    	if($('#show_tbody tr:not(".has_case")').length!=0){
-	    		alert("请先保存");
-	    		return;
-	    	}
-	    	trIndex = $('.edit', '.t_t').index($(this));
-	    	trIndex = trIndex+1;
-	        addEnter = false;
-	        $(this).parents('tr').addClass('has_case');
-	        var nowConArr = [];
-	        for (var i=0; i<document .getElementById ("tb").rows [trIndex].cells.length-1;i++) {
-	            var a = document .getElementById ("tb").rows [trIndex].cells[i].innerHTML;
-	            nowConArr.push(a);
-	        }
-	        $('#renyuan').modal('show');
-	        for (var j=0;j<tarInp.length;j++) {
-	            tarInp.eq(j).val(nowConArr[j]);
-	        }
-	        tarInp.eq(1).attr("readonly","readonly");
-	        $("#add_btn").click(function() {
-	        	methods.setStr2();
-	        })
-	    })
-	
+
     $('#add_btn').click(function () {
         methods.addHandle()
     })
@@ -205,18 +165,16 @@ $(function () {
     
     var list;
 	list = <%=request.getAttribute("list")%>;
-	if(list==null){	
-		window.location.href="admin_getAllClass";
+	if(list==null){
+		window.location.href="public_getAllUser";
 	}
 
 })
 
-var csc="",
-	addEnter = true,
+var addEnter = true,
     noRepeat = true,
-    classArr = [],
     jobArr = [],
-    teacherArr = [],
+    phoneArr = [],
     tdStr = '',
     trIndex,
     hasNullMes = false,
@@ -264,24 +222,16 @@ var methods = {
         }
 
     },
-    
-    setStr2 : function(){
-		if(csc!=""){
-			window.location.href="admin_updateClass?toul="+csc;
-		}
-	},
-    
     setStr: function () {
 
         tdStr = '';
-        csc = tarInp.eq(0).val()+","+tarInp.eq(1).val()+","+tarInp.eq(2).val()+","+tarInp.eq(3).val()+","+tarInp.eq(4).val()+",";
         for (var a=0; a<tarInp.length; a++) {
             tdStr+= '<td>' + tarInp.eq(a).val() + '</td>'
         }
         for (var b=0; b<tarSel.length; b++) {
             tdStr+= '<td>' + tarSel.eq(b).val() + '</td>'
         }
-        tdStr+= '<td><a href="#" class="edit">编辑</a></td>';
+        tdStr+= '<td><a href="#" class="edit">编辑</a> <a href="#" class="del">删除</a></td>';
 
     },
     seachName: function () {
@@ -316,7 +266,8 @@ var methods = {
         $('#show_tbody tr').show();
     },
     checkMustMes: function () {
-        if ($('.className').val().trim()==='') {
+
+        if ($('.userName').val().trim()==='') {
             bootbox.alert({
                 title: "来自火星的提示",
                 message: "必填项不能为空，请填写",
@@ -334,25 +285,7 @@ var methods = {
             hasNullMes = true;
             return
         }
-        if ($('.teacherName').val().trim()==='') {
-            bootbox.alert({
-                title: "来自火星的提示",
-                message: "必填项不能为空，请填写",
-                closeButton:false
-            })
-            hasNullMes = true;
-            return
-        }
         if ($('.phoneNum').val().trim()==='') {
-            bootbox.alert({
-                title: "来自火星的提示",
-                message: "必填项不能为空，请填写",
-                closeButton:false
-            })
-            hasNullMes = true;
-            return
-        }
-        if ($('.userName').val().trim()==='') {
             bootbox.alert({
                 title: "来自火星的提示",
                 message: "必填项不能为空，请填写",
@@ -364,28 +297,18 @@ var methods = {
 
     },
     checkRepeat: function () {
-        classArr = [], jobArr = [], teacherArr = [];
-        
-        for (var i = 0; i<$('.t_t').length;i++) {
-            var a =  document .getElementById ("tb").rows [i].cells[0].innerHTML;
-            var b =  document .getElementById ("tb").rows [i].cells[1].innerHTML;
-            var c =  document .getElementById ("tb").rows [i].cells[3].innerHTML;
-            classArr.push(a);
-            jobArr.push(b);
-            teacherArr.push(c);
-        }
+
+        jobArr = [], phoneArr = [];
+
         for (var i = 0; i<$('#show_tbody tr:not(".has_case")').length;i++) {
             var par = '#show_tbody tr:not(".has_case"):eq(' + i + ')';
-            var a = $('td:eq(0)', par).html().trim(),
-                b = $('td:eq(1)', par).html().trim();
-                c = $('td:eq(3)', par).html().trim();
-            classArr.push(a);
-            jobArr.push(b);
-            teacherArr.push(c);
+            var a = $('td:eq(1)', par).html().trim(),
+                b = $('td:eq(2)', par).html().trim();
+            jobArr.push(a);
+            phoneArr.push(b);
         }
-        var classNum = $('.className').val().trim(),
-            jobNum = $('.jobNum').val().trim();
-            teacherNum = $('.teacherName').val().trim();
+        var jobNum = $('.jobNum').val().trim(),
+            phoneNum = $('.phoneNum').val().trim();
 
         if (jobArr.indexOf(jobNum)>-1) {
             noRepeat = false;
@@ -396,20 +319,11 @@ var methods = {
             })
             return;
         }
-        if (classArr.indexOf(classNum)>-1) {
+        if (phoneArr.indexOf(phoneNum)>-1) {
             noRepeat = false;
             bootbox.alert({
                 title: "来自火星的提示",
-                message: "班级名称重复了，请重新输入",
-                closeButton:false
-            })
-            return;
-        }
-        if (teacherArr.indexOf(teacherNum)>-1) {
-            noRepeat = false;
-            bootbox.alert({
-                title: "来自火星的提示",
-                message: "教学老师重复了，请重新输入",
+                message: "手机号码重复了，请重新输入",
                 closeButton:false
             })
             return;

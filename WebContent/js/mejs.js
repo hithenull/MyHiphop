@@ -1,4 +1,5 @@
 $(function () {
+	
 
     $('#add_btn').click(function () {
         methods.addHandle()

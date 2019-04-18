@@ -59,4 +59,8 @@
 		<select id="getKeBiao" parameterType="org.bigjava.entitys.KeBiao" resultType="org.bigjava.entitys.KeBiao">
 			select * from kebiao where danceClass_id = #{i}
 		</select>
+		
+		<select id="getAllUser" resultType="org.bigjava.entitys.User">
+			select * from user where applicationstatus = '未通过';
+		</select>
 </mapper>

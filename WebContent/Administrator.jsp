@@ -50,10 +50,10 @@
 		<li class="nav-item">
 			<a href="javascript:;"><i class="my-icon nav-icon icon_3"></i><span>人员管理</span><i class="my-icon nav-more"></i></a>
 			<ul>
-				<li><a href="personnel.jsp" target="iframe"><span>添加人员</span></a></li>
-				<li><a href="personnel.jsp" target="iframe"><span>人员列表</span></a></li>
-				<li><a href="personnel.jsp" target="iframe"><span>人员分类</span></a></li>
-				<li><a href="personnel.jsp" target="iframe"><span>信息修改</span></a></li>
+				<li><a href="personnel.jsp" target="iframe"><span>管理员信息</span></a></li>
+				<li><a href="personnel_user.jsp" target="iframe"><span>用户信息</span></a></li>
+				<li><a href="personnel_student.jsp" target="iframe"><span>学员信息</span></a></li>
+				<li><a href="personnel_teacher.jsp" target="iframe"><span>老师信息</span></a></li>
 			</ul>
 		</li>
 	</ul>
