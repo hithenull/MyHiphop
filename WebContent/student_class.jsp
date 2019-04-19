@@ -38,7 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         .d111{
            height:200px;
            width:130px;
-           border:1px solid red;
            margin:-200px 250px;
         }
          .posts-nav-wrap {

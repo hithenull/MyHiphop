@@ -48,7 +48,7 @@ public class ImageUtil {
 		outputStream.close();
 		in.close();
 		    
-		return "images\\"+imageName;
+		return "/images/"+imageName;
 	}
 	
 	

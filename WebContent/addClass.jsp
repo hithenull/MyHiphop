@@ -117,8 +117,8 @@
             <tbody id="show_tbody">
             </tbody>
         </table>
-        <div style="margin:0px 500px;width:100px;height:50px;border:1px solid red;">
-	        <button class="tt">保存</button><button id="nn" class="nn">复原</button>
+        <div style="margin:0px 500px;width:100px;height:50px;border:0px solid red;">
+	        <button class="tt">保存</button>&nbsp;&nbsp;&nbsp;<button id="nn" class="nn">复原</button>
         </div>
     </div>
 </div>

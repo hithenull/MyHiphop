@@ -86,7 +86,7 @@ public class MyAction_teacher extends ActionSupport{
 		}else {
 			System.out.println("page为空");
 		}
-		int pageSize=3;
+		int pageSize=50;
 		int totalCount = teacherMapperBiz.findCount_student(dc.getDanceclass_id());
 		Page page=new Page(pageNo,pageSize,totalCount);
 		page.setCanShu1(dc.getDanceclass_id());

@@ -99,11 +99,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="content2">
 				<form class="form" id="loginForm" method="post" action="public_login" onsubmit="return check()">
 					<div class="login_nameda">
-						<input type="text"  name="loginname" id="login_phone" oninput="checkusrn()"><br />
+						<font style="color:white">用户名：</font><input type="text"  name="loginname" id="login_phone" oninput="checkusrn()"><br />
 						<span id="span_use"></span>
 					</div>
 					<div class="login_passda">
-						<input type="password" name="loginpassword" id="login_password" oninput="checkpwd()"><br/>
+						<font style="color:white">密&nbsp;&nbsp;&nbsp;码：</font><input type="password" name="loginpassword" id="login_password" oninput="checkpwd()"><br/>
 						<span id="span_pas"></span>
 					</div>
 					<div class="button-row">

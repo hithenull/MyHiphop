@@ -125,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 			.hr1{
 				position:absolute;
-				top:470px;
+				top:400px;
 				left:60px;
 				background-color:white;
 				border:none;
@@ -361,8 +361,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<li><a href="tupianyidong.jsp">指导员</a></li></br>
 						<li><b><a href="curriculum.jsp">CLASS</a></b></li></br>
 						<li><a href="shiping.jsp">视频</a></li></br>
-						<li><a href="">合作伙伴</a></li></br>
-						<li><b><a href="">STORE</a></b></li>
 					</ul>
 						<hr class="hr1"/>
 					<div class="ziti">

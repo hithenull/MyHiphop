@@ -10,8 +10,8 @@
    			select * from user where user_id=#{user_id}
         </select>
         
-         <insert id="insertUser" parameterType="org.bigjava.entitys.Teacher">
-	        <selectKey keyProperty="teacher_id" order="AFTER" resultType="java.lang.Integer">
+         <insert id="insertUser" parameterType="org.bigjava.entitys.User">
+	        <selectKey keyProperty="user_id" order="AFTER" resultType="java.lang.Integer">
 	           select last_insert_id();
 	        </selectKey>
             insert into user(username,usersex,userphone,jobapplication,imagesrc) 
